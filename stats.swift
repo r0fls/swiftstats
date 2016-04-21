@@ -201,7 +201,52 @@ func choose(n: Int, k: Int) -> Int {
 func mean(data: [Int]) -> Double {
 	return Double(data.reduce(0, combine: +))/Double(data.count)
 }
-
+func mean(data: [Double]) -> Double {
+	return Double(data.reduce(0, combine: +))/Double(data.count)
+}
+func mean(data: [Float]) -> Double {
+	return Double(data.reduce(0, combine: +))/Double(data.count)
+}
+func median(data: [Int]) -> Double {
+	let sorted_data = data.sort()
+	if data.count % 2 == 1 {
+		return Double(sorted_data[Int(floor(Double(data.count)/2))]) 
+	}
+	else if data.count % 2 == 0 && data.count != 0 {
+		return Double(sorted_data[data.count/2]+sorted_data[(data.count/2)-1])/2
+	}
+	// 0 length array would throw this;
+        // here to avoid errors in the above else-if
+	else {
+		return -Double(Int.max)
+	}
+}
+func median(data: [Double]) -> Double {
+	let sorted_data = data.sort()
+	if data.count % 2 == 1 {
+		return sorted_data[Int(floor(Double(data.count)/2))] 
+	}
+	else if data.count % 2 == 0 && data.count != 0 {
+		return (sorted_data[data.count/2]+sorted_data[(data.count/2)-1])/2
+	}
+	// see Int version's comment 
+	else {
+		return -Double(Int.max)
+	}
+}
+func median(data: [Float]) -> Float {
+	let sorted_data = data.sort()
+	if data.count % 2 == 1 {
+		return sorted_data[Int(floor(Double(data.count)/2))] 
+	}
+	else if data.count % 2 == 0 && data.count != 0 {
+		return (sorted_data[data.count/2]+sorted_data[(data.count/2)-1])/2
+	}
+	// see Int version's comment 
+	else {
+		return -Float(Int.max)
+	}
+}
 // EXAMPLE DATA (should eventually move to tests)
 
 /*
@@ -243,4 +288,4 @@ let b = Bernoulli(data: [1,1,0,1])
 print(b.p)
 print(b.random())
 */
-
+print(median([1,2,3,4]))
