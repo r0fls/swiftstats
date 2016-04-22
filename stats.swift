@@ -191,22 +191,80 @@ class Binomial: Discrete {
 	}
 }
 
+class Normal: Continuous {
+	var mean: Double
+	var variance: Double
+	let pi = M_PI
+	init(mean: Double, variance: Double) {
+		self.mean = mean
+		self.variance = variance
+	}
+
+	func Pdf(x: Double) -> Double {
+		return (1/pow(self.variance*2*pi,0.5))*exp(-pow(x-self.mean,2)/(2*variance))
+	}
+	
+	func Cdf(x: Double) -> Double {
+		return (1 + erf((x-self.mean)/pow(2*self.variance,0.5)))/2
+	}
+}
 // COMMON FUNCTIONS
 func factorial(n: Int) -> Int {
 	return Int(tgamma(Double(n+1)))
 }
+
 func choose(n: Int, k: Int) -> Int {
 	return Int(tgamma(Double(n + 1)))/Int(tgamma(Double(k + 1))*tgamma(Double(n - k + 1)))
 }
+
 func mean(data: [Int]) -> Double {
 	return Double(data.reduce(0, combine: +))/Double(data.count)
 }
+
 func mean(data: [Double]) -> Double {
 	return Double(data.reduce(0, combine: +))/Double(data.count)
 }
+
 func mean(data: [Float]) -> Double {
 	return Double(data.reduce(0, combine: +))/Double(data.count)
 }
+
+func variance(data: [Double]) -> Double {
+	let m = mean(data)
+	var total = 0.0
+	for i in 0..<data.count {
+		total += pow(data[i] - m,2)
+	}
+	return total/Double(data.count-1)
+}
+
+func pvariance(data: [Double]) -> Double {
+	let m = mean(data)
+	var total = 0.0
+	for i in 0..<data.count {
+		total += pow(data[i] - m,2)
+	}
+	return total/Double(data.count)
+}
+
+func variance(data: [Int]) -> Double {
+	let m = mean(data)
+	var total = 0.0
+	for i in 0..<data.count {
+		total += pow(Double(data[i]) - m,2)
+	}
+	return total/Double(data.count-1)
+}
+
+func pvariance(data: [Int]) -> Double {
+	let m = mean(data)
+	var total = 0.0
+	for i in 0..<data.count {
+		total += pow(Double(data[i]) - m,2)
+	}
+	return total/Double(data.count)
+}
+
 func median(data: [Int]) -> Double {
 	let sorted_data = data.sort()
 	if data.count % 2 == 1 {
@@ -215,12 +273,12 @@ func median(data: [Int]) -> Double {
 	else if data.count % 2 == 0 && data.count != 0 {
 		return Double(sorted_data[data.count/2]+sorted_data[(data.count/2)-1])/2
 	}
-	// 0 length array would throw this;
-        // here to avoid errors in the above else-if
+	// 0 length array would return this;
 	else {
 		return -Double(Int.max)
 	}
 }
+
 func median(data: [Double]) -> Double {
 	let sorted_data = data.sort()
 	if data.count % 2 == 1 {
@@ -229,11 +287,12 @@ func median(data: [Double]) -> Double {
 	else if data.count % 2 == 0 && data.count != 0 {
 		return (sorted_data[data.count/2]+sorted_data[(data.count/2)-1])/2
 	}
-	// see Int version's comment 
+	// 0 length array would return this;
 	else {
 		return -Double(Int.max)
 	}
 }
+
 func median(data: [Float]) -> Float {
 	let sorted_data = data.sort()
 	if data.count % 2 == 1 {
@@ -242,7 +301,6 @@ func median(data: [Float]) -> Float {
 	else if data.count % 2 == 0 && data.count != 0 {
 		return (sorted_data[data.count/2]+sorted_data[(data.count/2)-1])/2
 	}
-	// see Int version's comment 
 	else {
 		return -Float(Int.max)
 	}
@@ -288,4 +346,7 @@ let b = Bernoulli(data: [1,1,0,1])
 print(b.p)
 print(b.random())
 */
-print(median([1,2,3,4]))
+print(erfi(erf(2.0)))
+print(erfinverse(erf(2.0)))
+//let n = Normal(mean: 0.0, variance: 3)
+//print(n.Cdf(pow(3,0.5))-n.Cdf(-pow(3,0.5)))
