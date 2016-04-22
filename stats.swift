@@ -207,7 +207,11 @@ class Normal: Continuous {
 	func Cdf(x: Double) -> Double {
 		return (1 + erf((x-self.mean)/pow(2*self.variance,0.5)))/2
 	}
+	override func Quantile(p: Double) -> Double {
+		return self.mean + pow(self.variance*2,0.5)*erfinv(2*p - 1)
+	}
 }
+
 // COMMON FUNCTIONS
 func factorial(n: Int) -> Int {
 	return Int(tgamma(Double(n+1)))
@@ -331,9 +335,12 @@ func erfinv(y: Double) -> Double {
 		x = x - (erf(x) - y)/(2.0/sqrt(M_PI)*exp(-x*x))
 		return x
 	}
+	else if abs(y) == 1 {
+		return y*Double(Int.max)
+	}
 	else {
 		// this should throw an error instead
-		return Double(-Int.max)
+		return Double.NaN
 	}
 }
 // EXAMPLE DATA (should eventually move to tests)
@@ -376,7 +383,12 @@ print(e.random())
 let b = Bernoulli(data: [1,1,0,1])
 print(b.p)
 print(b.random())
+
+print(erfinv(erf(1.4)))
+
+
+// this type of test along with a pmf/pdf test is sufficient
+let n = Normal(mean: 0.0, variance: 3)
+print(n.Cdf(pow(3,0.5))-n.Cdf(-pow(3,0.5)))
+print(n.Quantile(n.Cdf(3)))
 */
-print(erfinv(erf(2.0)))
-//let n = Normal(mean: 0.0, variance: 3)
-//print(n.Cdf(pow(3,0.5))-n.Cdf(-pow(3,0.5)))
