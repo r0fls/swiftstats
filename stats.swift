@@ -1,11 +1,16 @@
 import Foundation
 
+// NOTE
+// If a class has "mean" as an attribute it is the mean of the distrubution
+// if you use data to initialize the distrubution, the actual mean of the data
+// may not be the mean of the distribution
+
 class Discrete {
 	// this should never happen;
 	// will occur if a class inherits this class without
 	// defining an overriding Quantile method. 
 	func Quantile(p: Double) -> Int {
-		return -1*Int.max
+		return -Int.max
 	}
 	func random() -> Int {
 		return self.Quantile(Double(drand48()))
@@ -15,7 +20,7 @@ class Discrete {
 class Continuous {
 	// see Discrete class
 	func Quantile(p: Double) -> Double {
-		return -1*Double(Int.max)
+		return -1*Double.NaN
 	}
 	func random() -> Double {
 		return self.Quantile(Double(drand48()))
@@ -75,9 +80,21 @@ class Laplace: Continuous {
 		self.mean = mean	       
 		self.b = b
 	}
+
+	convenience init(data: [Double]) {
+		let m = median(data)
+		var b = 0.0
+		for i in 0..<data.count {
+			b += abs(data[i] - m)
+		}
+		b = b/Double(data.count)
+		self.init(mean: m, b: b)
+	}
+
 	func pdf(x: Double) -> Double {
 		return exp(-abs(x - self.mean)/self.b)/2
 	}
+
 	func Cdf(x: Double) -> Double {
 		if x < self.mean {
 			return exp((x - self.mean)/self.b)/2
@@ -89,6 +106,7 @@ class Laplace: Continuous {
 			return -1
 		}
 	}
+
 	override func Quantile(p: Double) -> Double {
 		if p > 0 && p <= 0.5 {
 			return self.mean + self.b*log(2*p)
@@ -101,24 +119,31 @@ class Laplace: Continuous {
 }
 
 class Poisson: Discrete {
-	        var mean: Double
-		init(mean: Double) {
-			self.mean = mean
+	        var m: Double
+		init(m: Double) {
+			self.m = m
+		}
+
+		convenience init(data: [Double]) {
+			self.init(m: mean(data))
 		}
 
 		func Pmf(k: Int) -> Double {
-			return pow(self.mean, Double(k))*exp(-self.mean)/tgamma(Double(k+1))
+			return pow(self.m, Double(k))*exp(-self.m)/tgamma(Double(k+1))
 		}
+
 		func Cdf(k: Int) -> Double {
 			var total = Double(0)
-			for i in 1..<k+1 {
+			for i in 0..<k+1 {
 				total += self.Pmf(i)
 			}
 			return total
 		}
+
 		override func Quantile(x: Double) -> Int {
 			var total = Double(0)
 			var j = 0
+			total += self.Pmf(j)
 			while total < x {
 				j += 1
 				total += self.Pmf(j)
@@ -192,23 +217,71 @@ class Binomial: Discrete {
 }
 
 class Normal: Continuous {
-	var mean: Double
-	var variance: Double
+	// mean and variance
+	var m: Double
+	var v: Double
 	let pi = M_PI
-	init(mean: Double, variance: Double) {
-		self.mean = mean
-		self.variance = variance
+
+	init(m: Double, v: Double) {
+		self.m = m
+		self.v = v
+	}
+
+	convenience init(data: [Double]) {
+		let m = mean(data)
+		let v = variance(data)
+		self.init(m: m, v: v)
 	}
 
 	func Pdf(x: Double) -> Double {
-		return (1/pow(self.variance*2*pi,0.5))*exp(-pow(x-self.mean,2)/(2*variance))
+		return (1/pow(self.v*2*pi,0.5))*exp(-pow(x-self.m,2)/(2*self.v))
 	}
 	
 	func Cdf(x: Double) -> Double {
-		return (1 + erf((x-self.mean)/pow(2*self.variance,0.5)))/2
+		return (1 + erf((x-self.m)/pow(2*self.v,0.5)))/2
 	}
+
 	override func Quantile(p: Double) -> Double {
-		return self.mean + pow(self.variance*2,0.5)*erfinv(2*p - 1)
+		return self.m + pow(self.v*2,0.5)*erfinv(2*p - 1)
+	}
+}
+
+class Uniform: Continuous {
+	// a and b are endpoints, that is  
+	// values will be distributed uniformly between points a and b
+	var a: Double
+	var b: Double
+
+	init(a: Double, b: Double) {
+		self.a = a
+		self.b = b
+	}
+
+	func Pdf(x: Double) -> Double {
+		if x>a && x<b {
+			return 1/(b-a)
+		}
+		return 0
+	}
+
+	func Cdf(x: Double) -> Double {
+		if x<a {
+			return 0
+		}
+		else if x<b {
+			return (x-a)/(b-a)
+		}
+		else if x>=b {
+			return 1
+		}
+		return 0 
+	}
+
+	override func Quantile(p: Double) -> Double {
+		if p>=0 && p<=1{
+			return p*(b-a)+a
+		}
+		return Double.NaN
 	}
 }
 
@@ -387,8 +460,20 @@ print(b.random())
 print(erfinv(erf(1.4)))
 
 
-// this type of test along with a pmf/pdf test is sufficient
 let n = Normal(mean: 0.0, variance: 3)
 print(n.Cdf(pow(3,0.5))-n.Cdf(-pow(3,0.5)))
 print(n.Quantile(n.Cdf(3)))
+let n = Normal(data: [1,2,1,0,1,2])
+print(n.v)
+
+let u = Uniform(a:5,b:10)
+print(u.random())
+
+let l = Laplace(data:[12,13,12])
+print(l.mean)
+
+
+let p = Poisson(data: [1,2,3])
+print(p.m)
+print(p.Quantile(0.9))
 */
