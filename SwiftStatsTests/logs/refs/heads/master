@@ -1,0 +1,6 @@
+0000000000000000000000000000000000000000 0fec91031a5ac2d1ac63ebd586d30cd0e88a3574 Raphael Deem <raphael.deem@gmail.com> 1461211525 -0700	commit (initial): first commit
+0fec91031a5ac2d1ac63ebd586d30cd0e88a3574 3d6c1ee4a8642a69d52878c3bbeed3c281b73cbc Raphael Deem <raphael.deem@gmail.com> 1461215025 -0700	commit: added median
+3d6c1ee4a8642a69d52878c3bbeed3c281b73cbc 25519d13c555488c472914d92772239a9b014630 Raphael Deem <raphael.deem@gmail.com> 1461299657 -0700	commit: variance, pvariance, part of normal
+25519d13c555488c472914d92772239a9b014630 cb02934896a47eb017cfc28109b9982568238d83 Raphael Deem <raphael.deem@gmail.com> 1461302491 -0700	commit: inverse erf implementation based on https://github.com/antelopeusersgroup/antelope_contrib/blob/master/lib/location/libgenloc/erfinv.c
+cb02934896a47eb017cfc28109b9982568238d83 168657b22b170182d0a7ed1e499834d078dd31e5 Raphael Deem <raphael.deem@gmail.com> 1461304462 -0700	commit: error handling in erfinv, normal quantile
+168657b22b170182d0a7ed1e499834d078dd31e5 b8d0edeb8845c3dca4c72780cd3d94ed7699287e Raphael Deem <raphael.deem@gmail.com> 1461390779 -0700	commit: more MLEs; fixed poisson cdf and quantile
