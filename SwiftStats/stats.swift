@@ -4,16 +4,26 @@ import Foundation
 	// these shouldn't really be public because they're only used internally
 	// but the distriubutions are public and require they're parents to be
 	public class Discrete {
-		// this should never happen;
-		// will occur if a public class inherits this class without
-		// defining an overriding Quantile method, or if this public class is called
-		// directly. 
+		// this should never happen; but will happen if called directly
+		// or if a class inherits this class without
+		// defining an overriding Quantile method
 		public func Quantile(p: Double) -> Int {
 			return -Int.max
 		}
-		public func random() -> Int {
+		
+        // single discrete random value
+        public func random() -> Int {
 			return self.Quantile(Double(drand48()))
 		}
+        
+        // array of discrete random values
+        public func random(n: Int) -> [Int] {
+            var results: [Int] = []
+            for _ in 0..<n {
+                results.append(self.random())
+            }
+            return results
+        }
 	}
 
 	public class Continuous {
@@ -21,9 +31,19 @@ import Foundation
 		public func Quantile(p: Double) -> Double {
 			return -1*Double.NaN
 		}
-		public func random() -> Double {
+
+        // single continuous random value
+        public func random() -> Double {
 			return self.Quantile(Double(drand48()))
 		}
+        // array of discrete random values
+        public func random(n: Int) -> [Double] {
+            var results: [Double] = []
+            for _ in 0..<n {
+                results.append(self.random())
+            }
+            return results
+        }
 	}
 
 	public class Bernoulli: Discrete {
