@@ -1,7 +1,7 @@
 import Foundation
 
  public struct Distributions {
-	// these shouldn't really be public because they're only used internally
+	// these two classes shouldn't really be public because they're only used internally,
 	// but the distriubutions are public and require they're parents to be
 	public class Discrete {
 		// this should never happen; but will happen if called directly
@@ -110,7 +110,7 @@ import Foundation
 			self.init(mean: m, b: b)
 		}
 
-		public func pdf(x: Double) -> Double {
+		public func Pdf(x: Double) -> Double {
 			return exp(-abs(x - self.mean)/self.b)/2
 		}
 
@@ -204,7 +204,7 @@ import Foundation
 			self.init(l: 1/Common.mean(data))
 		}
 
-		public func pdf(x: Double) -> Double {
+		public func Pdf(x: Double) -> Double {
 			return self.l*exp(-self.l*x)
 		}
 

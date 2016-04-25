@@ -36,7 +36,7 @@ class SwiftStatsTests: XCTestCase {
     func testLaplace(){
         srand48(0)
         var l = SwiftStats.Distributions.Laplace(mean: 0.0, b: 1.0)
-        let pdf = round(pow(10.0,15.0)*l.pdf(1))/pow(10.0,15.0)
+        let pdf = round(pow(10.0,15.0)*l.Pdf(1))/pow(10.0,15.0)
         XCTAssert(pdf == 0.183939720585721, "Laplace pdf failed test")
         let n = round(pow(10.0,14.0)*l.random())/pow(10.0,14.0)
         XCTAssert(n == -1.07395068471681, "Laplace random failed test")
