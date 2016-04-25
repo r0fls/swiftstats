@@ -1,0 +1,10 @@
+framework module SwiftStats {
+  umbrella header "SwiftStats.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftStats.__Swift {
+    exclude header "SwiftStats-Swift.h"
+}

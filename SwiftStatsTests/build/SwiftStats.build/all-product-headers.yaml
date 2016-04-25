@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/r0fls/Desktop/SwiftStats/SwiftStatsTests/build/Release/SwiftStats.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "SwiftStats-Swift.h",
+          'external-contents': "/Users/r0fls/Desktop/SwiftStats/SwiftStatsTests/build/Release/SwiftStats.framework/Versions/A/Headers/SwiftStats-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "SwiftStats.h",
+          'external-contents': "/Users/r0fls/Desktop/SwiftStats/SwiftStatsTests/SwiftStats/SwiftStats.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/r0fls/Desktop/SwiftStats/SwiftStatsTests/build/Release/SwiftStats.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/r0fls/Desktop/SwiftStats/SwiftStatsTests/build/SwiftStats.build/Release/SwiftStats.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

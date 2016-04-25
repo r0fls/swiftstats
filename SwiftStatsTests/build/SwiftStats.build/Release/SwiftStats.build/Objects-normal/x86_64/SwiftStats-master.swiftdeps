@@ -1,0 +1,5 @@
+version: "Apple Swift version 2.2 (swiftlang-703.0.18.1 clang-703.0.29)"
+options: "3e759b6184528f7e32312ce2e842413e"
+build_time: [514881680, 215357000]
+inputs:
+  "/Users/r0fls/Desktop/SwiftStats/SwiftStatsTests/SwiftStats/stats.swift": [514798332, 0]

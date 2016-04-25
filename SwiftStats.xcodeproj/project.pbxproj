@@ -31,7 +31,7 @@
 		E28007471CCCA833002A2A6C /* SwiftStatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStatsTests.swift; sourceTree = "<group>"; };
 		E28007491CCCA833002A2A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E28007521CCCA910002A2A6C /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
-		E28007531CCCA926002A2A6C /* stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = stats.swift; path = SwiftStats/stats.swift; sourceTree = "<group>"; };
+		E28007531CCCA926002A2A6C /* stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = stats.swift; path = SwiftStats/stats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

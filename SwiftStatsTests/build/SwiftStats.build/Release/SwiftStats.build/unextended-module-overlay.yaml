@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/r0fls/Desktop/SwiftStats/SwiftStatsTests/build/Release/SwiftStats.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/r0fls/Desktop/SwiftStats/SwiftStatsTests/build/SwiftStats.build/Release/SwiftStats.build/unextended-module.modulemap',
+    }]
+  }]
+}
