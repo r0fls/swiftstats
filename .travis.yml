@@ -1,9 +1,13 @@
 language: swift
 osx_image: xcode7.3
 
-swift:
-        - 2.1
-        - 2.2
+
+install:
+        - true
+
+#swift:
+#        - 2.1
+#        - 2.2
 
 script:
         - xcodebuild
