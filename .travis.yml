@@ -6,6 +6,5 @@ swift:
         - 2.2
 
 script:
-        - swift --version
-          # - xcodebuild
-          #- xcodebuild test -scheme SwiftStats
+        - xcodebuild
+        - xcodebuild test -scheme SwiftStats
