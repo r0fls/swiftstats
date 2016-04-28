@@ -375,8 +375,7 @@ public struct Common {
 	}
 
 	public static func median(data: [Int]) -> Double {
-        var tosort = data
-		let sorted_data = tosort.sort()
+		let sorted_data = data.sort()
 		if data.count % 2 == 1 {
 			return Double(sorted_data[Int(floor(Double(data.count)/2))]) 
 		}
@@ -390,8 +389,7 @@ public struct Common {
 	}
 
 	public static func median(data: [Double]) -> Double {
-        var tosort = data
-		let sorted_data = tosort.sort()
+		let sorted_data = data.sort()
 		if data.count % 2 == 1 {
 			return sorted_data[Int(floor(Double(data.count)/2))] 
 		}
@@ -405,8 +403,7 @@ public struct Common {
 	}
 
 	public static func median(data: [Float]) -> Float {
-        var tosort = data
-		let sorted_data = tosort.sort()
+		let sorted_data = data.sort()
 		if data.count % 2 == 1 {
 			return sorted_data[Int(floor(Double(data.count)/2))] 
 		}
