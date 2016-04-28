@@ -1,7 +1,14 @@
 language: swift
 osx_image: xcode7.3
 
+
+install:
+        - true
+
+#swift:
+#        - 2.1
+#        - 2.2
+
 script:
-        - echo swift --version
-          # - xcodebuild
-          #- xcodebuild test -scheme SwiftStats
+        - xcodebuild
+        - xcodebuild test -scheme SwiftStats
