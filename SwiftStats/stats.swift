@@ -1,49 +1,61 @@
 import Foundation
 
- public struct Distributions {
+public struct Distributions {
 	// these two classes shouldn't really be public because they're only used internally,
 	// but the distriubutions are public and require they're parents to be
-	public class Discrete {
+    public class Distribution {
+        public func seed() {
+            srand48(Int(NSDate().timeIntervalSinceReferenceDate))
+        }
+        public func seed(i: Int) {
+            srand48(i)
+        }
+    }
+    
+    public class Discrete: Distribution {
 		// this should never happen; but will happen if called directly
 		// or if a class inherits this class without
 		// defining an overriding Quantile method
 		public func Quantile(p: Double) -> Int {
 			return -Int.max
 		}
-		
-        // single discrete random value
-        public func random() -> Int {
+
+		// single discrete random value
+		public func random() -> Int {
 			return self.Quantile(Double(drand48()))
 		}
-        
-        // array of discrete random values
-        public func random(n: Int) -> [Int] {
-            var results: [Int] = []
-            for _ in 0..<n {
-                results.append(self.random())
-            }
-            return results
-        }
+
+		// array of discrete random values
+		public func random(n: Int) -> [Int] {
+			var results: [Int] = []
+			for _ in 0..<n {
+				results.append(self.random())
+			}
+			return results
+		}
 	}
 
-	public class Continuous {
+    public class Continuous: Distribution {
+		static var seed = {
+			return srand48(Int(NSDate().timeIntervalSinceReferenceDate))
+		}
 		// see Discrete public class
 		public func Quantile(p: Double) -> Double {
 			return -1*Double.NaN
 		}
+		// single continuous random value
+		public func random() -> Double {
 
-        // single continuous random value
-        public func random() -> Double {
 			return self.Quantile(Double(drand48()))
 		}
-        // array of discrete random values
-        public func random(n: Int) -> [Double] {
-            var results: [Double] = []
-            for _ in 0..<n {
-                results.append(self.random())
-            }
-            return results
-        }
+		// array of discrete random values
+		public func random(n: Int) -> [Double] {
+			var results: [Double] = []
+			for _ in 0..<n {
+				results.append(self.random())
+			}
+			return results
+		}
 	}
 
 	public class Bernoulli: Discrete {
@@ -430,6 +442,7 @@ public struct Common {
 			x = x - (erf(x) - y)/(2.0/sqrt(M_PI)*exp(-x*x))
 			return x
 		}
+
 		else if abs(y) > center && abs(y) < 1.0 {
 			let z = pow(-log((1.0-abs(y))/2),0.5)
 			let num = ((c[3]*z + c[2])*z + c[1])*z + c[0]
@@ -440,12 +453,15 @@ public struct Common {
 			x = x - (erf(x) - y)/(2.0/sqrt(M_PI)*exp(-x*x))
 			return x
 		}
+
 		else if abs(y) == 1 {
 			return y*Double(Int.max)
 		}
+
 		else {
 			// this should throw an error instead
 			return Double.NaN
 		}
 	}
+
 }
