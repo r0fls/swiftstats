@@ -1,18 +1,18 @@
 import Foundation
 
 public struct Distributions {
-	// these two classes shouldn't really be public because they're only used internally,
-	// but the distriubutions are public and require they're parents to be
-    public class Distribution {
-        public func seed() {
-            srand48(Int(NSDate().timeIntervalSinceReferenceDate))
-        }
-        public func seed(i: Int) {
-            srand48(i)
-        }
-    }
-    
-    public class Discrete: Distribution {
+	// these first three classes need to be public so that their
+	// child classes can be, though they don't get used directly 
+	public class Distribution {
+		public func seed() {
+			srand48(Int(NSDate().timeIntervalSinceReferenceDate))
+		}
+		public func seed(i: Int) {
+			srand48(i)
+		}
+	}
+
+	public class Discrete: Distribution {
 		// this should never happen; but will happen if called directly
 		// or if a class inherits this class without
 		// defining an overriding Quantile method
@@ -20,39 +20,36 @@ public struct Distributions {
 			return -Int.max
 		}
 
-		// single discrete random value
-		public func random() -> Int {
+		// single discrete Random value
+		public func Random() -> Int {
 			return self.Quantile(Double(drand48()))
 		}
 
-		// array of discrete random values
-		public func random(n: Int) -> [Int] {
+		// array of discrete Random values
+		public func Random(n: Int) -> [Int] {
 			var results: [Int] = []
 			for _ in 0..<n {
-				results.append(self.random())
+				results.append(self.Random())
 			}
 			return results
 		}
 	}
 
-    public class Continuous: Distribution {
-		static var seed = {
-			return srand48(Int(NSDate().timeIntervalSinceReferenceDate))
-		}
+	public class Continuous: Distribution {
 		// see Discrete public class
 		public func Quantile(p: Double) -> Double {
 			return -1*Double.NaN
 		}
-		// single continuous random value
-		public func random() -> Double {
+		// single continuous Random value
+		public func Random() -> Double {
 
 			return self.Quantile(Double(drand48()))
 		}
-		// array of discrete random values
-		public func random(n: Int) -> [Double] {
+		// array of discrete Random values
+		public func Random(n: Int) -> [Double] {
 			var results: [Double] = []
 			for _ in 0..<n {
-				results.append(self.random())
+				results.append(self.Random())
 			}
 			return results
 		}
@@ -63,6 +60,8 @@ public struct Distributions {
 
 		public init(p: Double) {
 			self.p = p
+			super.init()
+			super.seed()
 		}
 		public convenience init(data: [Int]) {
 			self.init(p: Common.mean(data))

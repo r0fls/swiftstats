@@ -22,14 +22,14 @@ class SwiftStatsTests: XCTestCase {
     }
     
     func testBernoulli() {
-        srand48(0)
         var b = SwiftStats.Distributions.Bernoulli(p: 0.7)
+        srand48(0)
         XCTAssert(b.Pmf(1) == 0.7, "Bernoulli pmf(1) should be 0.7")
         XCTAssert(b.Cdf(1) == 1.0, "Bernoulli Cdf(1) should be 1")
         XCTAssert(round(100000*b.Cdf(0))/100000 == 0.3, "Bernoulli Cdf(0) should be 0.3")
         XCTAssert(b.Quantile(0.5) == 1, "Bernoulli Quantile(0.5) should be 1")
         XCTAssert(b.Quantile(0.2) == 0, " Bernoulli Quantile(0.2) should be 0")
-        XCTAssert(b.random() == 0, "Bernoulli random() should equal 1 with test seed")
+        XCTAssert(b.Random() == 0, "Bernoulli random() should equal 1 with test seed")
         b = SwiftStats.Distributions.Bernoulli(data: [1,1,0,1])
         XCTAssert(b.p == 0.75, "Bernoulli fit with [1,1,0,1] should have p = 0.75")
     }
@@ -38,8 +38,8 @@ class SwiftStatsTests: XCTestCase {
         var l = SwiftStats.Distributions.Laplace(mean: 0.0, b: 1.0)
         let pdf = round(pow(10.0,15.0)*l.Pdf(1))/pow(10.0,15.0)
         XCTAssert(pdf == 0.183939720585721, "Laplace pdf failed test")
-        let n = round(pow(10.0,14.0)*l.random())/pow(10.0,14.0)
-        XCTAssert(n == -1.07395068471681, "Laplace random failed test")
+        let n = round(pow(10.0,14.0)*l.Random())/pow(10.0,14.0)
+        XCTAssert(n == -1.07395068471681, "Laplace Random failed test")
         let cdf = round(pow(10.0,15.0)*l.Cdf(1))/pow(10.0,15.0)
         XCTAssert(cdf == 0.816060279414279, "Laplace cdf failed test")
         XCTAssert(l.Cdf(0) == 0.5, "Laplace cdf failed test")
@@ -58,7 +58,7 @@ class SwiftStatsTests: XCTestCase {
         XCTAssert(cdf == 0.22313016014843, "Poisson Cdf failed")
         XCTAssert(p.Quantile(0.5) == 1, "Poisson Quantile failed")
         srand48(0)
-        XCTAssert(p.random() == 0, "Poisson random failed")
+        XCTAssert(p.Random() == 0, "Poisson random failed")
         
         p = SwiftStats.Distributions.Poisson(data: [1,2,3])
         XCTAssert(p.m == 2.0, "Poisson fit data failed")
@@ -71,7 +71,7 @@ class SwiftStatsTests: XCTestCase {
         XCTAssert(g.Cdf(4) == 0.9375, "Geometric Cdf failed")
         XCTAssert(g.Quantile(0.9999) == 14, "Geometric quantile failed")
         srand48(0)
-        XCTAssert(g.random() == 1)
+        XCTAssert(g.Random() == 1)
     }
     
     func testExponential() {
@@ -85,7 +85,7 @@ class SwiftStatsTests: XCTestCase {
         let quant = round(pow(10.0,10.0)*e.Quantile(0.864664716763387))/pow(10.0,10.0)
         XCTAssert(quant == 4.0, "Quantile failed, got: \(quant)")
         srand48(0)
-        let rand = round(pow(10.0,15.0)*e.random())/pow(10.0,15.0)
+        let rand = round(pow(10.0,15.0)*e.Random())/pow(10.0,15.0)
         XCTAssert(rand == 0.374655420044752, "Exponential Random() failed, got: "+String(rand))
     }
     
@@ -103,7 +103,7 @@ class SwiftStatsTests: XCTestCase {
     }
     func testUniform() {
         let u = SwiftStats.Distributions.Uniform(a:5,b:10)
-        XCTAssert(u.random())
+        XCTAssert(u.Random())
     }
     */
     func testPerformanceExample() {
