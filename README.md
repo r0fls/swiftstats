@@ -73,3 +73,4 @@ If you're interested in contributing, please submit a pull request, or raise an 
 - add more distributions
 - allow updating a fitted distribution with more data
 - pass travis tests without mangling the median function
+- other stuff
