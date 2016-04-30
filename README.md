@@ -20,7 +20,7 @@ print(n.random())
     
 // or fit a distribution from data...
 n = SwiftStats.Distributions.Normal([0,-1,1,0])
-print(b.random())
+print(n.random())
 ```
 ###Features
 ####Distributions
