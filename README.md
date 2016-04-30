@@ -53,11 +53,16 @@ SwiftStats.Common.Median([3,1,2]) // -> 2
 ```
 
 #####Advanced
-You can seed the random variable by using `srand48()`, or leave it to use the default seed:
+You can seed the random variable by using the distributions's seed method (or calling `srand48()` directly), or leave it to use the default seed:
 ```swift
 n = Normal(0, 1.0)
+// default randomly seeded variable
 print(n.random())
+// using the distributions' seed method
 n.seed(42)
+print(n.random())
+// using srand48() directly
+srand48(1)
 print(n.random())
 ```
 
