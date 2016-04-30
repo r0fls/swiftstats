@@ -1,6 +1,15 @@
 # swiftstats
 Statistics for swift
 
+### Setup
+Clone the repo:
+    
+    git clone https://github.com/r0fls/swiftstats.git
+
+Then open the project (top level directory for the entire repo) in Xcode. The repo includes a playground, which has all of the examples from the unit tests. You can run the unit tests by: opening a terminal, changing to the directory of the repo, and typing:
+
+    xcodebuild test -scheme SwiftStats
+
 ### Example
 ```swift
 
