@@ -1,8 +1,6 @@
 # swiftstats
 Statistics for swift
 
-This is a basic statistics library for Swift.
-
 ### Example
 ```swift
 
