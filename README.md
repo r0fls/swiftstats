@@ -34,7 +34,7 @@ Currently the following distributions are included:
 - Exponential
 - Binomial
 
-And each distribution has these functions:
+And each distribution has these methods:
 - Pmf or Pdf
 - Cdf
 - Quantile
