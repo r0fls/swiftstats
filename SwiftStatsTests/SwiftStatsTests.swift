@@ -74,20 +74,20 @@ class SwiftStatsTests: XCTestCase {
         XCTAssert(g.random() == 1)
     }
     
-    /*
-    results don't currently match scipy
     func testExponential() {
         let e = SwiftStats.Distributions.Exponential(l: 0.5)
-        let pdf = round(pow(10.0,15.0)*e.pdf(3))/pow(10.0,15.0)
+        let pdf = round(pow(10.0,15.0)*e.Pdf(3))/pow(10.0,15.0)
         XCTAssert(pdf == 0.111565080074215, "Exponential Pdf failed")
-        var cdf = round(pow(10.0,15.0)*p.Cdf(3))/pow(10.0,15.0)
+        var cdf = round(pow(10.0,15.0)*e.Cdf(3))/pow(10.0,15.0)
         XCTAssert(cdf == 0.77686983985157, "Exponential Cdf failed")
-        cdf = round(pow(10.0,15.0)*p.Cdf(4))/pow(10.0,15.0)
+        cdf = round(pow(10.0,15.0)*e.Cdf(4))/pow(10.0,15.0)
         XCTAssert(cdf == 0.864664716763387,  "Exponential Cdf failed")
-        XCTAssert(e.Quantile(0.9) == )
-        XCTAssert(e.random())
+        let quant = round(pow(10.0,10.0)*e.Quantile(0.864664716763387))/pow(10.0,10.0)
+        XCTAssert(quant == 4.0, "Quantile failed, got: \(quant)")
+        srand48(0)
+        let rand = round(pow(10.0,15.0)*e.random())/pow(10.0,15.0)
+        XCTAssert(rand == 0.374655420044752, "Exponential Random() failed, got: "+String(rand))
     }
-    */
     
     func testErfinv() {
         let erfinv = round(pow(10,15)*SwiftStats.Common.erfinv(erf(1.4)))/pow(10,15)
