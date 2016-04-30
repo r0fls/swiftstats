@@ -1,0 +1,55 @@
+# swiftstats
+Statistics for swift
+
+This is a basic statistics library for Swift.
+
+### Example
+```swift
+
+import SwiftStats
+
+let  n = SwiftStats.Distributions.Normal(0, 1.0)
+print(n.random())
+    
+// or fit a distribution from data...
+n = SwiftStats.Distributions.Normal([0,-1,1,0])
+print(b.random())
+```
+###Features
+####Distributions
+Currently the following distributions are included: 
+- Normal
+- Bernoulli 
+- Laplace 
+- Poisson
+- Uniform
+- Geometric
+- Exponential
+- Binomial
+
+And each distribution has these functions:
+- Pmf or Pdf
+- Cdf
+- Quantile
+- Random (takes an optional int and returns an array of that length, or otherwise a single value) 
+
+####Common Functions
+- median (`Int`, `Float`, `Double`)
+- mean (`Int`, `Float`, `Double`)
+- erf<sup>-1</sup> (implemented as `erfinv`, whereas `erf` is implemented as part of `Foundation`)
+
+#####Advanced
+You can seed the random variable by using `srand48()`, or leave it to use the default seed:
+```swift
+n = Normal(0, 1.0)
+print(n.random())
+n.seed(42)
+print(n.random())
+```
+
+###Contributing
+If you're interested in contributing, please submit a pull request, or raise an issue.
+
+#####TO-DO
+- add more distributions
+- allow updating a fitted distribution with more data
