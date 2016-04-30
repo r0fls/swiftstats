@@ -38,6 +38,13 @@ And each distribution has these functions:
 - mean (`Int`, `Float`, `Double`)
 - erf<sup>-1</sup> (implemented as `erfinv`, whereas `erf` is implemented as part of `Foundation`)
 
+#####Common Function Example
+```swift
+import SwiftStats
+SwiftStats.Common.Median([1,4,3,2]) // -> 2.5
+SwiftStats.Common.Median([3,1,2]) // -> 2
+```
+
 #####Advanced
 You can seed the random variable by using `srand48()`, or leave it to use the default seed:
 ```swift
