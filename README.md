@@ -67,7 +67,7 @@ print(n.random())
 ```
 
 ###Contributing
-If you're interested in contributing, please submit a pull request, or raise an issue.
+If you would like to contribute, please submit a pull request, or raise an issue.
 
 #####TO-DO
 - add more distributions
