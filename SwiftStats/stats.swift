@@ -2,7 +2,7 @@ import Foundation
 
 public struct Distributions {
 	// these first three classes need to be public so that their
-	// child classes can be, though they don't get used directly 
+	// child classes can be, though they don't get used directly
 	public class Distribution {
 		public func seed() {
 			srand48(Int(NSDate().timeIntervalSinceReferenceDate))
@@ -74,7 +74,7 @@ public struct Distributions {
 				return 1 - self.p
 			}
 			return -1
-		}	
+		}
 		public func Cdf(k: Int) -> Double {
 			if k < 0 {
 				return 0
@@ -87,7 +87,7 @@ public struct Distributions {
 				return 1
 			}
 			return -1
-		}	
+		}
 		override public func Quantile(p: Double) -> Int {
 			if p < 0 {
 				return -1
@@ -104,10 +104,10 @@ public struct Distributions {
 
 	public class Laplace: Continuous {
 		var mean: Double
-		var b: Double	
+		var b: Double
 
 		public init (mean: Double, b: Double) {
-			self.mean = mean	       
+			self.mean = mean
 			self.b = b
 		}
 
@@ -289,7 +289,7 @@ public struct Distributions {
 	}
 
 	public class Uniform: Continuous {
-		// a and b are endpoints, that is  
+		// a and b are endpoints, that is
 		// values will be distributed uniformly between points a and b
 		var a: Double
 		var b: Double
@@ -316,7 +316,7 @@ public struct Distributions {
 			else if x>=b {
 				return 1
 			}
-			return 0 
+			return 0
 		}
 
 		override public func Quantile(p: Double) -> Double {
@@ -402,7 +402,7 @@ public struct Common {
 	public static func median(data: [Double]) -> Double {
 		let sorted_data = data.sort()
 		if data.count % 2 == 1 {
-			return sorted_data[Int(floor(Double(data.count)/2))] 
+			return sorted_data[Int(floor(Double(data.count)/2))]
 		}
 		else if data.count % 2 == 0 && data.count != 0 {
 			return (sorted_data[data.count/2]+sorted_data[(data.count/2)-1])/2
@@ -461,6 +461,23 @@ public struct Common {
 			// this should throw an error instead
 			return Double.NaN
 		}
+	}
+
+	public static func lsr(points: [Double]) -> [Double] {
+                var total_x = 0.0
+		var total_xy = 0.0
+		var total_y = 0.0
+		var total_x2 = 0.0
+		for i in 0..points.count {
+                        total_x += point[i][0]
+                        total_y += point[i][1]
+                        total_xy += point[i][0]*point[i][1]
+                        total_x2 += pow(point[i][0], 2)
+		}
+		let N = points.count
+		let b = (N*total_xy - total_x*total_y)/(N*total_x2 - pow(total_x, 2))
+		let a = (total_y - b*total_x)/N
+		return [a, b]
 	}
 
 }
