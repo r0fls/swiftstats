@@ -6,7 +6,7 @@ Clone the repo:
     
     git clone https://github.com/r0fls/swiftstats.git
 
-Then open the project (top level directory for the entire repo) in Xcode. The repo includes a playground, which has all of the examples from the unit tests. You can run the unit tests by opening a terminal, changing to the directory of the repo, and typing:
+Then open the project (top level directory for the entire repo) in Xcode. The repo includes a playground, which has all of the examples from the unit tests. You can run the unit tests in Xcode, or by opening a terminal, changing to the directory of the repo, and typing:
 
     xcodebuild test -scheme SwiftStats
 
@@ -44,6 +44,7 @@ And each distribution has these methods:
 - median (`Int`, `Float`, `Double`)
 - mean (`Int`, `Float`, `Double`)
 - erf<sup>-1</sup> (implemented as `erfinv`, whereas `erf` is implemented as part of `Foundation`)
+- least squares regression; lsr ([[`Double`]]) -> [`Double`, `Double`]
 
 #####Common Function Example
 ```swift
