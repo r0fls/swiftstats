@@ -7,7 +7,6 @@ install:
 
 swift:
         - 3.0
-        #- 2.2
 
 script:
         - xcodebuild
