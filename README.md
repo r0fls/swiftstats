@@ -1,5 +1,5 @@
 # swiftstats
-Statistics for swift
+Statistics for swift -- v1.0.0
 
 ### Setup
 Clone the repo:
