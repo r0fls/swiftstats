@@ -94,11 +94,11 @@ class SwiftStatsTests: XCTestCase {
         XCTAssert(erfinv == 1.4, "Erfinv failed"+String(SwiftStats.Common.erfinv(erf(1.4))))
     }
     func testlsr() {
-        let data = [[60.0, 3.1], [61.0,	3.6], [62.0, 3.8], [63.0,	4], [65.0,	4.1]]
+        let data = [[60.0, 3.1], [61.0,	3.6], [62.0, 3.8], [63.0,	4.0], [65.0,	4.1]]
         let params = SwiftStats.Common.lsr(data)
         let a = round(pow(10.0,9.0)*params[0])/pow(10.0,9.0)
         let b = round(pow(10.0,9.0)*params[1])/pow(10.0,9.0)
-        XCTAssert(a - -7.963513513 < 0.00001 && b - 0.187837837 < 0.00001, "lsr failed"+String(a, b))
+        XCTAssert(a - -7.963513513 < 0.00001 && b - 0.187837837 < 0.00001, "lsr failed")
     }
     
     /*
