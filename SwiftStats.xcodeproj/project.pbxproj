@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E24341401DFCABE2009F7A5E /* SwiftStatsTests in Resources */ = {isa = PBXBuildFile; fileRef = E243413F1DFCABE2009F7A5E /* SwiftStatsTests */; };
 		E24341491DFCAF0C009F7A5E /* iOSSwiftStats.m in Sources */ = {isa = PBXBuildFile; fileRef = E24341481DFCAF0C009F7A5E /* iOSSwiftStats.m */; };
 		E243414A1DFCAF0C009F7A5E /* iOSSwiftStats.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E24341471DFCAF0C009F7A5E /* iOSSwiftStats.h */; };
 		E280073C1CCCA833002A2A6C /* SwiftStats.h in Headers */ = {isa = PBXBuildFile; fileRef = E280073B1CCCA833002A2A6C /* SwiftStats.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -40,7 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E243413F1DFCABE2009F7A5E /* SwiftStatsTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftStatsTests; sourceTree = "<group>"; };
+		E243413F1DFCABE2009F7A5E /* SwiftStatsTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftStatsTests; sourceTree = "<group>"; };
 		E24341451DFCAF0C009F7A5E /* libiOSSwiftStats.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOSSwiftStats.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E24341471DFCAF0C009F7A5E /* iOSSwiftStats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSSwiftStats.h; sourceTree = "<group>"; };
 		E24341481DFCAF0C009F7A5E /* iOSSwiftStats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSSwiftStats.m; sourceTree = "<group>"; };
@@ -253,7 +252,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E24341401DFCABE2009F7A5E /* SwiftStatsTests in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +491,7 @@
 				E243414D1DFCAF0C009F7A5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E28007321CCCA833002A2A6C /* Build configuration list for PBXProject "SwiftStats" */ = {
 			isa = XCConfigurationList;
