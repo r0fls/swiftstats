@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E24341491DFCAF0C009F7A5E /* iOSSwiftStats.m in Sources */ = {isa = PBXBuildFile; fileRef = E24341481DFCAF0C009F7A5E /* iOSSwiftStats.m */; };
-		E243414A1DFCAF0C009F7A5E /* iOSSwiftStats.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E24341471DFCAF0C009F7A5E /* iOSSwiftStats.h */; };
 		E280073C1CCCA833002A2A6C /* SwiftStats.h in Headers */ = {isa = PBXBuildFile; fileRef = E280073B1CCCA833002A2A6C /* SwiftStats.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E28007431CCCA833002A2A6C /* SwiftStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E28007381CCCA833002A2A6C /* SwiftStats.framework */; };
 		E28007481CCCA833002A2A6C /* SwiftStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28007471CCCA833002A2A6C /* SwiftStatsTests.swift */; };
@@ -25,24 +23,7 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		E24341431DFCAF0C009F7A5E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				E243414A1DFCAF0C009F7A5E /* iOSSwiftStats.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		E243413F1DFCABE2009F7A5E /* SwiftStatsTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftStatsTests; sourceTree = "<group>"; };
-		E24341451DFCAF0C009F7A5E /* libiOSSwiftStats.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOSSwiftStats.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E24341471DFCAF0C009F7A5E /* iOSSwiftStats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSSwiftStats.h; sourceTree = "<group>"; };
-		E24341481DFCAF0C009F7A5E /* iOSSwiftStats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSSwiftStats.m; sourceTree = "<group>"; };
 		E28007381CCCA833002A2A6C /* SwiftStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E280073B1CCCA833002A2A6C /* SwiftStats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftStats.h; sourceTree = "<group>"; };
 		E280073D1CCCA833002A2A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,13 +35,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E24341421DFCAF0C009F7A5E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E28007341CCCA833002A2A6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,22 +53,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E24341461DFCAF0C009F7A5E /* iOSSwiftStats */ = {
-			isa = PBXGroup;
-			children = (
-				E24341471DFCAF0C009F7A5E /* iOSSwiftStats.h */,
-				E24341481DFCAF0C009F7A5E /* iOSSwiftStats.m */,
-			);
-			path = iOSSwiftStats;
-			sourceTree = "<group>";
-		};
 		E280072E1CCCA833002A2A6C = {
 			isa = PBXGroup;
 			children = (
 				E28007531CCCA926002A2A6C /* stats.swift */,
 				E280073A1CCCA833002A2A6C /* SwiftStats */,
 				E28007461CCCA833002A2A6C /* SwiftStatsTests */,
-				E24341461DFCAF0C009F7A5E /* iOSSwiftStats */,
 				E28007391CCCA833002A2A6C /* Products */,
 				E28007521CCCA910002A2A6C /* MyPlayground.playground */,
 			);
@@ -105,7 +69,6 @@
 			children = (
 				E28007381CCCA833002A2A6C /* SwiftStats.framework */,
 				E28007421CCCA833002A2A6C /* SwiftStatsTests.xctest */,
-				E24341451DFCAF0C009F7A5E /* libiOSSwiftStats.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				E28007471CCCA833002A2A6C /* SwiftStatsTests.swift */,
-				E243413F1DFCABE2009F7A5E /* SwiftStatsTests */,
 				E28007491CCCA833002A2A6C /* Info.plist */,
 			);
 			path = SwiftStatsTests;
@@ -143,23 +105,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E24341441DFCAF0C009F7A5E /* iOSSwiftStats */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E243414B1DFCAF0C009F7A5E /* Build configuration list for PBXNativeTarget "iOSSwiftStats" */;
-			buildPhases = (
-				E24341411DFCAF0C009F7A5E /* Sources */,
-				E24341421DFCAF0C009F7A5E /* Frameworks */,
-				E24341431DFCAF0C009F7A5E /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = iOSSwiftStats;
-			productName = iOSSwiftStats;
-			productReference = E24341451DFCAF0C009F7A5E /* libiOSSwiftStats.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		E28007371CCCA833002A2A6C /* SwiftStats */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E280074C1CCCA833002A2A6C /* Build configuration list for PBXNativeTarget "SwiftStats" */;
@@ -207,10 +152,6 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Raphael Deem";
 				TargetAttributes = {
-					E24341441DFCAF0C009F7A5E = {
-						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Automatic;
-					};
 					E28007371CCCA833002A2A6C = {
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 1010;
@@ -235,7 +176,6 @@
 			targets = (
 				E28007371CCCA833002A2A6C /* SwiftStats */,
 				E28007411CCCA833002A2A6C /* SwiftStatsTests */,
-				E24341441DFCAF0C009F7A5E /* iOSSwiftStats */,
 			);
 		};
 /* End PBXProject section */
@@ -258,14 +198,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E24341411DFCAF0C009F7A5E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E24341491DFCAF0C009F7A5E /* iOSSwiftStats.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E28007331CCCA833002A2A6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,35 +225,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		E243414C1DFCAF0C009F7A5E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		E243414D1DFCAF0C009F7A5E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		E280074A1CCCA833002A2A6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -507,15 +410,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E243414B1DFCAF0C009F7A5E /* Build configuration list for PBXNativeTarget "iOSSwiftStats" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E243414C1DFCAF0C009F7A5E /* Debug */,
-				E243414D1DFCAF0C009F7A5E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		E28007321CCCA833002A2A6C /* Build configuration list for PBXProject "SwiftStats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
