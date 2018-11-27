@@ -14,6 +14,14 @@ class SwiftStatsTests: XCTestCase {
     // for the two values to be considered sufficiently equal.
     let epsilon: Double = 1e-7
     
+    func testVersion() {
+        #if swift(>=4.2)
+          XCTAssert(true, "Expected Swift version 4.2 or greater")
+        #else
+          XCTFail()
+        #endif
+    }
+    
     
     override func setUp() {
         super.setUp()
