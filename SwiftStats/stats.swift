@@ -295,6 +295,45 @@ public struct Distributions {
 			return self.m + pow(self.v*2,0.5)*Common.erfinv(2*p - 1)
 		}
 	}
+    
+    public class LogNormal: Continuous {
+        // Mean and variance
+        var m: Double
+        var v: Double
+        
+        public init(meanLog: Double, varianceLog: Double) {
+            self.m = meanLog
+            self.v = varianceLog
+        }
+        
+        public convenience init(meanLog: Double, sdLog: Double) {
+            // This contructor takes the mean and standard deviation, which is the more
+            // common parameterisation of a log-normal distribution.
+            let varianceLog = pow(sdLog, 2)
+            self.init(meanLog: meanLog, varianceLog: varianceLog)
+        }
+        
+        public convenience init(data: [Double]) {
+            // this calculates the mean twice, since variance()
+            // uses the mean and calls mean()
+            let dataLog = Common.logArray(data)
+            self.init(meanLog: Common.mean(dataLog),
+                      varianceLog: Common.variance(dataLog))
+        }
+        
+        public func Pdf(_ x: Double) -> Double {
+            return 1/(x*sqrt(2*pi*v)) * exp(-pow(log(x)-m,2)/(2*v))
+        }
+        
+        public func Cdf(_ x: Double) -> Double {
+            return 0.5 + 0.5*erf((log(x)-m)/sqrt(2*v))
+        }
+        
+        override public func Quantile(_ p: Double) -> Double {
+            return exp(m + sqrt(2*v)*Common.erfinv(2*p - 1))
+        }
+
+    }
 
 	public class Uniform: Continuous {
 		// a and b are endpoints, that is
@@ -435,6 +474,14 @@ public struct Common {
 			return -Float(Int.max)
 		}
 	}
+    
+    public static func logArray(_ data: [Double]) -> [Double] {
+        var result: [Double] = data
+        for i in stride(from: 0, to: result.count, by: 1) {
+            result[i] = log(result[i])
+        }
+        return result
+    }
 
 	public static func erfinv(_ y: Double) -> Double {
 		let center = 0.7

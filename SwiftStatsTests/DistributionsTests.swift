@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwiftStats
 
-class SwiftStatsTests: XCTestCase {
+class DistributionsTests: XCTestCase {
     // A small value, epsilon, which specifies the maximum difference between two floating-point
     // for the two values to be considered sufficiently equal.
     let epsilon: Double = 1e-7
@@ -154,6 +154,16 @@ class SwiftStatsTests: XCTestCase {
         XCTAssert(abs(d.Pdf(0.1) - 0.2815902) < epsilon)
         XCTAssert(abs(d.Pdf(1) - 0.3989423) < epsilon)
         XCTAssert(abs(d.Pdf(2) - 0.156874) < epsilon)
+        
+        // Create log-normal distribution using array-based constructor
+        let data = [1.0, 2.0, 3.0]
+        let d2 = SwiftStats.Distributions.LogNormal(data: data)
+        
+        // Test that array-based constructor has correctly instantiated the distribution
+        // mean(log(c(1,2,3))) -> 0.5972532
+        XCTAssert( abs(d2.m - 0.5972532) < epsilon)
+        // var(log(c(1,2,3))) -> 0.308634
+        XCTAssert( abs(d2.v - 0.308634) < epsilon)
     }
 
     /*
