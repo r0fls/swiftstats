@@ -270,11 +270,11 @@ public struct Distributions {
 			self.v = v
 		}
         
-        public init(mean: Double, sd: Double) {
+        public convenience init(mean: Double, sd: Double) {
             // This contructor takes the mean and standard deviation, which is the more
             // common parameterisation of a normal distribution.
-            self.m = mean
-            self.v = pow(sd, 2)
+            let variance = pow(sd, 2)
+            self.init(m: mean, v: variance)
         }
 
 		public convenience init(data: [Double]) {
