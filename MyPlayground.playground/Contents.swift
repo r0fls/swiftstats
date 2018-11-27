@@ -56,12 +56,30 @@ print(e.Quantile(0.5))
 print(e.Random())
 
 print(SwiftStats.Common.erfinv(erf(1.4)))
+print(SwiftStats.Common.erfinv(-1))
 
-var n = SwiftStats.Distributions.Normal(m: 0.0, v: 3)
-print(n.Cdf(pow(3,0.5))-n.Cdf(-pow(3,0.5)))
+// Normal Distribution
+var n = SwiftStats.Distributions.Normal(mean: 0.0, sd: 1)
+print(n.Cdf(1.96))
+print(n.Quantile(0.975))
+print(n.Pdf(0))
 print(n.Quantile(n.Cdf(3)))
-n = SwiftStats.Distributions.Normal(data: [1,2,1,0,1,2])
-//print(n.v)
+print(n.Random())
 
+// Normal from array
+n = SwiftStats.Distributions.Normal(data: [1,2,1,0,1,2])
+
+// Log-normal Distribution
+var ln = SwiftStats.Distributions.LogNormal(meanLog: 0.0, sdLog: 1)
+print(ln.Cdf(1))
+print(ln.Quantile(0.7558914))
+print(ln.Pdf(1))
+print(ln.Quantile(ln.Cdf(3)))
+print(ln.Random())
+
+// Log-Normal from array
+ln = SwiftStats.Distributions.LogNormal(data: [1,2,3])
+
+// Uniform Distribution
 let u = SwiftStats.Distributions.Uniform(a:5,b:10)
 print(u.Random())
