@@ -10,6 +10,10 @@ import XCTest
 @testable import SwiftStats
 
 class SwiftStatsTests: XCTestCase {
+    // A small value, epsilon, which specifies the maximum difference between two floating-point
+    // for the two values to be considered sufficiently equal.
+    let epsilon: Double = 1e-7
+    
     
     override func setUp() {
         super.setUp()
@@ -33,6 +37,7 @@ class SwiftStatsTests: XCTestCase {
         b = SwiftStats.Distributions.Bernoulli(data: [1,1,0,1])
         XCTAssert(b.p == 0.75, "Bernoulli fit with [1,1,0,1] should have p = 0.75")
     }
+    
     func testLaplace(){
         srand48(0)
         var l = SwiftStats.Distributions.Laplace(mean: 0.0, b: 1.0)
@@ -64,6 +69,7 @@ class SwiftStatsTests: XCTestCase {
         XCTAssert(p.m == 2.0, "Poisson fit data failed")
         XCTAssert(p.Quantile(0.999) == 8, "Poisson Quantile from fit data failed")
     }
+    
     func testGeometric() {
         let g = SwiftStats.Distributions.Geometric(p: 0.5)
         XCTAssert(g.Pmf(3) == 0.125, "Geometric Pmf failed")
@@ -93,6 +99,7 @@ class SwiftStatsTests: XCTestCase {
         let erfinv = round(pow(10,15)*SwiftStats.Common.erfinv(erf(1.4)))/pow(10,15)
         XCTAssert(erfinv == 1.4, "Erfinv failed"+String(SwiftStats.Common.erfinv(erf(1.4))))
     }
+    
     func testlsr() {
         let data = [[60.0, 3.1], [61.0,	3.6], [62.0, 3.8], [63.0,	4.0], [65.0,	4.1]]
         let params = SwiftStats.Common.lsr(data)
@@ -101,14 +108,24 @@ class SwiftStatsTests: XCTestCase {
         XCTAssert(a - -7.963513513 < 0.00001 && b - 0.187837837 < 0.00001, "lsr failed")
     }
     
-    /*
     func testNormal() {
-        var n = SwiftStats.Distributions.Normal(m: 0.0, v: 3)
-        XCTAssert(n.Cdf(pow(3,0.5))-n.Cdf(-pow(3,0.5)))
-        XCTAssert(n.Quantile(n.Cdf(3)))
-        n = SwiftStats.Distributions.Normal(data: [1,2,1,0,1,2])
-        XCTAssert(n.v)
+        let n = SwiftStats.Distributions.Normal(mean: 0.0, sd: 1.0)
+
+        // 50% of the Normal distribution should be below x=0
+        XCTAssert(abs(n.Cdf(0) - 0.5) < epsilon)
+        
+        // 97.5% of the Normal distribution should be below x=1.96 (approx)
+        XCTAssert(abs(n.Cdf(1.96) - 0.975) < 0.001)
+        
+        // The CDF and Quantile functions should be the inverse of each other
+        for x in [0, 0.05, 0.5, 0.8, 0.9, 0.95, 1] {
+            XCTAssert(abs(n.Cdf( n.Quantile(x) ) - x) < epsilon)
+        }
+        
+        // The PDF at 0 should be the same as that produced by R's dnorm()
+        XCTAssert(n.Pdf(0) - 0.3989423 < epsilon)
     }
+    /*
     func testUniform() {
         let u = SwiftStats.Distributions.Uniform(a:5,b:10)
         XCTAssert(u.Random())
