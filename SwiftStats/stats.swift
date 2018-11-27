@@ -1,6 +1,8 @@
 import Foundation
 
 public struct Distributions {
+    private static let pi = Double.pi
+    
 	// these first three classes need to be public so that their
 	// child classes can be, though they don't get used directly
 	public class Distribution {
@@ -262,7 +264,6 @@ public struct Distributions {
 		// mean and variance
 		var m: Double
 		var v: Double
-		let pi = Double.pi
 
 		public init(m: Double, v: Double) {
 			self.m = m
@@ -336,6 +337,8 @@ public struct Distributions {
 }
 // COMMON FUNCTIONS
 public struct Common {
+    private static let pi = Double.pi
+    
 	public static func factorial(_ n: Int) -> Int {
 		return Int(tgamma(Double(n+1)))
 	}
@@ -444,8 +447,8 @@ public struct Common {
 			let num = (((a[3]*z + a[2])*z + a[1])*z) + a[0]
 			let den = ((((b[3]*z + b[2])*z + b[1])*z + b[0])*z + 1.0)
 			var x = y*num/den
-			x = x - (erf(x) - y)/(2.0/sqrt(Double.pi)*exp(-x*x))
-			x = x - (erf(x) - y)/(2.0/sqrt(Double.pi)*exp(-x*x))
+			x = x - (erf(x) - y)/(2.0/sqrt(pi)*exp(-x*x))
+			x = x - (erf(x) - y)/(2.0/sqrt(pi)*exp(-x*x))
 			return x
 		}
 
@@ -455,8 +458,8 @@ public struct Common {
 			let den = (d[1]*z + d[0])*z + 1
 			// should use the sign public static function instead of pow(pow(y,2),0.5)
 			var x = y/pow(pow(y,2),0.5)*num/den
-			x = x - (erf(x) - y)/(2.0/sqrt(Double.pi)*exp(-x*x))
-			x = x - (erf(x) - y)/(2.0/sqrt(Double.pi)*exp(-x*x))
+			x = x - (erf(x) - y)/(2.0/sqrt(pi)*exp(-x*x))
+			x = x - (erf(x) - y)/(2.0/sqrt(pi)*exp(-x*x))
 			return x
 		}
 
