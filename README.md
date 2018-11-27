@@ -26,6 +26,7 @@ print(n.random())
 #### Distributions
 Currently the following distributions are included: 
 - Normal
+- Log-normal
 - Bernoulli 
 - Laplace 
 - Poisson
