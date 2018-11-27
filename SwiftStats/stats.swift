@@ -268,6 +268,13 @@ public struct Distributions {
 			self.m = m
 			self.v = v
 		}
+        
+        public init(mean: Double, sd: Double) {
+            // This contructor takes the mean and standard deviation, which is the more
+            // common parameterisation of a normal distribution.
+            self.m = mean
+            self.v = pow(sd, 2)
+        }
 
 		public convenience init(data: [Double]) {
 			// this calculates the mean twice, since variance()
