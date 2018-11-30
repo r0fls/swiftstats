@@ -50,8 +50,8 @@ And each distribution has these methods:
 ##### Common Function Example
 ```swift
 import SwiftStats
-SwiftStats.Common.Median([1,4,3,2]) // -> 2.5
-SwiftStats.Common.Median([3,1,2]) // -> 2
+SwiftStats.Common.median([1,4,3,2]) // -> 2.5
+SwiftStats.Common.median([3,1,2]) // -> 2
 ```
 
 ##### Advanced
