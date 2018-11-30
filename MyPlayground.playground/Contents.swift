@@ -6,7 +6,7 @@ import Foundation
 
 //srand48(0)
 var b = SwiftStats.Distributions.Bernoulli(p: 0.7)
-print(b.Pmf(1)) // 0.7
+print(b.pmf(1)) // 0.7
 print(b.cdf(1)) // 1.0
 print(b.cdf(0)) // 0.3
 print(b.quantile(0.5)) // 1
@@ -29,7 +29,7 @@ l = SwiftStats.Distributions.Laplace(data:[12,13,12])
 //print(l.mean)
 
 var p = SwiftStats.Distributions.Poisson(m: 1.5)
-print(p.Pmf(3))
+print(p.pmf(3))
 print(p.cdf(1))
 print(p.cdf(0))
 srand48(0)
@@ -41,7 +41,7 @@ p = SwiftStats.Distributions.Poisson(data: [1,2,3])
 print(p.quantile(0.999))
 
 let g = SwiftStats.Distributions.Geometric(p: 0.5)
-print(g.Pmf(3))
+print(g.pmf(3))
 print(g.cdf(3))
 print(g.cdf(4))
 print(g.quantile(0.9999))

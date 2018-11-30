@@ -36,7 +36,7 @@ Currently the following distributions are included:
 - Binomial
 
 And each distribution has these methods:
-- Pmf or Pdf
+- pmf or Pdf
 - cdf
 - quantile
 - random (takes an optional int and returns an array of that length, or otherwise a single value) 

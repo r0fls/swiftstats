@@ -36,7 +36,7 @@ class DistributionsTests: XCTestCase {
     func testBernoulli() {
         var b = SwiftStats.Distributions.Bernoulli(p: 0.7)
         srand48(0)
-        XCTAssert(b.Pmf(1) == 0.7, "Bernoulli pmf(1) should be 0.7")
+        XCTAssert(b.pmf(1) == 0.7, "Bernoulli pmf(1) should be 0.7")
         XCTAssert(b.cdf(1) == 1.0, "Bernoulli cdf(1) should be 1")
         XCTAssert(round(100000*b.cdf(0))/100000 == 0.3, "Bernoulli cdf(0) should be 0.3")
         XCTAssert(b.quantile(0.5) == 1, "Bernoulli quantile(0.5) should be 1")
@@ -63,8 +63,8 @@ class DistributionsTests: XCTestCase {
  
     func testPoisson() {
         var p = SwiftStats.Distributions.Poisson(m: 1.5)
-        let pmf = round(pow(10.0,15.0)*p.Pmf(3))/pow(10.0,15.0)
-        XCTAssert(pmf == 0.125510715083492, "Poisson Pmf failed")
+        let pmf = round(pow(10.0,15.0)*p.pmf(3))/pow(10.0,15.0)
+        XCTAssert(pmf == 0.125510715083492, "Poisson pmf failed")
         var cdf = round(pow(10.0,15.0)*p.cdf(1))/pow(10.0,15.0)
         XCTAssert(cdf == 0.557825400371075, "Poisson cdf failed")
         cdf = round(pow(10.0,15.0)*p.cdf(0))/pow(10.0,15.0)
@@ -80,7 +80,7 @@ class DistributionsTests: XCTestCase {
     
     func testGeometric() {
         let g = SwiftStats.Distributions.Geometric(p: 0.5)
-        XCTAssert(g.Pmf(3) == 0.125, "Geometric Pmf failed")
+        XCTAssert(g.pmf(3) == 0.125, "Geometric pmf failed")
         XCTAssert(g.cdf(3) == 0.875, "Geometric cdf failed")
         XCTAssert(g.cdf(4) == 0.9375, "Geometric cdf failed")
         XCTAssert(g.quantile(0.9999) == 14, "Geometric quantile failed")

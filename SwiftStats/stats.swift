@@ -68,7 +68,7 @@ public struct Distributions {
 		public convenience init(data: [Int]) {
 			self.init(p: Common.mean(data))
 		}
-		public func Pmf(_ k: Int) -> Double {
+		public func pmf(_ k: Int) -> Double {
 			if k == 1 {
 				return self.p
 			}
@@ -160,14 +160,14 @@ public struct Distributions {
 			self.init(m: Common.mean(data))
 		}
 
-		public func Pmf(_ k: Int) -> Double {
+		public func pmf(_ k: Int) -> Double {
 			return pow(self.m, Double(k))*exp(-self.m)/tgamma(Double(k+1))
 		}
 
 		public func cdf(_ k: Int) -> Double {
 			var total = Double(0)
 			for i in 0..<k+1 {
-				total += self.Pmf(i)
+				total += self.pmf(i)
 			}
 			return total
 		}
@@ -175,10 +175,10 @@ public struct Distributions {
 		override public func quantile(_ x: Double) -> Int {
 			var total = Double(0)
 			var j = 0
-			total += self.Pmf(j)
+			total += self.pmf(j)
 			while total < x {
 				j += 1
-				total += self.Pmf(j)
+				total += self.pmf(j)
 			}
 			return j
 		}
@@ -194,7 +194,7 @@ public struct Distributions {
 			self.init(p: 1/Common.mean(data))
 		}
 
-		public func Pmf(_ k: Int) -> Double {
+		public func pmf(_ k: Int) -> Double {
 			return pow(1 - self.p, Double(k - 1))*self.p
 		}
 
@@ -238,14 +238,14 @@ public struct Distributions {
 			self.p = p
 		}
 
-		public func Pmf(_ k: Int) -> Double {
+		public func pmf(_ k: Int) -> Double {
 			let r = Double(k)
 			return Double(Common.choose(self.n, k: k))*pow(self.p, r)*pow(1 - self.p, Double(self.n - k))
 		}
 		public func cdf(_ k: Int) -> Double {
 			var total = Double(0)
 			for i in 1..<k + 1 {
-				total += self.Pmf(i)
+				total += self.pmf(i)
 			}
 			return total
 		}
@@ -254,7 +254,7 @@ public struct Distributions {
 			var j = 0
 			while total < x {
 				j += 1
-				total += self.Pmf(j)
+				total += self.pmf(j)
 			}
 			return j
 		}
