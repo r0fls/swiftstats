@@ -1,8 +1,6 @@
 # swiftstats
 Statistics for swift &mdash; v1.0.0
 
-Testing to see if this will trigger a Travis rebuild.
-
 ### Setup
 Clone the repo:
     
