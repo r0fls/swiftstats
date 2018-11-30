@@ -123,7 +123,7 @@ public struct Distributions {
 			self.init(mean: m, b: b)
 		}
 
-		public func Pdf(_ x: Double) -> Double {
+		public func pdf(_ x: Double) -> Double {
 			return exp(-abs(x - self.mean)/self.b)/2
 		}
 
@@ -217,7 +217,7 @@ public struct Distributions {
 			self.init(l: 1/Common.mean(data))
 		}
 
-		public func Pdf(_ x: Double) -> Double {
+		public func pdf(_ x: Double) -> Double {
 			return self.l*exp(-self.l*x)
 		}
 
@@ -283,7 +283,7 @@ public struct Distributions {
 			self.init(m: Common.mean(data), v: Common.variance(data))
 		}
 
-		public func Pdf(_ x: Double) -> Double {
+		public func pdf(_ x: Double) -> Double {
 			return (1/pow(self.v*2*pi,0.5))*exp(-pow(x-self.m,2)/(2*self.v))
 		}
 
@@ -321,7 +321,7 @@ public struct Distributions {
                       varianceLog: Common.variance(dataLog))
         }
         
-        public func Pdf(_ x: Double) -> Double {
+        public func pdf(_ x: Double) -> Double {
             return 1/(x*sqrt(2*pi*v)) * exp(-pow(log(x)-m,2)/(2*v))
         }
         
@@ -346,7 +346,7 @@ public struct Distributions {
 			self.b = b
 		}
 
-		public func Pdf(_ x: Double) -> Double {
+		public func pdf(_ x: Double) -> Double {
 			if x>a && x<b {
 				return 1/(b-a)
 			}

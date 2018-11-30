@@ -49,7 +49,7 @@ class DistributionsTests: XCTestCase {
     func testLaplace(){
         srand48(0)
         var l = SwiftStats.Distributions.Laplace(mean: 0.0, b: 1.0)
-        let pdf = round(pow(10.0,15.0)*l.Pdf(1))/pow(10.0,15.0)
+        let pdf = round(pow(10.0,15.0)*l.pdf(1))/pow(10.0,15.0)
         XCTAssert(pdf == 0.183939720585721, "Laplace pdf failed test")
         let n = round(pow(10.0,14.0)*l.random())/pow(10.0,14.0)
         XCTAssert(n == -1.07395068471681, "Laplace random failed test")
@@ -90,8 +90,8 @@ class DistributionsTests: XCTestCase {
     
     func testExponential() {
         let e = SwiftStats.Distributions.Exponential(l: 0.5)
-        let pdf = round(pow(10.0,15.0)*e.Pdf(3))/pow(10.0,15.0)
-        XCTAssert(pdf == 0.111565080074215, "Exponential Pdf failed")
+        let pdf = round(pow(10.0,15.0)*e.pdf(3))/pow(10.0,15.0)
+        XCTAssert(pdf == 0.111565080074215, "Exponential pdf failed")
         var cdf = round(pow(10.0,15.0)*e.cdf(3))/pow(10.0,15.0)
         XCTAssert(cdf == 0.77686983985157, "Exponential cdf failed")
         cdf = round(pow(10.0,15.0)*e.cdf(4))/pow(10.0,15.0)
@@ -131,7 +131,7 @@ class DistributionsTests: XCTestCase {
         }
         
         // The PDF at 0 should be the same as that produced by R's dnorm()
-        XCTAssert(n.Pdf(0) - 0.3989423 < epsilon)
+        XCTAssert(n.pdf(0) - 0.3989423 < epsilon)
     }
 
     func testLogNormal() {
@@ -148,12 +148,12 @@ class DistributionsTests: XCTestCase {
         XCTAssert(abs(d.quantile(0.7558914) - 2) < epsilon)
 
         // PDF test values taken from R, where PDF <-> dlnorm()
-        // XCTAssert(abs(n.Pdf(0) - 0) < epsilon) -- we fail this test but it's unclear R
+        // XCTAssert(abs(n.pdf(0) - 0) < epsilon) -- we fail this test but it's unclear R
         // has the right result; infinity time zero is undefined, why is R returning zero?
-        XCTAssert(abs(d.Pdf(0.01) - 0.0009902387) < epsilon)
-        XCTAssert(abs(d.Pdf(0.1) - 0.2815902) < epsilon)
-        XCTAssert(abs(d.Pdf(1) - 0.3989423) < epsilon)
-        XCTAssert(abs(d.Pdf(2) - 0.156874) < epsilon)
+        XCTAssert(abs(d.pdf(0.01) - 0.0009902387) < epsilon)
+        XCTAssert(abs(d.pdf(0.1) - 0.2815902) < epsilon)
+        XCTAssert(abs(d.pdf(1) - 0.3989423) < epsilon)
+        XCTAssert(abs(d.pdf(2) - 0.156874) < epsilon)
         
         // Create log-normal distribution using array-based constructor
         let data = [1.0, 2.0, 3.0]
