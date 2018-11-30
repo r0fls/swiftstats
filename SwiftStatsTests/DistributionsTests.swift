@@ -39,8 +39,8 @@ class DistributionsTests: XCTestCase {
         XCTAssert(b.Pmf(1) == 0.7, "Bernoulli pmf(1) should be 0.7")
         XCTAssert(b.Cdf(1) == 1.0, "Bernoulli Cdf(1) should be 1")
         XCTAssert(round(100000*b.Cdf(0))/100000 == 0.3, "Bernoulli Cdf(0) should be 0.3")
-        XCTAssert(b.Quantile(0.5) == 1, "Bernoulli Quantile(0.5) should be 1")
-        XCTAssert(b.Quantile(0.2) == 0, " Bernoulli Quantile(0.2) should be 0")
+        XCTAssert(b.quantile(0.5) == 1, "Bernoulli quantile(0.5) should be 1")
+        XCTAssert(b.quantile(0.2) == 0, " Bernoulli quantile(0.2) should be 0")
         XCTAssert(b.Random() == 0, "Bernoulli random() should equal 1 with test seed")
         b = SwiftStats.Distributions.Bernoulli(data: [1,1,0,1])
         XCTAssert(b.p == 0.75, "Bernoulli fit with [1,1,0,1] should have p = 0.75")
@@ -69,13 +69,13 @@ class DistributionsTests: XCTestCase {
         XCTAssert(cdf == 0.557825400371075, "Poisson Cdf failed")
         cdf = round(pow(10.0,15.0)*p.Cdf(0))/pow(10.0,15.0)
         XCTAssert(cdf == 0.22313016014843, "Poisson Cdf failed")
-        XCTAssert(p.Quantile(0.5) == 1, "Poisson Quantile failed")
+        XCTAssert(p.quantile(0.5) == 1, "Poisson quantile failed")
         srand48(0)
         XCTAssert(p.Random() == 0, "Poisson random failed")
         
         p = SwiftStats.Distributions.Poisson(data: [1,2,3])
         XCTAssert(p.m == 2.0, "Poisson fit data failed")
-        XCTAssert(p.Quantile(0.999) == 8, "Poisson Quantile from fit data failed")
+        XCTAssert(p.quantile(0.999) == 8, "Poisson quantile from fit data failed")
     }
     
     func testGeometric() {
@@ -83,7 +83,7 @@ class DistributionsTests: XCTestCase {
         XCTAssert(g.Pmf(3) == 0.125, "Geometric Pmf failed")
         XCTAssert(g.Cdf(3) == 0.875, "Geometric Cdf failed")
         XCTAssert(g.Cdf(4) == 0.9375, "Geometric Cdf failed")
-        XCTAssert(g.Quantile(0.9999) == 14, "Geometric quantile failed")
+        XCTAssert(g.quantile(0.9999) == 14, "Geometric quantile failed")
         srand48(0)
         XCTAssert(g.Random() == 1)
     }
@@ -96,8 +96,8 @@ class DistributionsTests: XCTestCase {
         XCTAssert(cdf == 0.77686983985157, "Exponential Cdf failed")
         cdf = round(pow(10.0,15.0)*e.Cdf(4))/pow(10.0,15.0)
         XCTAssert(cdf == 0.864664716763387,  "Exponential Cdf failed")
-        let quant = round(pow(10.0,10.0)*e.Quantile(0.864664716763387))/pow(10.0,10.0)
-        XCTAssert(quant == 4.0, "Quantile failed, got: \(quant)")
+        let quant = round(pow(10.0,10.0)*e.quantile(0.864664716763387))/pow(10.0,10.0)
+        XCTAssert(quant == 4.0, "quantile failed, got: \(quant)")
         srand48(0)
         let rand = round(pow(10.0,15.0)*e.Random())/pow(10.0,15.0)
         XCTAssert(rand == 0.374655420044752, "Exponential Random() failed, got: "+String(rand))
@@ -125,9 +125,9 @@ class DistributionsTests: XCTestCase {
         // 97.5% of the Normal distribution should be below x=1.96 (approx)
         XCTAssert(abs(n.Cdf(1.96) - 0.975) < 0.001)
         
-        // The CDF and Quantile functions should be the inverse of each other
+        // The CDF and quantile functions should be the inverse of each other
         for x in [0, 0.05, 0.5, 0.8, 0.9, 0.95, 1] {
-            XCTAssert(abs(n.Cdf( n.Quantile(x) ) - x) < epsilon)
+            XCTAssert(abs(n.Cdf( n.quantile(x) ) - x) < epsilon)
         }
         
         // The PDF at 0 should be the same as that produced by R's dnorm()
@@ -142,10 +142,10 @@ class DistributionsTests: XCTestCase {
         XCTAssert(abs(d.Cdf(1) - 0.5) < epsilon)
         XCTAssert(abs(d.Cdf(2) - 0.7558914) < epsilon)
 
-        // Quantile test values taken from R, where Quantile <-> qlnorm()
-        XCTAssert(abs(d.Quantile(0) - 0) < epsilon)
-        XCTAssert(abs(d.Quantile(0.5) - 1) < epsilon)
-        XCTAssert(abs(d.Quantile(0.7558914) - 2) < epsilon)
+        // Quantile test values taken from R, where quantile <-> qlnorm()
+        XCTAssert(abs(d.quantile(0) - 0) < epsilon)
+        XCTAssert(abs(d.quantile(0.5) - 1) < epsilon)
+        XCTAssert(abs(d.quantile(0.7558914) - 2) < epsilon)
 
         // PDF test values taken from R, where PDF <-> dlnorm()
         // XCTAssert(abs(n.Pdf(0) - 0) < epsilon) -- we fail this test but it's unclear R
