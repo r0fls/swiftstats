@@ -22,16 +22,16 @@ public struct Distributions {
 			return -Int.max
 		}
 
-		// single discrete Random value
-		public func Random() -> Int {
+		// single discrete random value
+		public func random() -> Int {
 			return self.quantile(Double(drand48()))
 		}
 
-		// array of discrete Random values
-		public func Random(_ n: Int) -> [Int] {
+		// array of discrete random values
+		public func random(_ n: Int) -> [Int] {
 			var results: [Int] = []
 			for _ in 0..<n {
-				results.append(self.Random())
+				results.append(self.random())
 			}
 			return results
 		}
@@ -42,16 +42,16 @@ public struct Distributions {
 		public func quantile(_ p: Double) -> Double {
 			return -1*Double.nan
 		}
-		// single continuous Random value
-		public func Random() -> Double {
+		// single continuous random value
+		public func random() -> Double {
 
 			return self.quantile(Double(drand48()))
 		}
-		// array of discrete Random values
-		public func Random(_ n: Int) -> [Double] {
+		// array of discrete random values
+		public func random(_ n: Int) -> [Double] {
 			var results: [Double] = []
 			for _ in 0..<n {
-				results.append(self.Random())
+				results.append(self.random())
 			}
 			return results
 		}
@@ -77,7 +77,7 @@ public struct Distributions {
 			}
 			return -1
 		}
-		public func Cdf(_ k: Int) -> Double {
+		public func cdf(_ k: Int) -> Double {
 			if k < 0 {
 				return 0
 			}
@@ -127,7 +127,7 @@ public struct Distributions {
 			return exp(-abs(x - self.mean)/self.b)/2
 		}
 
-		public func Cdf(_ x: Double) -> Double {
+		public func cdf(_ x: Double) -> Double {
 			if x < self.mean {
 				return exp((x - self.mean)/self.b)/2
 			}
@@ -164,7 +164,7 @@ public struct Distributions {
 			return pow(self.m, Double(k))*exp(-self.m)/tgamma(Double(k+1))
 		}
 
-		public func Cdf(_ k: Int) -> Double {
+		public func cdf(_ k: Int) -> Double {
 			var total = Double(0)
 			for i in 0..<k+1 {
 				total += self.Pmf(i)
@@ -198,7 +198,7 @@ public struct Distributions {
 			return pow(1 - self.p, Double(k - 1))*self.p
 		}
 
-		public func Cdf(_ k: Int) -> Double {
+		public func cdf(_ k: Int) -> Double {
 			return 1 - pow(1 - self.p, Double(k))
 		}
 
@@ -221,7 +221,7 @@ public struct Distributions {
 			return self.l*exp(-self.l*x)
 		}
 
-		public func Cdf(_ x: Double) -> Double {
+		public func cdf(_ x: Double) -> Double {
 			return 1 - exp(-self.l*x)
 		}
 
@@ -242,7 +242,7 @@ public struct Distributions {
 			let r = Double(k)
 			return Double(Common.choose(self.n, k: k))*pow(self.p, r)*pow(1 - self.p, Double(self.n - k))
 		}
-		public func Cdf(_ k: Int) -> Double {
+		public func cdf(_ k: Int) -> Double {
 			var total = Double(0)
 			for i in 1..<k + 1 {
 				total += self.Pmf(i)
@@ -287,7 +287,7 @@ public struct Distributions {
 			return (1/pow(self.v*2*pi,0.5))*exp(-pow(x-self.m,2)/(2*self.v))
 		}
 
-		public func Cdf(_ x: Double) -> Double {
+		public func cdf(_ x: Double) -> Double {
 			return (1 + erf((x-self.m)/pow(2*self.v,0.5)))/2
 		}
 
@@ -325,7 +325,7 @@ public struct Distributions {
             return 1/(x*sqrt(2*pi*v)) * exp(-pow(log(x)-m,2)/(2*v))
         }
         
-        public func Cdf(_ x: Double) -> Double {
+        public func cdf(_ x: Double) -> Double {
             return 0.5 + 0.5*erf((log(x)-m)/sqrt(2*v))
         }
         
@@ -353,7 +353,7 @@ public struct Distributions {
 			return 0
 		}
 
-		public func Cdf(_ x: Double) -> Double {
+		public func cdf(_ x: Double) -> Double {
 			if x<a {
 				return 0
 			}

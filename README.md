@@ -37,9 +37,9 @@ Currently the following distributions are included:
 
 And each distribution has these methods:
 - Pmf or Pdf
-- Cdf
+- cdf
 - quantile
-- Random (takes an optional int and returns an array of that length, or otherwise a single value) 
+- random (takes an optional int and returns an array of that length, or otherwise a single value) 
 
 #### Common Functions
 - median (`Int`, `Float`, `Double`)
