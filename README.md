@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/r0fls/swiftstats.png)](https://travis-ci.org/r0fls/swiftstats)
 # swiftstats
 Statistics for swift &mdash; v1.0.0
 
