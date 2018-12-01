@@ -37,10 +37,10 @@ Currently the following distributions are included:
 - Binomial
 
 And each distribution has these methods:
-- Pmf or Pdf
-- Cdf
-- Quantile
-- Random (takes an optional int and returns an array of that length, or otherwise a single value) 
+- pmf or pdf
+- cdf
+- quantile
+- random (takes an optional int and returns an array of that length, or otherwise a single value) 
 
 #### Common Functions
 - median (`Int`, `Float`, `Double`)

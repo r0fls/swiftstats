@@ -17,21 +17,21 @@ public struct Distributions {
 	public class Discrete: Distribution {
 		// this should never happen; but will happen if called directly
 		// or if a class inherits this class without
-		// defining an overriding Quantile method
-		public func Quantile(_ p: Double) -> Int {
+		// defining an overriding quantile method
+		public func quantile(_ p: Double) -> Int {
 			return -Int.max
 		}
 
-		// single discrete Random value
-		public func Random() -> Int {
-			return self.Quantile(Double(drand48()))
+		// single discrete random value
+		public func random() -> Int {
+			return self.quantile(Double(drand48()))
 		}
 
-		// array of discrete Random values
-		public func Random(_ n: Int) -> [Int] {
+		// array of discrete random values
+		public func random(_ n: Int) -> [Int] {
 			var results: [Int] = []
 			for _ in 0..<n {
-				results.append(self.Random())
+				results.append(self.random())
 			}
 			return results
 		}
@@ -39,19 +39,19 @@ public struct Distributions {
 
 	public class Continuous: Distribution {
 		// see Discrete public class
-		public func Quantile(_ p: Double) -> Double {
+		public func quantile(_ p: Double) -> Double {
 			return -1*Double.nan
 		}
-		// single continuous Random value
-		public func Random() -> Double {
+		// single continuous random value
+		public func random() -> Double {
 
-			return self.Quantile(Double(drand48()))
+			return self.quantile(Double(drand48()))
 		}
-		// array of discrete Random values
-		public func Random(_ n: Int) -> [Double] {
+		// array of discrete random values
+		public func random(_ n: Int) -> [Double] {
 			var results: [Double] = []
 			for _ in 0..<n {
-				results.append(self.Random())
+				results.append(self.random())
 			}
 			return results
 		}
@@ -68,7 +68,7 @@ public struct Distributions {
 		public convenience init(data: [Int]) {
 			self.init(p: Common.mean(data))
 		}
-		public func Pmf(_ k: Int) -> Double {
+		public func pmf(_ k: Int) -> Double {
 			if k == 1 {
 				return self.p
 			}
@@ -77,7 +77,7 @@ public struct Distributions {
 			}
 			return -1
 		}
-		public func Cdf(_ k: Int) -> Double {
+		public func cdf(_ k: Int) -> Double {
 			if k < 0 {
 				return 0
 			}
@@ -90,7 +90,7 @@ public struct Distributions {
 			}
 			return -1
 		}
-		override public func Quantile(_ p: Double) -> Int {
+		override public func quantile(_ p: Double) -> Int {
 			if p < 0 {
 				return -1
 			}
@@ -123,11 +123,11 @@ public struct Distributions {
 			self.init(mean: m, b: b)
 		}
 
-		public func Pdf(_ x: Double) -> Double {
+		public func pdf(_ x: Double) -> Double {
 			return exp(-abs(x - self.mean)/self.b)/2
 		}
 
-		public func Cdf(_ x: Double) -> Double {
+		public func cdf(_ x: Double) -> Double {
 			if x < self.mean {
 				return exp((x - self.mean)/self.b)/2
 			}
@@ -139,7 +139,7 @@ public struct Distributions {
 			}
 		}
 
-		override public func Quantile(_ p: Double) -> Double {
+		override public func quantile(_ p: Double) -> Double {
 			if p > 0 && p <= 0.5 {
 				return self.mean + self.b*log(2*p)
 			}
@@ -160,25 +160,25 @@ public struct Distributions {
 			self.init(m: Common.mean(data))
 		}
 
-		public func Pmf(_ k: Int) -> Double {
+		public func pmf(_ k: Int) -> Double {
 			return pow(self.m, Double(k))*exp(-self.m)/tgamma(Double(k+1))
 		}
 
-		public func Cdf(_ k: Int) -> Double {
+		public func cdf(_ k: Int) -> Double {
 			var total = Double(0)
 			for i in 0..<k+1 {
-				total += self.Pmf(i)
+				total += self.pmf(i)
 			}
 			return total
 		}
 
-		override public func Quantile(_ x: Double) -> Int {
+		override public func quantile(_ x: Double) -> Int {
 			var total = Double(0)
 			var j = 0
-			total += self.Pmf(j)
+			total += self.pmf(j)
 			while total < x {
 				j += 1
-				total += self.Pmf(j)
+				total += self.pmf(j)
 			}
 			return j
 		}
@@ -194,15 +194,15 @@ public struct Distributions {
 			self.init(p: 1/Common.mean(data))
 		}
 
-		public func Pmf(_ k: Int) -> Double {
+		public func pmf(_ k: Int) -> Double {
 			return pow(1 - self.p, Double(k - 1))*self.p
 		}
 
-		public func Cdf(_ k: Int) -> Double {
+		public func cdf(_ k: Int) -> Double {
 			return 1 - pow(1 - self.p, Double(k))
 		}
 
-		override public func Quantile(_ p: Double) -> Int {
+		override public func quantile(_ p: Double) -> Int {
 			return Int(ceil(log(1 - p)/log(1 - self.p)))
 		}
 	}
@@ -217,15 +217,15 @@ public struct Distributions {
 			self.init(l: 1/Common.mean(data))
 		}
 
-		public func Pdf(_ x: Double) -> Double {
+		public func pdf(_ x: Double) -> Double {
 			return self.l*exp(-self.l*x)
 		}
 
-		public func Cdf(_ x: Double) -> Double {
+		public func cdf(_ x: Double) -> Double {
 			return 1 - exp(-self.l*x)
 		}
 
-		override public func Quantile(_ p: Double) -> Double {
+		override public func quantile(_ p: Double) -> Double {
 			return -log(1 - p)/self.l
 		}
 	}
@@ -238,23 +238,23 @@ public struct Distributions {
 			self.p = p
 		}
 
-		public func Pmf(_ k: Int) -> Double {
+		public func pmf(_ k: Int) -> Double {
 			let r = Double(k)
 			return Double(Common.choose(self.n, k: k))*pow(self.p, r)*pow(1 - self.p, Double(self.n - k))
 		}
-		public func Cdf(_ k: Int) -> Double {
+		public func cdf(_ k: Int) -> Double {
 			var total = Double(0)
 			for i in 1..<k + 1 {
-				total += self.Pmf(i)
+				total += self.pmf(i)
 			}
 			return total
 		}
-		override public func Quantile(_ x: Double) -> Int {
+		override public func quantile(_ x: Double) -> Int {
 			var total = Double(0)
 			var j = 0
 			while total < x {
 				j += 1
-				total += self.Pmf(j)
+				total += self.pmf(j)
 			}
 			return j
 		}
@@ -283,15 +283,15 @@ public struct Distributions {
 			self.init(m: Common.mean(data), v: Common.variance(data))
 		}
 
-		public func Pdf(_ x: Double) -> Double {
+		public func pdf(_ x: Double) -> Double {
 			return (1/pow(self.v*2*pi,0.5))*exp(-pow(x-self.m,2)/(2*self.v))
 		}
 
-		public func Cdf(_ x: Double) -> Double {
+		public func cdf(_ x: Double) -> Double {
 			return (1 + erf((x-self.m)/pow(2*self.v,0.5)))/2
 		}
 
-		override public func Quantile(_ p: Double) -> Double {
+		override public func quantile(_ p: Double) -> Double {
 			return self.m + pow(self.v*2,0.5)*Common.erfinv(2*p - 1)
 		}
 	}
@@ -329,15 +329,15 @@ public struct Distributions {
                       varianceLog: Common.variance(logData))
         }
         
-        public func Pdf(_ x: Double) -> Double {
+        public func pdf(_ x: Double) -> Double {
             return 1/(x*sqrt(2*pi*v)) * exp(-pow(log(x)-m,2)/(2*v))
         }
         
-        public func Cdf(_ x: Double) -> Double {
+        public func cdf(_ x: Double) -> Double {
             return 0.5 + 0.5*erf((log(x)-m)/sqrt(2*v))
         }
         
-        override public func Quantile(_ p: Double) -> Double {
+        override public func quantile(_ p: Double) -> Double {
             return exp(m + sqrt(2*v)*Common.erfinv(2*p - 1))
         }
 
@@ -354,14 +354,14 @@ public struct Distributions {
 			self.b = b
 		}
 
-		public func Pdf(_ x: Double) -> Double {
+		public func pdf(_ x: Double) -> Double {
 			if x>a && x<b {
 				return 1/(b-a)
 			}
 			return 0
 		}
 
-		public func Cdf(_ x: Double) -> Double {
+		public func cdf(_ x: Double) -> Double {
 			if x<a {
 				return 0
 			}
@@ -374,7 +374,7 @@ public struct Distributions {
 			return 0
 		}
 
-		override public func Quantile(_ p: Double) -> Double {
+		override public func quantile(_ p: Double) -> Double {
 			if p>=0 && p<=1{
 				return p*(b-a)+a
 			}
