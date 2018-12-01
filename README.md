@@ -2,6 +2,32 @@
 # swiftstats
 Statistics for Swift &mdash; v1.0.0
 
+## Features
+### Distributions
+Currently the following distributions are included: 
+- Normal
+- Bernoulli 
+- Laplace 
+- Poisson
+- Uniform
+- Geometric
+- Exponential
+- Binomial
+
+And each distribution has these methods:
+- Pmf or Pdf
+- Cdf
+- Quantile
+- Random (takes an optional int and returns an array of that length, or otherwise a single value) 
+
+### Common Functions
+- median (`Int`, `Float`, `Double`)
+- mean (`Int`, `Float`, `Double`)
+- erf<sup>-1</sup> (implemented as `erfinv`, whereas `erf` is implemented as part of `Foundation`)
+- least squares regression; lsr ([[`Double`]]) -> [`Double`, `Double`]
+
+
+
 ## Building
 
 There are two options for building SwiftStats; you can use Carthage to build and update the framework for you, or you can manually clone SwiftStats from GitHub and build it yourself. 
@@ -42,43 +68,28 @@ In Xcode, open the project file `SwiftStats.xcodeproj`.  Select a target, and co
 
 ## Example Usage
 
+To print a random number that is normally distributed with a mean of 0 and a variance of 1:
+
 ```swift
 
 import SwiftStats
 
 let  n = SwiftStats.Distributions.Normal(0, 1.0)
 print(n.random())
-    
-// or fit a distribution from data...
-n = SwiftStats.Distributions.Normal([0,-1,1,0])
+```
+
+To print a random number that is normally distributed, with parameters based on previous samples:
+
+```swift
+
+import SwiftStats
+
+let n = SwiftStats.Distributions.Normal([0,-1,1,0])
 print(n.random())
 ```
 
-## Features
-### Distributions
-Currently the following distributions are included: 
-- Normal
-- Bernoulli 
-- Laplace 
-- Poisson
-- Uniform
-- Geometric
-- Exponential
-- Binomial
+To find the median of some data:
 
-And each distribution has these methods:
-- Pmf or Pdf
-- Cdf
-- Quantile
-- Random (takes an optional int and returns an array of that length, or otherwise a single value) 
-
-### Common Functions
-- median (`Int`, `Float`, `Double`)
-- mean (`Int`, `Float`, `Double`)
-- erf<sup>-1</sup> (implemented as `erfinv`, whereas `erf` is implemented as part of `Foundation`)
-- least squares regression; lsr ([[`Double`]]) -> [`Double`, `Double`]
-
-#### Common Function Example
 ```swift
 import SwiftStats
 SwiftStats.Common.Median([1,4,3,2]) // -> 2.5
