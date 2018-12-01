@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3426056A21B20EF200733FAB /* Distributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426056921B20EF200733FAB /* Distributions.swift */; };
 		345BED1A21AD3DBC00449911 /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345BED1921AD3DBC00449911 /* CommonTests.swift */; };
 		345BED1C21AD493B00449911 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 345BED1B21AD493B00449911 /* README.md */; };
-		E280073C1CCCA833002A2A6C /* SwiftStats.h in Headers */ = {isa = PBXBuildFile; fileRef = E280073B1CCCA833002A2A6C /* SwiftStats.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E28007431CCCA833002A2A6C /* SwiftStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E28007381CCCA833002A2A6C /* SwiftStats.framework */; };
 		E28007481CCCA833002A2A6C /* DistributionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28007471CCCA833002A2A6C /* DistributionsTests.swift */; };
-		E28007541CCCA926002A2A6C /* stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28007531CCCA926002A2A6C /* stats.swift */; };
+		E28007541CCCA926002A2A6C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28007531CCCA926002A2A6C /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +26,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3426056921B20EF200733FAB /* Distributions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distributions.swift; sourceTree = "<group>"; };
 		345BED1921AD3DBC00449911 /* CommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
 		345BED1B21AD493B00449911 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E28007381CCCA833002A2A6C /* SwiftStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E280073B1CCCA833002A2A6C /* SwiftStats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftStats.h; sourceTree = "<group>"; };
 		E280073D1CCCA833002A2A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E28007421CCCA833002A2A6C /* SwiftStatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftStatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28007471CCCA833002A2A6C /* DistributionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionsTests.swift; sourceTree = "<group>"; };
 		E28007491CCCA833002A2A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E28007521CCCA910002A2A6C /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		E28007531CCCA926002A2A6C /* stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = stats.swift; path = SwiftStats/stats.swift; sourceTree = "<group>"; };
+		E28007531CCCA926002A2A6C /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,6 @@
 		E280072E1CCCA833002A2A6C = {
 			isa = PBXGroup;
 			children = (
-				E28007531CCCA926002A2A6C /* stats.swift */,
 				345BED1B21AD493B00449911 /* README.md */,
 				E280073A1CCCA833002A2A6C /* SwiftStats */,
 				E28007461CCCA833002A2A6C /* SwiftStatsTests */,
@@ -81,7 +80,8 @@
 		E280073A1CCCA833002A2A6C /* SwiftStats */ = {
 			isa = PBXGroup;
 			children = (
-				E280073B1CCCA833002A2A6C /* SwiftStats.h */,
+				E28007531CCCA926002A2A6C /* Common.swift */,
+				3426056921B20EF200733FAB /* Distributions.swift */,
 				E280073D1CCCA833002A2A6C /* Info.plist */,
 			);
 			path = SwiftStats;
@@ -104,7 +104,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E280073C1CCCA833002A2A6C /* SwiftStats.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +208,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E28007541CCCA926002A2A6C /* stats.swift in Sources */,
+				E28007541CCCA926002A2A6C /* Common.swift in Sources */,
+				3426056A21B20EF200733FAB /* Distributions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +261,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -281,10 +281,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks @loader_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				RESOURCES_TARGETED_DEVICE_FAMILY = "";
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -320,7 +325,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -334,9 +339,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks @loader_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				RESOURCES_TARGETED_DEVICE_FAMILY = "";
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				VERSIONING_SYSTEM = "apple-generic";
