@@ -314,11 +314,19 @@ public struct Distributions {
         }
         
         public convenience init(data: [Double]) {
-            // this calculates the mean twice, since variance()
+            // This calculates the mean twice, since variance()
             // uses the mean and calls mean()
-            let dataLog = Common.logArray(data)
-            self.init(meanLog: Common.mean(dataLog),
-                      varianceLog: Common.variance(dataLog))
+
+            // Create an array of Doubles the same length as data
+            var logData = [Double](repeating: 0, count: data.count)
+            
+            // Find the log of all the values in the array data
+            for i in stride(from: 0, to: data.count, by: 1) {
+                logData[i] = log(data[i])
+            }
+            
+            self.init(meanLog: Common.mean(logData),
+                      varianceLog: Common.variance(logData))
         }
         
         public func Pdf(_ x: Double) -> Double {
@@ -474,14 +482,6 @@ public struct Common {
 			return -Float(Int.max)
 		}
 	}
-    
-    public static func logArray(_ data: [Double]) -> [Double] {
-        var result: [Double] = data
-        for i in stride(from: 0, to: result.count, by: 1) {
-            result[i] = log(result[i])
-        }
-        return result
-    }
 
 	public static func erfinv(_ y: Double) -> Double {
 		let center = 0.7
