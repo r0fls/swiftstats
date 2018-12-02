@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/matthew/Desktop/swiftstats/SwiftStatsTests/ExampleCodeTests.swift">
+   </FileRef>
+   <FileRef
       location = "group:../README.md">
    </FileRef>
    <FileRef

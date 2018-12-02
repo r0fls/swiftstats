@@ -10,7 +10,7 @@ import XCTest
 
 class ExampleCodeTests: XCTestCase {
     // A small value, epsilon, which specifies the maximum difference between
-    // two floating-point for the two values to be considered sufficiently
+    // two floating-points for the two values to be considered sufficiently
     // equal.
     let epsilon: Double = 1e-7
 
