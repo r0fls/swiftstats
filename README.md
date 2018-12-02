@@ -69,46 +69,54 @@ In Xcode, open the project file `SwiftStats.xcodeproj`.  Select a target, and co
 
 ## Example Usage
 
-To print a random number that is normally distributed with a mean of 0 and a variance of 1:
+Start by importing the library:
 
 ```swift
 
 import SwiftStats
+```
 
-let  n = SwiftStats.Distributions.Normal(0, 1.0)
-print(n.random())
+To print a random number that is normally distributed with a mean of 0 and a variance of 1:
+
+```swift
+let n1 = SwiftStats.Distributions.Normal(m:0, v:1.0)
+print(n1.random())
 ```
 
 To print a random number that is normally distributed, with parameters based on previous samples:
 
 ```swift
-
-import SwiftStats
-
-let n = SwiftStats.Distributions.Normal([0,-1,1,0])
-print(n.random())
+let n2 = SwiftStats.Distributions.Normal(data:[0,-1,1,0])
+print(n2.random())
 ```
 
 To find the median of some data:
 
 ```swift
-import SwiftStats
-SwiftStats.Common.Median([1,4,3,2]) // -> 2.5
-SwiftStats.Common.Median([3,1,2]) // -> 2
+let median1 = SwiftStats.Common.median([1,4,3,2]) // -> 2.5
+XCTAssert(abs(median1 - 2.5) < epsilon)
+let median2 = SwiftStats.Common.median([3,1,2]) // -> 2
+XCTAssert(abs(median2 - 2.0) < epsilon)
 ```
 
 ### Advanced
 You can seed the random variable by using the distributions's seed method (or calling `srand48()` directly), or leave it to use the default seed:
+
 ```swift
-n = Normal(0, 1.0)
+let n3 = SwiftStats.Distributions.Normal(m:0, v:1.0)
+
 // default randomly seeded variable
-print(n.random())
+print(n3.random())
+
 // using the distributions' seed method
-n.seed(42)
-print(n.random())
+n3.seed(42)
+let random1 = n3.random()
+XCTAssert(abs(random1 - 0.6573591680550961) < epsilon)
+
 // using srand48() directly
 srand48(1)
-print(n.random())
+let random2 = n3.random()
+XCTAssert(abs(random2 - -1.7320723047642332) < epsilon)
 ```
 
 ## Contributing
