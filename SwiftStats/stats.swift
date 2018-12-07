@@ -1,6 +1,8 @@
 import Foundation
 
 public struct Distributions {
+    private static let pi = Double.pi
+    
 	// these first three classes need to be public so that their
 	// child classes can be, though they don't get used directly
 	public class Distribution {
@@ -262,18 +264,17 @@ public struct Distributions {
 		// mean and variance
 		var m: Double
 		var v: Double
-		let pi = Double.pi
 
 		public init(m: Double, v: Double) {
 			self.m = m
 			self.v = v
 		}
         
-        public init(mean: Double, sd: Double) {
+        public convenience init(mean: Double, sd: Double) {
             // This contructor takes the mean and standard deviation, which is the more
             // common parameterisation of a normal distribution.
-            self.m = mean
-            self.v = pow(sd, 2)
+            let variance = pow(sd, 2)
+            self.init(m: mean, v: variance)
         }
 
 		public convenience init(data: [Double]) {
@@ -294,6 +295,53 @@ public struct Distributions {
 			return self.m + pow(self.v*2,0.5)*Common.erfinv(2*p - 1)
 		}
 	}
+    
+    public class LogNormal: Continuous {
+        // Mean and variance
+        var m: Double
+        var v: Double
+        
+        public init(meanLog: Double, varianceLog: Double) {
+            self.m = meanLog
+            self.v = varianceLog
+        }
+        
+        public convenience init(meanLog: Double, sdLog: Double) {
+            // This contructor takes the mean and standard deviation, which is the more
+            // common parameterisation of a log-normal distribution.
+            let varianceLog = pow(sdLog, 2)
+            self.init(meanLog: meanLog, varianceLog: varianceLog)
+        }
+        
+        public convenience init(data: [Double]) {
+            // This calculates the mean twice, since variance()
+            // uses the mean and calls mean()
+
+            // Create an array of Doubles the same length as data
+            var logData = [Double](repeating: 0, count: data.count)
+            
+            // Find the log of all the values in the array data
+            for i in stride(from: 0, to: data.count, by: 1) {
+                logData[i] = log(data[i])
+            }
+            
+            self.init(meanLog: Common.mean(logData),
+                      varianceLog: Common.variance(logData))
+        }
+        
+        public func Pdf(_ x: Double) -> Double {
+            return 1/(x*sqrt(2*pi*v)) * exp(-pow(log(x)-m,2)/(2*v))
+        }
+        
+        public func Cdf(_ x: Double) -> Double {
+            return 0.5 + 0.5*erf((log(x)-m)/sqrt(2*v))
+        }
+        
+        override public func Quantile(_ p: Double) -> Double {
+            return exp(m + sqrt(2*v)*Common.erfinv(2*p - 1))
+        }
+
+    }
 
 	public class Uniform: Continuous {
 		// a and b are endpoints, that is
@@ -336,6 +384,8 @@ public struct Distributions {
 }
 // COMMON FUNCTIONS
 public struct Common {
+    private static let pi = Double.pi
+    
 	public static func factorial(_ n: Int) -> Int {
 		return Int(tgamma(Double(n+1)))
 	}
@@ -444,8 +494,8 @@ public struct Common {
 			let num = (((a[3]*z + a[2])*z + a[1])*z) + a[0]
 			let den = ((((b[3]*z + b[2])*z + b[1])*z + b[0])*z + 1.0)
 			var x = y*num/den
-			x = x - (erf(x) - y)/(2.0/sqrt(Double.pi)*exp(-x*x))
-			x = x - (erf(x) - y)/(2.0/sqrt(Double.pi)*exp(-x*x))
+			x = x - (erf(x) - y)/(2.0/sqrt(pi)*exp(-x*x))
+			x = x - (erf(x) - y)/(2.0/sqrt(pi)*exp(-x*x))
 			return x
 		}
 
@@ -455,8 +505,8 @@ public struct Common {
 			let den = (d[1]*z + d[0])*z + 1
 			// should use the sign public static function instead of pow(pow(y,2),0.5)
 			var x = y/pow(pow(y,2),0.5)*num/den
-			x = x - (erf(x) - y)/(2.0/sqrt(Double.pi)*exp(-x*x))
-			x = x - (erf(x) - y)/(2.0/sqrt(Double.pi)*exp(-x*x))
+			x = x - (erf(x) - y)/(2.0/sqrt(pi)*exp(-x*x))
+			x = x - (erf(x) - y)/(2.0/sqrt(pi)*exp(-x*x))
 			return x
 		}
 
