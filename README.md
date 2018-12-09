@@ -2,6 +2,8 @@
 # swiftstats
 Statistics for swift &mdash; v1.3.0
 
+Modification to trigger a Travis test.
+
 ## Features
 ### Distributions
 Currently the following distributions are included: 
