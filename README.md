@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/r0fls/swiftstats.png)](https://travis-ci.org/r0fls/swiftstats)
 # swiftstats
-Statistics for Swift &mdash; v1.0.0
+Statistics for swift &mdash; v1.3.0
 
 ## Features
 ### Distributions
@@ -94,9 +94,7 @@ To find the median of some data:
 
 ```swift
 let median1 = SwiftStats.Common.median([1,4,3,2]) // -> 2.5
-XCTAssert(abs(median1 - 2.5) < epsilon)
 let median2 = SwiftStats.Common.median([3,1,2]) // -> 2
-XCTAssert(abs(median2 - 2.0) < epsilon)
 ```
 
 ### Advanced
