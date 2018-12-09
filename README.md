@@ -1,11 +1,12 @@
 [![Build Status](https://travis-ci.org/r0fls/swiftstats.png)](https://travis-ci.org/r0fls/swiftstats)
 # swiftstats
-Statistics for Swift &mdash; v1.0.0
+Statistics for swift &mdash; v1.2.0
 
 ## Features
 ### Distributions
 Currently the following distributions are included: 
 - Normal
+- Log-normal
 - Bernoulli 
 - Laplace 
 - Poisson
@@ -15,10 +16,10 @@ Currently the following distributions are included:
 - Binomial
 
 And each distribution has these methods:
-- Pmf or Pdf
-- Cdf
-- Quantile
-- Random (takes an optional int and returns an array of that length, or otherwise a single value) 
+- pmf or pdf
+- cdf
+- quantile
+- random (takes an optional int and returns an array of that length, or otherwise a single value) 
 
 ### Common Functions
 - median (`Int`, `Float`, `Double`)
@@ -92,8 +93,8 @@ To find the median of some data:
 
 ```swift
 import SwiftStats
-SwiftStats.Common.Median([1,4,3,2]) // -> 2.5
-SwiftStats.Common.Median([3,1,2]) // -> 2
+SwiftStats.Common.median([1,4,3,2]) // -> 2.5
+SwiftStats.Common.median([3,1,2]) // -> 2
 ```
 
 ### Advanced
