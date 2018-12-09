@@ -1,6 +1,9 @@
 language: swift
 osx_image: xcode10.1
 
+xcode_destination:
+	- platform=macOS
+	- platform=iOS Simulator,OS=12.1,name=iPhone X
 
 install:
         - true
