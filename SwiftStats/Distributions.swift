@@ -22,12 +22,16 @@ public struct Distributions {
 			return -Int.max
 		}
 
-		// single discrete random value
+		/// Single discrete random value
 		public func random() -> Int {
 			return self.quantile(Double(drand48()))
 		}
 
-		// array of discrete random values
+        /**
+         Array of discrete random values
+         - Parameter n: number of values to produce
+         - Complexity: O(n)
+         */
 		public func random(_ n: Int) -> [Int] {
 			var results: [Int] = []
 			for _ in 0..<n {
@@ -42,13 +46,18 @@ public struct Distributions {
 		public func quantile(_ p: Double) -> Double {
 			return -1*Double.nan
 		}
-		// single continuous random value
+        
+		/// Single continuous random value
 		public func random() -> Double {
-
 			return self.quantile(Double(drand48()))
 		}
-		// array of discrete random values
-		public func random(_ n: Int) -> [Double] {
+        
+		/**
+         Array of continuous random values
+         - Parameter n: number of values to produce
+         - Complexity: O(n)
+         */
+ 		public func random(_ n: Int) -> [Double] {
 			var results: [Double] = []
 			for _ in 0..<n {
 				results.append(self.random())
@@ -296,23 +305,50 @@ public struct Distributions {
 		}
 	}
     
+    /**
+     The log-normal continuous distribution.
+     
+     Three constructors are provided.
+     
+     There are two parameter-based constructors; both take the mean of the
+     distribution on the log scale.  One constructor takes the variance of
+     the distribution on the log scale, and the other takes the standard
+     deviation on the log scale.  See `LogNormal.init(meanLog:varianceLog:)` and
+     `LogNormal.init(meanLog:sdLog:)`.
+     
+     One data-based constructor is provided.  Given an array of sample values,
+     a log-normal distribution will be created parameterised by the mean and
+     variance of the sample data.
+    */
     public class LogNormal: Continuous {
         // Mean and variance
         var m: Double
         var v: Double
         
+        /**
+         Constructor that takes the mean and the variance of the distribution
+         under the log scale.
+         */
         public init(meanLog: Double, varianceLog: Double) {
             self.m = meanLog
             self.v = varianceLog
         }
         
+        /**
+         Constructor that takes the mean and the standard deviation of the
+         distribution under the log scale.
+         */
         public convenience init(meanLog: Double, sdLog: Double) {
-            // This contructor takes the mean and standard deviation, which is the more
-            // common parameterisation of a log-normal distribution.
+            // This contructor takes the mean and standard deviation, which is
+            // the more common parameterisation of a log-normal distribution.
             let varianceLog = pow(sdLog, 2)
             self.init(meanLog: meanLog, varianceLog: varianceLog)
         }
         
+        /**
+         Constructor that takes sample data and uses the the mean and the
+         standard deviation of the sample data under the log scale.
+         */
         public convenience init(data: [Double]) {
             // This calculates the mean twice, since variance()
             // uses the mean and calls mean()
