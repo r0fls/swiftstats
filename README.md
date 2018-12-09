@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/r0fls/swiftstats.png)](https://travis-ci.org/r0fls/swiftstats)
 # swiftstats
-Statistics for swift &mdash; v1.2.0
+Statistics for swift &mdash; v1.3.0
 
 ## Features
 ### Distributions
