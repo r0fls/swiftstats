@@ -33,7 +33,7 @@
 		3434BF3821E5AD5B006D82FF /* KDETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDETests.swift; sourceTree = "<group>"; };
 		3434BF3A21E6AD6B006D82FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		345BED1921AD3DBC00449911 /* CommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
-		347C052321B37399006E885F /* ExampleCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExampleCodeTests.swift; path = /Users/matthew/Desktop/swiftstats/SwiftStatsTests/ExampleCodeTests.swift; sourceTree = "<absolute>"; };
+		347C052321B37399006E885F /* ExampleCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCodeTests.swift; sourceTree = "<group>"; };
 		E28007381CCCA833002A2A6C /* SwiftStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E280073D1CCCA833002A2A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E28007421CCCA833002A2A6C /* SwiftStatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftStatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
