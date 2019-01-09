@@ -86,7 +86,7 @@ print(n1.random())
 To print a random number that is normally distributed, with parameters based on previous samples:
 
 ```swift
-let n2 = SwiftStats.Distributions.Normal(data:[0,-1,1,0])
+let n2 = try SwiftStats.Distributions.Normal(data:[0,-1,1,0])
 print(n2.random())
 ```
 

@@ -31,6 +31,7 @@
 		3426056921B20EF200733FAB /* Distributions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distributions.swift; sourceTree = "<group>"; };
 		3434BF3621E58CE3006D82FF /* KernelDensityEstimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KernelDensityEstimation.swift; sourceTree = "<group>"; };
 		3434BF3821E5AD5B006D82FF /* KDETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDETests.swift; sourceTree = "<group>"; };
+		3434BF3A21E6AD6B006D82FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		345BED1921AD3DBC00449911 /* CommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
 		347C052321B37399006E885F /* ExampleCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExampleCodeTests.swift; path = /Users/matthew/Desktop/swiftstats/SwiftStatsTests/ExampleCodeTests.swift; sourceTree = "<absolute>"; };
 		E28007381CCCA833002A2A6C /* SwiftStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +65,7 @@
 		E280072E1CCCA833002A2A6C = {
 			isa = PBXGroup;
 			children = (
+				3434BF3A21E6AD6B006D82FF /* README.md */,
 				E280073A1CCCA833002A2A6C /* SwiftStats */,
 				E28007461CCCA833002A2A6C /* SwiftStatsTests */,
 				E28007391CCCA833002A2A6C /* Products */,

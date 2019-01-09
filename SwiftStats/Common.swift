@@ -24,7 +24,11 @@ public struct Common {
 		return Double(data.reduce(0, +))/Double(data.count)
 	}
 
-	public static func variance(_ data: [Double]) -> Double {
+	public static func variance(_ data: [Double]) -> Double? {
+        if data.count < 2 {
+            return nil
+        }
+        
 		let m = mean(data)
 		var total = 0.0
 		for i in 0..<data.count {
@@ -32,6 +36,15 @@ public struct Common {
 		}
 		return total/Double(data.count-1)
 	}
+    
+    public static func sd(_ data: [Double]) -> Double? {
+        let v = variance(data)
+        if v == nil {
+            return nil
+        } else {
+            return sqrt(v!)
+        }
+    }
 
 	public static func pvariance(_ data: [Double]) -> Double {
 		let m = mean(data)

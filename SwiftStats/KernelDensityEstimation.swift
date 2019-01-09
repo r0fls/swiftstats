@@ -10,19 +10,27 @@ import Foundation
 
 extension Common {
     public class KernelDensityEstimation {
+        enum Errors : Error {
+            case AtLeastTwoDataPointsRequired
+        }
+        
         let data : [Double]
         let bandwidth : Double
         let n: Double
         
-        init(_ data: [Double], bandwidth: Double?) {
+        init(_ data: [Double], bandwidth: Double?) throws {
             self.data = data
+            self.n = Double(data.count)
+            
             if bandwidth != nil {
                 self.bandwidth = bandwidth!
             } else {
-                self.bandwidth = 1.0 // FIXME
+                let sd = SwiftStats.Common.sd(data)
+                if sd == nil {
+                    throw Errors.AtLeastTwoDataPointsRequired
+                }
+                self.bandwidth = 1.06 * sd! * pow(n, -1.0/5.0)
             }
-            
-            self.n = Double(data.count)
         }
         
         func evaluate(_ x: Double) -> Double {
