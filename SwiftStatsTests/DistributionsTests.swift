@@ -10,8 +10,9 @@ import XCTest
 @testable import SwiftStats
 
 class DistributionsTests: XCTestCase {
-    // A small value, epsilon, which specifies the maximum difference between two floating-point
-    // for the two values to be considered sufficiently equal.
+    // A small value, epsilon, which specifies the maximum difference between
+    // two floating-point values for the two values to be considered
+    // sufficiently equal for testing purposes.
     let epsilon: Double = 1e-7
     
     func testVersion() {

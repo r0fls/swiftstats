@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3426056A21B20EF200733FAB /* Distributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426056921B20EF200733FAB /* Distributions.swift */; };
+		3434BF3721E58CE4006D82FF /* KernelDensityEstimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3434BF3621E58CE3006D82FF /* KernelDensityEstimation.swift */; };
+		3434BF3921E5AD5B006D82FF /* KDETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3434BF3821E5AD5B006D82FF /* KDETests.swift */; };
 		345BED1A21AD3DBC00449911 /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345BED1921AD3DBC00449911 /* CommonTests.swift */; };
 		347C052421B37399006E885F /* ExampleCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C052321B37399006E885F /* ExampleCodeTests.swift */; };
 		E28007431CCCA833002A2A6C /* SwiftStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E28007381CCCA833002A2A6C /* SwiftStats.framework */; };
@@ -27,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		3426056921B20EF200733FAB /* Distributions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distributions.swift; sourceTree = "<group>"; };
+		3434BF3621E58CE3006D82FF /* KernelDensityEstimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KernelDensityEstimation.swift; sourceTree = "<group>"; };
+		3434BF3821E5AD5B006D82FF /* KDETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDETests.swift; sourceTree = "<group>"; };
 		345BED1921AD3DBC00449911 /* CommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
 		347C052321B37399006E885F /* ExampleCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExampleCodeTests.swift; path = /Users/matthew/Desktop/swiftstats/SwiftStatsTests/ExampleCodeTests.swift; sourceTree = "<absolute>"; };
 		E28007381CCCA833002A2A6C /* SwiftStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				E28007531CCCA926002A2A6C /* Common.swift */,
+				3434BF3621E58CE3006D82FF /* KernelDensityEstimation.swift */,
 				3426056921B20EF200733FAB /* Distributions.swift */,
 				E280073D1CCCA833002A2A6C /* Info.plist */,
 			);
@@ -92,6 +97,7 @@
 				347C052321B37399006E885F /* ExampleCodeTests.swift */,
 				E28007471CCCA833002A2A6C /* DistributionsTests.swift */,
 				345BED1921AD3DBC00449911 /* CommonTests.swift */,
+				3434BF3821E5AD5B006D82FF /* KDETests.swift */,
 				E28007491CCCA833002A2A6C /* Info.plist */,
 			);
 			path = SwiftStatsTests;
@@ -207,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3434BF3721E58CE4006D82FF /* KernelDensityEstimation.swift in Sources */,
 				E28007541CCCA926002A2A6C /* Common.swift in Sources */,
 				3426056A21B20EF200733FAB /* Distributions.swift in Sources */,
 			);
@@ -216,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3434BF3921E5AD5B006D82FF /* KDETests.swift in Sources */,
 				345BED1A21AD3DBC00449911 /* CommonTests.swift in Sources */,
 				E28007481CCCA833002A2A6C /* DistributionsTests.swift in Sources */,
 				347C052421B37399006E885F /* ExampleCodeTests.swift in Sources */,
