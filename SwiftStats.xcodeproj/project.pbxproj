@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3426056A21B20EF200733FAB /* Distributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426056921B20EF200733FAB /* Distributions.swift */; };
+		3434BF3721E58CE4006D82FF /* KernelDensityEstimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3434BF3621E58CE3006D82FF /* KernelDensityEstimation.swift */; };
+		3434BF3921E5AD5B006D82FF /* KDETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3434BF3821E5AD5B006D82FF /* KDETests.swift */; };
 		345BED1A21AD3DBC00449911 /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345BED1921AD3DBC00449911 /* CommonTests.swift */; };
-		345BED1C21AD493B00449911 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 345BED1B21AD493B00449911 /* README.md */; };
+		347C052421B37399006E885F /* ExampleCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C052321B37399006E885F /* ExampleCodeTests.swift */; };
 		E28007431CCCA833002A2A6C /* SwiftStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E28007381CCCA833002A2A6C /* SwiftStats.framework */; };
 		E28007481CCCA833002A2A6C /* DistributionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28007471CCCA833002A2A6C /* DistributionsTests.swift */; };
 		E28007541CCCA926002A2A6C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28007531CCCA926002A2A6C /* Common.swift */; };
@@ -27,8 +29,11 @@
 
 /* Begin PBXFileReference section */
 		3426056921B20EF200733FAB /* Distributions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distributions.swift; sourceTree = "<group>"; };
+		3434BF3621E58CE3006D82FF /* KernelDensityEstimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KernelDensityEstimation.swift; sourceTree = "<group>"; };
+		3434BF3821E5AD5B006D82FF /* KDETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDETests.swift; sourceTree = "<group>"; };
+		3434BF3A21E6AD6B006D82FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		345BED1921AD3DBC00449911 /* CommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
-		345BED1B21AD493B00449911 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		347C052321B37399006E885F /* ExampleCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCodeTests.swift; sourceTree = "<group>"; };
 		E28007381CCCA833002A2A6C /* SwiftStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E280073D1CCCA833002A2A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E28007421CCCA833002A2A6C /* SwiftStatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftStatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +65,7 @@
 		E280072E1CCCA833002A2A6C = {
 			isa = PBXGroup;
 			children = (
-				345BED1B21AD493B00449911 /* README.md */,
+				3434BF3A21E6AD6B006D82FF /* README.md */,
 				E280073A1CCCA833002A2A6C /* SwiftStats */,
 				E28007461CCCA833002A2A6C /* SwiftStatsTests */,
 				E28007391CCCA833002A2A6C /* Products */,
@@ -81,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				E28007531CCCA926002A2A6C /* Common.swift */,
+				3434BF3621E58CE3006D82FF /* KernelDensityEstimation.swift */,
 				3426056921B20EF200733FAB /* Distributions.swift */,
 				E280073D1CCCA833002A2A6C /* Info.plist */,
 			);
@@ -90,8 +96,10 @@
 		E28007461CCCA833002A2A6C /* SwiftStatsTests */ = {
 			isa = PBXGroup;
 			children = (
+				347C052321B37399006E885F /* ExampleCodeTests.swift */,
 				E28007471CCCA833002A2A6C /* DistributionsTests.swift */,
 				345BED1921AD3DBC00449911 /* CommonTests.swift */,
+				3434BF3821E5AD5B006D82FF /* KDETests.swift */,
 				E28007491CCCA833002A2A6C /* Info.plist */,
 			);
 			path = SwiftStatsTests;
@@ -190,7 +198,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				345BED1C21AD493B00449911 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3434BF3721E58CE4006D82FF /* KernelDensityEstimation.swift in Sources */,
 				E28007541CCCA926002A2A6C /* Common.swift in Sources */,
 				3426056A21B20EF200733FAB /* Distributions.swift in Sources */,
 			);
@@ -217,8 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3434BF3921E5AD5B006D82FF /* KDETests.swift in Sources */,
 				345BED1A21AD3DBC00449911 /* CommonTests.swift in Sources */,
 				E28007481CCCA833002A2A6C /* DistributionsTests.swift in Sources */,
+				347C052421B37399006E885F /* ExampleCodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

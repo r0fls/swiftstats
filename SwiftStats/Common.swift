@@ -24,7 +24,11 @@ public struct Common {
 		return Double(data.reduce(0, +))/Double(data.count)
 	}
 
-	public static func variance(_ data: [Double]) -> Double {
+	public static func variance(_ data: [Double]) -> Double? {
+        if data.count < 2 {
+            return nil
+        }
+        
 		let m = mean(data)
 		var total = 0.0
 		for i in 0..<data.count {
@@ -32,6 +36,15 @@ public struct Common {
 		}
 		return total/Double(data.count-1)
 	}
+    
+    public static func sd(_ data: [Double]) -> Double? {
+        let v = variance(data)
+        if v == nil {
+            return nil
+        } else {
+            return sqrt(v!)
+        }
+    }
 
 	public static func pvariance(_ data: [Double]) -> Double {
 		let m = mean(data)
@@ -100,15 +113,7 @@ public struct Common {
 			return -Float(Int.max)
 		}
 	}
-    
-    public static func logArray(_ data: [Double]) -> [Double] {
-        var result: [Double] = data
-        for i in stride(from: 0, to: result.count, by: 1) {
-            result[i] = log(result[i])
-        }
-        return result
-    }
-
+   
 	public static func erfinv(_ y: Double) -> Double {
 		let center = 0.7
 		let a = [ 0.886226899, -1.645349621,  0.914624893, -0.140543331]

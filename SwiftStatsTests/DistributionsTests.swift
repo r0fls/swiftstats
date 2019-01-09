@@ -10,8 +10,9 @@ import XCTest
 @testable import SwiftStats
 
 class DistributionsTests: XCTestCase {
-    // A small value, epsilon, which specifies the maximum difference between two floating-point
-    // for the two values to be considered sufficiently equal.
+    // A small value, epsilon, which specifies the maximum difference between
+    // two floating-point values for the two values to be considered
+    // sufficiently equal for testing purposes.
     let epsilon: Double = 1e-7
     
     func testVersion() {
@@ -21,18 +22,7 @@ class DistributionsTests: XCTestCase {
           XCTFail()
         #endif
     }
-    
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
+        
     func testBernoulli() {
         var b = SwiftStats.Distributions.Bernoulli(p: 0.7)
         srand48(0)
@@ -117,6 +107,10 @@ class DistributionsTests: XCTestCase {
     }
     
     func testNormal() {
+        // Check that errors are thrown if insufficient data is passed in
+        XCTAssertThrowsError(try SwiftStats.Distributions.Normal(data: []))
+        XCTAssertThrowsError(try SwiftStats.Distributions.Normal(data: [0]))
+
         let n = SwiftStats.Distributions.Normal(mean: 0.0, sd: 1.0)
 
         // 50% of the Normal distribution should be below x=0
@@ -134,7 +128,11 @@ class DistributionsTests: XCTestCase {
         XCTAssert(n.pdf(0) - 0.3989423 < epsilon)
     }
 
-    func testLogNormal() {
+    func testLogNormal() throws {
+        // Check that errors are thrown if insufficient data is passed in
+        XCTAssertThrowsError(try SwiftStats.Distributions.LogNormal(data: []))
+        XCTAssertThrowsError(try SwiftStats.Distributions.LogNormal(data: [0]))
+
         let d = SwiftStats.Distributions.LogNormal(meanLog: 0.0, sdLog: 1.0)
 
         // CDF test values taken from R, where CDF <-> plnorm()
@@ -149,7 +147,7 @@ class DistributionsTests: XCTestCase {
 
         // PDF test values taken from R, where PDF <-> dlnorm()
         // XCTAssert(abs(n.pdf(0) - 0) < epsilon) -- we fail this test but it's unclear R
-        // has the right result; infinity time zero is undefined, why is R returning zero?
+        // has the right result; infinity times zero is undefined, why is R returning zero?
         XCTAssert(abs(d.pdf(0.01) - 0.0009902387) < epsilon)
         XCTAssert(abs(d.pdf(0.1) - 0.2815902) < epsilon)
         XCTAssert(abs(d.pdf(1) - 0.3989423) < epsilon)
@@ -157,7 +155,7 @@ class DistributionsTests: XCTestCase {
         
         // Create log-normal distribution using array-based constructor
         let data = [1.0, 2.0, 3.0]
-        let d2 = SwiftStats.Distributions.LogNormal(data: data)
+        let d2 = try SwiftStats.Distributions.LogNormal(data: data)
         
         // Test that array-based constructor has correctly instantiated the distribution
         // mean(log(c(1,2,3))) -> 0.5972532

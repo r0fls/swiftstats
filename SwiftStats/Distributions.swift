@@ -1,6 +1,10 @@
 import Foundation
 
 public struct Distributions {
+    enum Errors : Error {
+        case AtLeastTwoDataPointsRequired
+    }
+    
     private static let pi = Double.pi
     
 	// these first three classes need to be public so that their
@@ -286,10 +290,13 @@ public struct Distributions {
             self.init(m: mean, v: variance)
         }
 
-		public convenience init(data: [Double]) {
+		public convenience init(data: [Double]) throws {
 			// this calculates the mean twice, since variance()
 			// uses the mean and calls mean()
-			self.init(m: Common.mean(data), v: Common.variance(data))
+            guard let v = Common.variance(data) else {
+                throw Errors.AtLeastTwoDataPointsRequired
+            }
+			self.init(m: Common.mean(data), v: v)
 		}
 
 		public func pdf(_ x: Double) -> Double {
@@ -349,7 +356,7 @@ public struct Distributions {
          Constructor that takes sample data and uses the the mean and the
          standard deviation of the sample data under the log scale.
          */
-        public convenience init(data: [Double]) {
+        public convenience init(data: [Double]) throws {
             // This calculates the mean twice, since variance()
             // uses the mean and calls mean()
 
@@ -361,8 +368,12 @@ public struct Distributions {
                 logData[i] = log(data[i])
             }
             
+            guard let v = Common.variance(logData) else {
+                throw Errors.AtLeastTwoDataPointsRequired
+            }
+        
             self.init(meanLog: Common.mean(logData),
-                      varianceLog: Common.variance(logData))
+                      varianceLog: v)
         }
         
         public func pdf(_ x: Double) -> Double {
