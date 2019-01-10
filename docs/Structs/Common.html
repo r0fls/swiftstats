@@ -14,7 +14,7 @@
     <a title="Common Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (24% documented)</p>
+        <p><a href="../index.html"> Docs</a> (31% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -34,7 +34,7 @@
                 <a href="../Structs/Common.html">Common</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/Common.html#/s:10SwiftStats6CommonV23KernelDensityEstimationC">– KernelDensityEstimation</a>
+                <a href="../Structs/Common/KernelDensityEstimation.html">– KernelDensityEstimation</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Distributions.html">Distributions</a>
@@ -101,7 +101,8 @@ not have at least two values then <code>nil</code> is returned.</p>
 
 <p>Functions here are often generic in that they work for a range of types (for
 example, the same function is called to calculate the mean of Int8, Int32,
-Int64, or Int arrays).</p>
+Int64, or Int arrays).  Separate implementations can be found for BinaryInteger
+and BinaryFloatingPoint protocols.</p>
 
           </section>
           <section class="section task-group-section">
@@ -110,9 +111,9 @@ Int64, or Int arrays).</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftStats6CommonV9factorialyS2iFZ"></a>
+                    <a name="/s:10SwiftStats6CommonV9factorialySiSgxSzRzlFZ"></a>
                     <a name="//apple_ref/swift/Method/factorial(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftStats6CommonV9factorialyS2iFZ">factorial(_:)</a>
+                    <a class="token" href="#/s:10SwiftStats6CommonV9factorialySiSgxSzRzlFZ">factorial(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -120,14 +121,15 @@ Int64, or Int arrays).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Calculate <code>n!</code> for values of <code>n</code> that conform to the BinaryInteger
+protocol.  Returns <code>nil</code> if <code>n</code> is less than zero.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">_</span> <span class="nv">n</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">factorial</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">n</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span><span class="p">?</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">BinaryInteger</span></code></pre>
 
                         </div>
                       </div>
@@ -137,9 +139,9 @@ Int64, or Int arrays).</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftStats6CommonV6choose_1kS2i_SitFZ"></a>
-                    <a name="//apple_ref/swift/Method/choose(_:k:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftStats6CommonV6choose_1kS2i_SitFZ">choose(_:k:)</a>
+                    <a name="/s:10SwiftStats6CommonV9factorialySdSgxSBRzlFZ"></a>
+                    <a name="//apple_ref/swift/Method/factorial(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftStats6CommonV9factorialySdSgxSBRzlFZ">factorial(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -147,14 +149,72 @@ Int64, or Int arrays).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Calculate <code>n!</code> for values of <code>n</code> that conform to the BinaryFloatingPoint
+protocol.  Uses the gamma function to <q>fill in</q> values of <code>n</code> that are
+not integers.  Returns <code>nil</code> if <code>n</code> is less than zero.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">choose</span><span class="p">(</span><span class="n">_</span> <span class="nv">n</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">k</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">factorial</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">n</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span><span class="p">?</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">BinaryFloatingPoint</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftStats6CommonV6choose1n1kSix_xtSzRzlFZ"></a>
+                    <a name="//apple_ref/swift/Method/choose(n:k:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftStats6CommonV6choose1n1kSix_xtSzRzlFZ">choose(n:k:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calculate n-choose-k for values of <code>n</code> and <code>k</code> that conform to the BinaryInteger
+protocol.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">choose</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">n</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">k</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">BinaryInteger</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftStats6CommonV6choose1n1kSdx_q_tSBRzSzR_r0_lFZ"></a>
+                    <a name="//apple_ref/swift/Method/choose(n:k:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftStats6CommonV6choose1n1kSdx_q_tSBRzSzR_r0_lFZ">choose(n:k:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calculate n-choose-k for values of <code>n</code> that conform to the BinaryFloatingPoint
+protocol and values of <code>k</code> that conform to the BinaryInteger protocol.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">choose</span><span class="o">&lt;</span><span class="kt">N</span><span class="p">,</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">n</span><span class="p">:</span> <span class="kt">N</span><span class="p">,</span> <span class="nv">k</span><span class="p">:</span> <span class="kt">K</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span> <span class="k">where</span> <span class="kt">N</span> <span class="p">:</span> <span class="kt">BinaryFloatingPoint</span><span class="p">,</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">BinaryInteger</span></code></pre>
 
                         </div>
                       </div>
@@ -746,8 +806,10 @@ satisfy the BinaryInteger protocol (e.g Int, Int32).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Kernel density estimation using a Gaussian kernel and automatic bandwidth
+selection via Silverman&rsquo;s rule-of-thumb.</p>
 
+                        <a href="../Structs/Common/KernelDensityEstimation.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>

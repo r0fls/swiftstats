@@ -17,8 +17,35 @@ class CommonTests: XCTestCase {
     let epsilon: Double = 1e-7
 
     
-    // TODO: We should have test cases here for all the Common functions
+    func testFactorial() {
+        XCTAssert( SwiftStats.Common.factorial(4)! == 24)
+        XCTAssert( SwiftStats.Common.factorial(0)! == 1)
+        XCTAssertNil( SwiftStats.Common.factorial(-1))
 
+        XCTAssert( abs(SwiftStats.Common.factorial(4.0)! - 24) < epsilon)
+        XCTAssert( abs(SwiftStats.Common.factorial(0.0)! - 1) < epsilon)
+        XCTAssert( abs(SwiftStats.Common.factorial(0.5)! - 0.8862269255) < epsilon)
+        XCTAssertNil( SwiftStats.Common.factorial(-1.0))
+    }
+    
+    
+    func testChoose() {
+        XCTAssert( SwiftStats.Common.choose(n: 2, k: 1) == 2)
+        XCTAssert( SwiftStats.Common.choose(n: 10, k: 4) == 210)
+        XCTAssert( SwiftStats.Common.choose(n: 5, k: 0) == 1)
+        
+        // Note that the following test results come from R.  Our code however
+        // crashes when k < 0, however this isn't easily fixed as Binomial.pmf()
+        // depends on this function not returning nil and not throwing.
+        //XCTAssert( SwiftStats.Common.choose(n: 5, k: -1) == 0)
+        //XCTAssert( SwiftStats.Common.choose(n: -5, k: -1) == 0)
+        //XCTAssert( SwiftStats.Common.choose(n: -5, k: 1) == -5)
+
+        XCTAssert( abs(SwiftStats.Common.choose(n: 2.0, k: 1) - 2) < epsilon)
+        XCTAssert( abs(SwiftStats.Common.choose(n: 2.5, k: 2) - 1.875) < epsilon)
+        
+    }
+    
     
     func testMean() {
         let data1 : [Int] = [1, 2, 3]

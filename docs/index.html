@@ -13,7 +13,7 @@
     <a title="  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (24% documented)</p>
+        <p><a href="index.html"> Docs</a> (31% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -33,7 +33,7 @@
                 <a href="Structs/Common.html">Common</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/Common.html#/s:10SwiftStats6CommonV23KernelDensityEstimationC">– KernelDensityEstimation</a>
+                <a href="Structs/Common/KernelDensityEstimation.html">– KernelDensityEstimation</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/Distributions.html">Distributions</a>
@@ -85,7 +85,11 @@
             <p><a href="https://travis-ci.org/r0fls/swiftstats"><img src="https://travis-ci.org/r0fls/swiftstats.png" alt="Build Status"></a></p>
 <h1 id='swiftstats' class='heading'>swiftstats</h1>
 
-<p>Statistics for swift &mdash; v1.4.0</p>
+<p>Statistics for Swift &mdash; v1.5.0</p>
+
+<p>Wanting to generate a random number with a specific distribution for your iOS app?  Or smooth out your data using kernel density estimation?  SwiftStats has you covered.  </p>
+
+<p>SwiftStats is open-source with automated testing and automatically-generated documentation.  If you&rsquo;d like to help out we&rsquo;d welcome contributions.</p>
 <h2 id='features' class='heading'>Features</h2>
 <h3 id='distributions' class='heading'>Distributions</h3>
 
@@ -114,8 +118,8 @@
 <h3 id='common-functions' class='heading'>Common Functions</h3>
 
 <ul>
-<li>median (<code>Int</code>, <code>Float</code>, <code>Double</code>)</li>
-<li>mean (<code>Int</code>, <code>Float</code>, <code>Double</code>)</li>
+<li>median</li>
+<li>mean</li>
 <li>variance</li>
 <li>standard deviation</li>
 <li>erf<sup>-1</sup> (implemented as <code>erfinv</code>, whereas <code>erf</code> is implemented as part of <code>Foundation</code>)</li>
@@ -174,7 +178,7 @@
 </code></pre>
 
 <p>To print a random number that is normally distributed, with parameters based on previous samples:</p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">n2</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">SwiftStats</span><span class="o">.</span><span class="kt">Distributions</span><span class="o">.</span><span class="kt">Normal</span><span class="p">(</span><span class="nv">data</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">n2</span> <span class="o">=</span> <span class="kt">SwiftStats</span><span class="o">.</span><span class="kt">Distributions</span><span class="o">.</span><span class="kt">Normal</span><span class="p">(</span><span class="nv">data</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 <span class="nf">print</span><span class="p">(</span><span class="n">n2</span><span class="o">.</span><span class="nf">random</span><span class="p">())</span>
 </code></pre>
 
@@ -206,10 +210,10 @@
 <h3 id='to-do' class='heading'>TO-DO</h3>
 
 <ul>
+<li>improve documentation coverage from the current 24%.</li>
 <li>add more distributions</li>
 <li>allow updating a fitted distribution with more data</li>
 <li>pass travis tests without mangling the median function</li>
-<li>add targets (iOS, watch)</li>
 <li>other stuff</li>
 </ul>
 <h2 id='license' class='heading'>License</h2>

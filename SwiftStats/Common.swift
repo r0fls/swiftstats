@@ -19,14 +19,46 @@ import Foundation
 public struct Common {
     private static let pi = Double.pi
     
-	public static func factorial(_ n: Int) -> Int {
+    /**
+     Calculate `n!` for values of `n` that conform to the BinaryInteger
+     protocol.  Returns `nil` if `n` is less than zero.
+     */
+    public static func factorial<T: BinaryInteger>(_ n: T) -> Int? {
+        if n < 0 {
+            return nil
+        }
 		return Int(tgamma(Double(n+1)))
 	}
 
-	public static func choose(_ n: Int, k: Int) -> Int {
+    /**
+     Calculate `n!` for values of `n` that conform to the BinaryFloatingPoint
+     protocol.  Uses the gamma function to "fill in" values of `n` that are
+     not integers.  Returns `nil` if `n` is less than zero.
+     */
+    public static func factorial<T: BinaryFloatingPoint>(_ n: T) -> Double? {
+        if n < 0 {
+            return nil
+        }
+        return Double(tgamma(Double(n+1)))
+    }
+
+    /**
+     Calculate n-choose-k for values of `n` and `k` that conform to the BinaryInteger
+     protocol.
+     */
+    public static func choose<T: BinaryInteger>(n: T, k: T) -> Int {
 		return Int(tgamma(Double(n + 1)))/Int(tgamma(Double(k + 1))*tgamma(Double(n - k + 1)))
 	}
 
+    /**
+     Calculate n-choose-k for values of `n` that conform to the BinaryFloatingPoint
+     protocol and values of `k` that conform to the BinaryInteger protocol.
+     */
+    public static func choose<N: BinaryFloatingPoint, K: BinaryInteger>(n: N, k: K) -> Double {
+        return Double(tgamma(Double(n + 1)))/Double(tgamma(Double(k + 1))*tgamma(Double(Double(n) - Double(k) + 1)))
+    }
+
+    
     /**
      Calculates the mean of an array of values for types that satisfy the
      BinaryInteger protocol (e.g Int, Int32).
