@@ -14,7 +14,7 @@
     <a title="Structures  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (9% documented)</p>
+        <p><a href="index.html"> Docs</a> (24% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -102,7 +102,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Common Statistical Functions</p>
+
+<p>This <code>struct</code> is used as a namespace to separate the stats functions in
+SwiftStats.</p>
+
+<p>In general, the functions here do not throw exceptions but <code>nil</code> values can be
+returned.  For example, to calculate the standard deviation of a sample
+requires at least two data points.  If the array that is passed to <code>sd()</code> does
+not have at least two values then <code>nil</code> is returned.</p>
+
+<p>Functions here are often generic in that they work for a range of types (for
+example, the same function is called to calculate the mean of Int8, Int32,
+Int64, or Int arrays).</p>
 
                         <a href="Structs/Common.html" class="slightly-smaller">See more</a>
                       </div>

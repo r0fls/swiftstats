@@ -30,6 +30,13 @@ And each distribution has these methods:
 - least squares regression; lsr ([[`Double`]]) -> [`Double`, `Double`]
 - kernel density estimation (KDE) using a Gaussian kernel and automatic bandwidth selection via Silverman's rule-of-thumb
 
+## Documentation
+
+Documentation for the functions and classes in SwiftStats is automatically generated using Jazzy.
+
+You can view the documentation on our GitHub site, and it is included in each release.
+
+If you wish to reprocess the documentation yourself, it is as simple as running `jazzy` from the command line.
 
 
 ## Building
