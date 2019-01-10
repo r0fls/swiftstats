@@ -99,7 +99,7 @@ class DistributionsTests: XCTestCase {
     }
     
     func testlsr() {
-        let data = [[60.0, 3.1], [61.0,	3.6], [62.0, 3.8], [63.0,	4.0], [65.0,	4.1]]
+        let data = [[60.0, 3.1], [61.0, 3.6], [62.0, 3.8], [63.0, 4.0], [65.0, 4.1]]
         let params = SwiftStats.Common.lsr(data)
         let a = round(pow(10.0,9.0)*params[0])/pow(10.0,9.0)
         let b = round(pow(10.0,9.0)*params[1])/pow(10.0,9.0)
