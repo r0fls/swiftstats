@@ -19,36 +19,36 @@ class KDETests: XCTestCase {
     let epsilon: Double = 1e-3
 
     
-    func testSingleDataPoint() throws {
+    func testSingleDataPoint() {
         // Given data of [0], and a bandwidth of 1, R's density function
         // approximates dnorm(x, mean=0, sd=1)
         
         let data : [Double] = [0]
         
-        let kde = try SwiftStats.Common.KernelDensityEstimation(data, bandwidth: 1)
+        let kde = SwiftStats.Common.KernelDensityEstimation(data, bandwidth: 1)
         
-        let density = kde.evaluate(0)
+        let density = kde!.evaluate(0)
         
         XCTAssert(abs(density - 0.3989423) < epsilon)
     }
 
     
-    func testTwoIdenticalDataPoints() throws {
+    func testTwoIdenticalDataPoints() {
         // Given data of [0, 0], and a bandwidth of 1, R's density function
         // approximates dnorm(x, mean=0, sd=1).  Note that the result is
         // the same as for a single value, thus the result has been normalised.
 
         let data : [Double] = [0, 0]
         
-        let kde = try SwiftStats.Common.KernelDensityEstimation(data, bandwidth: 1)
+        let kde = SwiftStats.Common.KernelDensityEstimation(data, bandwidth: 1)
         
-        let density = kde.evaluate(0)
+        let density = kde!.evaluate(0)
         
         XCTAssert(abs(density - 0.3989423) < epsilon)
     }
 
     
-    func testTwoDistantDataPoints() throws {
+    func testTwoDistantDataPoints() {
         // Given data of [0, 10], and a bandwidth of 1, R's density function
         // gives half the value of the one-point test.  This is reasonable as
         // the result is normalised and the second point is so far away as to
@@ -65,13 +65,13 @@ class KDETests: XCTestCase {
 
         let data : [Double] = [0, 10]
         
-        let kde = try SwiftStats.Common.KernelDensityEstimation(data, bandwidth: 1)
+        let kde = SwiftStats.Common.KernelDensityEstimation(data, bandwidth: 1)
         
-        let density = kde.evaluate(0)
+        let density = kde!.evaluate(0)
         XCTAssert(abs(density - 0.1994125) < epsilon)
     }
 
-    func testTwoInteractingDataPoints() throws {
+    func testTwoInteractingDataPoints() {
         // Given data of [0, 1], and a bandwidth of 1, R's density function
         // gives:
         /* R code:
@@ -86,13 +86,13 @@ class KDETests: XCTestCase {
         
         let data : [Double] = [0, 1]
         
-        let kde = try SwiftStats.Common.KernelDensityEstimation(data, bandwidth: 1)
+        let kde = SwiftStats.Common.KernelDensityEstimation(data, bandwidth: 1)
         
-        let density = kde.evaluate(0)
+        let density = kde!.evaluate(0)
         XCTAssert(abs(density - 0.320532) < epsilon)
     }
     
-    func testNumerousDataPoints() throws {
+    func testNumerousDataPoints() {
         // Given the example from the Kernel Density Estimation Wikipedia page:
         /* R code:
          > fit <- density(c(-2.1, -1.3, -0.4, 1.9, 5.1, 6.2), bw=sqrt(2.25))
@@ -113,26 +113,26 @@ class KDETests: XCTestCase {
         
         let data : [Double] = [-2.1, -1.3, -0.4, 1.9, 5.1, 6.2]
         
-        let kde = try SwiftStats.Common.KernelDensityEstimation(data,
+        let kde = SwiftStats.Common.KernelDensityEstimation(data,
                                                             bandwidth: sqrt(2.25))
         
-        let density0 = kde.evaluate(0)
+        let density0 = kde!.evaluate(0)
         XCTAssert(abs(density0 - 0.1099665) < epsilon)
         
-        let density7 = kde.evaluate(7)
+        let density7 = kde!.evaluate(7)
         XCTAssert(abs(density7 - 0.05850251) < epsilon)
     }
     
     func testAutomaticBandwithEstimatorThrows() throws {
         // Check that the constructor throws if insufficient data is passed in
         // while asking for automatic bandwidth selection
-        XCTAssertThrowsError(try SwiftStats.Common.KernelDensityEstimation([],
+        XCTAssertNil(SwiftStats.Common.KernelDensityEstimation([],
                                                                            bandwidth:nil))
-        XCTAssertThrowsError(try SwiftStats.Common.KernelDensityEstimation([1.0],
+        XCTAssertNil(SwiftStats.Common.KernelDensityEstimation([1.0],
                                                                            bandwidth:nil))
     }
     
-    func testTwoDataPointsWithSilvermansBandwidthEstimator() throws {
+    func testTwoDataPointsWithSilvermansBandwidthEstimator() {
         // Given data of [0,1] and the bandwidth estimator as described on the
         // Wikipedia article
         /* R code:
@@ -152,11 +152,11 @@ class KDETests: XCTestCase {
         
         let data : [Double] = [0, 1]
         
-        let kde = try SwiftStats.Common.KernelDensityEstimation(data,
+        let kde = SwiftStats.Common.KernelDensityEstimation(data,
                                                                 bandwidth:nil)
-        XCTAssert(abs(kde.bandwidth - 0.6525065391) < epsilon)
+        XCTAssert(abs(kde!.bandwidth - 0.6525065391) < epsilon)
 
-        let density = kde.evaluate(0)
+        let density = kde!.evaluate(0)
         XCTAssert(abs(density - 0.4003494754) < epsilon)
     }
 
