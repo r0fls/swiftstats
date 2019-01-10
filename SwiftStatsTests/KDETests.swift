@@ -124,12 +124,12 @@ class KDETests: XCTestCase {
     }
     
     func testAutomaticBandwithEstimatorThrows() throws {
-        // Check that the constructor throws if insufficient data is passed in
-        // while asking for automatic bandwidth selection
+        // Check that the constructor returns nil if insufficient data is passed
+        // in while asking for automatic bandwidth selection
         XCTAssertNil(SwiftStats.Common.KernelDensityEstimation([],
-                                                                           bandwidth:nil))
+                                                               bandwidth:nil))
         XCTAssertNil(SwiftStats.Common.KernelDensityEstimation([1.0],
-                                                                           bandwidth:nil))
+                                                               bandwidth:nil))
     }
     
     func testTwoDataPointsWithSilvermansBandwidthEstimator() {

@@ -325,10 +325,10 @@ public struct Common {
         var total_y = 0.0
         var total_x2 = 0.0
         for i in 0..<points.count {
-                        total_x += points[i][0]
-                        total_y += points[i][1]
-                        total_xy += points[i][0]*points[i][1]
-                        total_x2 += pow(points[i][0], 2)
+            total_x += points[i][0]
+            total_y += points[i][1]
+            total_xy += points[i][0]*points[i][1]
+            total_x2 += pow(points[i][0], 2)
         }
         let N = Double(points.count)
         let b = (N*total_xy - total_x*total_y)/(N*total_x2 - pow(total_x, 2))
