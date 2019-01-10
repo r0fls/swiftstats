@@ -267,8 +267,9 @@ public struct Distributions {
 
 		public func pmf(_ k: Int) -> Double {
 			let r = Double(k)
-			return Double(Common.choose(self.n, k: k))*pow(self.p, r)*pow(1 - self.p, Double(self.n - k))
+            return Double(Common.choose(n: self.n, k: k))*pow(self.p, r)*pow(1 - self.p, Double(self.n - k))
 		}
+        
 		public func cdf(_ k: Int) -> Double {
 			var total = Double(0)
 			for i in 1..<k + 1 {
@@ -276,6 +277,7 @@ public struct Distributions {
 			}
 			return total
 		}
+        
 		override public func quantile(_ x: Double) -> Int {
 			var total = Double(0)
 			var j = 0

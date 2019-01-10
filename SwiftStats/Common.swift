@@ -42,11 +42,23 @@ public struct Common {
         return Double(tgamma(Double(n+1)))
     }
 
-    
-	public static func choose(_ n: Int, k: Int) -> Int {
+    /**
+     Calculate n-choose-k for values of `n` and `k` that conform to the BinaryInteger
+     protocol.
+     */
+    public static func choose<T: BinaryInteger>(n: T, k: T) -> Int {
 		return Int(tgamma(Double(n + 1)))/Int(tgamma(Double(k + 1))*tgamma(Double(n - k + 1)))
 	}
 
+    /**
+     Calculate n-choose-k for values of `n` that conform to the BinaryFloatingPoint
+     protocol and values of `k` that conform to the BinaryInteger protocol.
+     */
+    public static func choose<N: BinaryFloatingPoint, K: BinaryInteger>(n: N, k: K) -> Double {
+        return Double(tgamma(Double(n + 1)))/Double(tgamma(Double(k + 1))*tgamma(Double(Double(n) - Double(k) + 1)))
+    }
+
+    
     /**
      Calculates the mean of an array of values for types that satisfy the
      BinaryInteger protocol (e.g Int, Int32).

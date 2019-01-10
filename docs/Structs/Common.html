@@ -14,7 +14,7 @@
     <a title="Common Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (29% documented)</p>
+        <p><a href="../index.html"> Docs</a> (31% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -168,9 +168,9 @@ not integers.  Returns <code>nil</code> if <code>n</code> is less than zero.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftStats6CommonV6choose_1kS2i_SitFZ"></a>
-                    <a name="//apple_ref/swift/Method/choose(_:k:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftStats6CommonV6choose_1kS2i_SitFZ">choose(_:k:)</a>
+                    <a name="/s:10SwiftStats6CommonV6choose1n1kSix_xtSzRzlFZ"></a>
+                    <a name="//apple_ref/swift/Method/choose(n:k:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftStats6CommonV6choose1n1kSix_xtSzRzlFZ">choose(n:k:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -178,14 +178,43 @@ not integers.  Returns <code>nil</code> if <code>n</code> is less than zero.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Calculate n-choose-k for values of <code>n</code> and <code>k</code> that conform to the BinaryInteger
+protocol.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">choose</span><span class="p">(</span><span class="n">_</span> <span class="nv">n</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">k</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">choose</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">n</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">k</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">BinaryInteger</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftStats6CommonV6choose1n1kSdx_q_tSBRzSzR_r0_lFZ"></a>
+                    <a name="//apple_ref/swift/Method/choose(n:k:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftStats6CommonV6choose1n1kSdx_q_tSBRzSzR_r0_lFZ">choose(n:k:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calculate n-choose-k for values of <code>n</code> that conform to the BinaryFloatingPoint
+protocol and values of <code>k</code> that conform to the BinaryInteger protocol.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">choose</span><span class="o">&lt;</span><span class="kt">N</span><span class="p">,</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">n</span><span class="p">:</span> <span class="kt">N</span><span class="p">,</span> <span class="nv">k</span><span class="p">:</span> <span class="kt">K</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span> <span class="k">where</span> <span class="kt">N</span> <span class="p">:</span> <span class="kt">BinaryFloatingPoint</span><span class="p">,</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">BinaryInteger</span></code></pre>
 
                         </div>
                       </div>

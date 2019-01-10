@@ -29,6 +29,24 @@ class CommonTests: XCTestCase {
     }
     
     
+    func testChoose() {
+        XCTAssert( SwiftStats.Common.choose(n: 2, k: 1) == 2)
+        XCTAssert( SwiftStats.Common.choose(n: 10, k: 4) == 210)
+        XCTAssert( SwiftStats.Common.choose(n: 5, k: 0) == 1)
+        
+        // Note that the following test results come from R.  Our code however
+        // crashes when k < 0, however this isn't easily fixed as Binomial.pmf()
+        // depends on this function not returning nil and not throwing.
+        //XCTAssert( SwiftStats.Common.choose(n: 5, k: -1) == 0)
+        //XCTAssert( SwiftStats.Common.choose(n: -5, k: -1) == 0)
+        //XCTAssert( SwiftStats.Common.choose(n: -5, k: 1) == -5)
+
+        XCTAssert( abs(SwiftStats.Common.choose(n: 2.0, k: 1) - 2) < epsilon)
+        XCTAssert( abs(SwiftStats.Common.choose(n: 2.5, k: 2) - 1.875) < epsilon)
+        
+    }
+    
+    
     func testMean() {
         let data1 : [Int] = [1, 2, 3]
         XCTAssert(abs(SwiftStats.Common.mean(data1)! - 2.0) < epsilon)
