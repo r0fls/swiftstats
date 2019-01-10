@@ -14,7 +14,7 @@ class ExampleCodeTests: XCTestCase {
     // equal.
     let epsilon: Double = 1e-7
 
-    func testExampleCode() throws {
+    func testExampleCode() {
         // NOTE!  If code in this test needs to be changed in order for the
         // test to pass, ensure that the updated code is copied-and-pasted
         // back into README.md.
@@ -26,15 +26,15 @@ class ExampleCodeTests: XCTestCase {
         
         // *********
         // Example 2:
-        let n2 = try SwiftStats.Distributions.Normal(data:[0,-1,1,0])
-        print(n2.random())
+        let n2 = SwiftStats.Distributions.Normal(data:[0,-1,1,0])
+        print(n2!.random())
         
         // *********
         // Example 3:
         let median1 = SwiftStats.Common.median([1,4,3,2]) // -> 2.5
-        XCTAssert(abs(median1 - 2.5) < epsilon)
+        XCTAssert(abs(median1! - 2.5) < epsilon)
         let median2 = SwiftStats.Common.median([3,1,2]) // -> 2
-        XCTAssert(abs(median2 - 2.0) < epsilon)
+        XCTAssert(abs(median2! - 2.0) < epsilon)
         
         // *********
         // Example 4:

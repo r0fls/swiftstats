@@ -17,7 +17,31 @@ class CommonTests: XCTestCase {
     let epsilon: Double = 1e-7
 
     
-    // TODO: We should have test cases here for the Common functions
+    // TODO: We should have test cases here for all the Common functions
+
+    
+    func testMean() {
+        let data1 : [Int] = [1, 2, 3]
+        XCTAssert(abs(SwiftStats.Common.mean(data1)! - 2.0) < epsilon)
+        
+        let data2 : [Double] = [1.0, 2.0, 3.0]
+        XCTAssert(abs(SwiftStats.Common.mean(data2)! - 2.0) < epsilon)
+    }
+    
+    
+    func testSampleVariance() {
+        let data1 : [Int] = [1, 2, 3, 4, 5]
+        XCTAssert(abs(SwiftStats.Common.variance(data1)! - 2.5) < epsilon)
+
+        let data2 : [Int] = [1]
+        XCTAssertNil(SwiftStats.Common.variance(data2))
+
+        let data3 : [Double] = [1, 2, 3, 4, 5]
+        XCTAssert(abs(SwiftStats.Common.variance(data3)! - 2.5) < epsilon)
+        
+        let data4 : [Double] = [1]
+        XCTAssertNil(SwiftStats.Common.variance(data4))
+    }
     
     
     func testStandardDeviation() {
@@ -30,7 +54,11 @@ class CommonTests: XCTestCase {
         let data1: [Double] = [0,1,2,3]
         let sd1 = SwiftStats.Common.sd(data1)
         XCTAssert(abs(sd1! - 1.290994449) < epsilon)
-        
+
+        let data1i: [Int] = [0,1,2,3]
+        let sd1i = SwiftStats.Common.sd(data1i)
+        XCTAssert(abs(sd1i! - 1.290994449) < epsilon)
+
         /* R code:
          > d<-c(0)
          > sd(d)
@@ -39,6 +67,10 @@ class CommonTests: XCTestCase {
         let data2: [Double] = [0]
         let sd2 = SwiftStats.Common.sd(data2)
         XCTAssert(sd2 == nil)
+        
+        let data2i: [Int] = [0]
+        let sd2i = SwiftStats.Common.sd(data2i)
+        XCTAssert(sd2i == nil)
         
         /* R code:
          > d<-c()
@@ -50,5 +82,36 @@ class CommonTests: XCTestCase {
         let data3: [Double] = []
         let sd3 = SwiftStats.Common.sd(data3)
         XCTAssert(sd3 == nil)
+        
+        let data3i: [Int] = []
+        let sd3i = SwiftStats.Common.sd(data3i)
+        XCTAssert(sd3i == nil)
+    }
+    
+    
+    func testMedian() {
+        let data1 : [Int] = [1,2,3]
+        XCTAssert(abs(SwiftStats.Common.median(data1)! - 2.0) < epsilon)
+
+        let data2 : [Int] = [1,2,3,4]
+        XCTAssert(abs(SwiftStats.Common.median(data2)! - 2.5) < epsilon)
+
+        let data3 : [Int] = [1]
+        XCTAssert(abs(SwiftStats.Common.median(data3)! - 1.0) < epsilon)
+
+        let data4 : [Int] = []
+        XCTAssertNil(SwiftStats.Common.median(data4))
+
+        let data5 : [Double] = [1,2,3]
+        XCTAssert(abs(SwiftStats.Common.median(data5)! - 2.0) < epsilon)
+        
+        let data6 : [Double] = [1,2,3,4]
+        XCTAssert(abs(SwiftStats.Common.median(data6)! - 2.5) < epsilon)
+        
+        let data7 : [Double] = [1]
+        XCTAssert(abs(SwiftStats.Common.median(data7)! - 1.0) < epsilon)
+        
+        let data8 : [Double] = []
+        XCTAssertNil(SwiftStats.Common.median(data8))
     }
 }

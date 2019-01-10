@@ -1,6 +1,10 @@
 [![Build Status](https://travis-ci.org/r0fls/swiftstats.png)](https://travis-ci.org/r0fls/swiftstats)
 # swiftstats
-Statistics for swift &mdash; v1.4.0
+Statistics for Swift &mdash; v1.5.0
+
+Wanting to generate a random number with a specific distribution for your iOS app?  Or smooth out your data using kernel density estimation?  SwiftStats has you covered.  
+
+SwiftStats is open-source with automated testing and automatically generated documentation.  If you'd like to help out we'd welcome contributions.
 
 ## Features
 ### Distributions
@@ -22,14 +26,21 @@ And each distribution has these methods:
 - random (takes an optional int and returns an array of that length, or otherwise a single value) 
 
 ### Common Functions
-- median (`Int`, `Float`, `Double`)
-- mean (`Int`, `Float`, `Double`)
+- median
+- mean
 - variance
 - standard deviation
 - erf<sup>-1</sup> (implemented as `erfinv`, whereas `erf` is implemented as part of `Foundation`)
 - least squares regression; lsr ([[`Double`]]) -> [`Double`, `Double`]
 - kernel density estimation (KDE) using a Gaussian kernel and automatic bandwidth selection via Silverman's rule-of-thumb
 
+## Documentation
+
+Documentation for the functions and classes in SwiftStats is automatically generated using Jazzy.
+
+You can view the documentation on our GitHub site, and it is included in each release.
+
+If you wish to reprocess the documentation yourself, it is as simple as running `jazzy` from the command line.
 
 
 ## Building
@@ -89,7 +100,7 @@ print(n1.random())
 To print a random number that is normally distributed, with parameters based on previous samples:
 
 ```swift
-let n2 = try SwiftStats.Distributions.Normal(data:[0,-1,1,0])
+let n2 = SwiftStats.Distributions.Normal(data:[0,-1,1,0])
 print(n2.random())
 ```
 
@@ -124,10 +135,10 @@ XCTAssert(abs(random2 - -1.7320723047642332) < epsilon)
 If you would like to contribute, please submit a pull request, or raise an issue.
 
 ### TO-DO
+- improve documentation coverage from the current 24%.
 - add more distributions
 - allow updating a fitted distribution with more data
 - pass travis tests without mangling the median function
-- add targets (iOS, watch)
 - other stuff
 
 ## License

@@ -24,7 +24,7 @@ class DistributionsTests: XCTestCase {
     }
         
     func testBernoulli() {
-        var b = SwiftStats.Distributions.Bernoulli(p: 0.7)
+        let b = SwiftStats.Distributions.Bernoulli(p: 0.7)
         srand48(0)
         XCTAssert(b.pmf(1) == 0.7, "Bernoulli pmf(1) should be 0.7")
         XCTAssert(b.cdf(1) == 1.0, "Bernoulli cdf(1) should be 1")
@@ -32,13 +32,13 @@ class DistributionsTests: XCTestCase {
         XCTAssert(b.quantile(0.5) == 1, "Bernoulli quantile(0.5) should be 1")
         XCTAssert(b.quantile(0.2) == 0, " Bernoulli quantile(0.2) should be 0")
         XCTAssert(b.random() == 0, "Bernoulli random() should equal 1 with test seed")
-        b = SwiftStats.Distributions.Bernoulli(data: [1,1,0,1])
-        XCTAssert(b.p == 0.75, "Bernoulli fit with [1,1,0,1] should have p = 0.75")
+        let b2 = SwiftStats.Distributions.Bernoulli(data: [1,1,0,1])
+        XCTAssert(b2!.p == 0.75, "Bernoulli fit with [1,1,0,1] should have p = 0.75")
     }
     
     func testLaplace(){
         srand48(0)
-        var l = SwiftStats.Distributions.Laplace(mean: 0.0, b: 1.0)
+        let l = SwiftStats.Distributions.Laplace(mean: 0.0, b: 1.0)
         let pdf = round(pow(10.0,15.0)*l.pdf(1))/pow(10.0,15.0)
         XCTAssert(pdf == 0.183939720585721, "Laplace pdf failed test")
         let n = round(pow(10.0,14.0)*l.random())/pow(10.0,14.0)
@@ -47,12 +47,12 @@ class DistributionsTests: XCTestCase {
         XCTAssert(cdf == 0.816060279414279, "Laplace cdf failed test")
         XCTAssert(l.cdf(0) == 0.5, "Laplace cdf failed test")
         
-        l = SwiftStats.Distributions.Laplace(data:[12,13,12])
-        XCTAssert(l.mean == 12.0, "Laplace fit from data failed")
+        let l2 = SwiftStats.Distributions.Laplace(data:[12,13,12])
+        XCTAssert(l2!.mean == 12.0, "Laplace fit from data failed")
     }
  
     func testPoisson() {
-        var p = SwiftStats.Distributions.Poisson(m: 1.5)
+        let p = SwiftStats.Distributions.Poisson(m: 1.5)
         let pmf = round(pow(10.0,15.0)*p.pmf(3))/pow(10.0,15.0)
         XCTAssert(pmf == 0.125510715083492, "Poisson pmf failed")
         var cdf = round(pow(10.0,15.0)*p.cdf(1))/pow(10.0,15.0)
@@ -63,9 +63,9 @@ class DistributionsTests: XCTestCase {
         srand48(0)
         XCTAssert(p.random() == 0, "Poisson random failed")
         
-        p = SwiftStats.Distributions.Poisson(data: [1,2,3])
-        XCTAssert(p.m == 2.0, "Poisson fit data failed")
-        XCTAssert(p.quantile(0.999) == 8, "Poisson quantile from fit data failed")
+        let p2 = SwiftStats.Distributions.Poisson(data: [1,2,3])
+        XCTAssert(p2!.m == 2.0, "Poisson fit data failed")
+        XCTAssert(p2!.quantile(0.999) == 8, "Poisson quantile from fit data failed")
     }
     
     func testGeometric() {
@@ -107,9 +107,9 @@ class DistributionsTests: XCTestCase {
     }
     
     func testNormal() {
-        // Check that errors are thrown if insufficient data is passed in
-        XCTAssertThrowsError(try SwiftStats.Distributions.Normal(data: []))
-        XCTAssertThrowsError(try SwiftStats.Distributions.Normal(data: [0]))
+        // Check that object is nil if insufficient data is passed in
+        XCTAssertNil(SwiftStats.Distributions.Normal(data: []))
+        XCTAssertNil(SwiftStats.Distributions.Normal(data: [0]))
 
         let n = SwiftStats.Distributions.Normal(mean: 0.0, sd: 1.0)
 
@@ -128,10 +128,10 @@ class DistributionsTests: XCTestCase {
         XCTAssert(n.pdf(0) - 0.3989423 < epsilon)
     }
 
-    func testLogNormal() throws {
+    func testLogNormal() {
         // Check that errors are thrown if insufficient data is passed in
-        XCTAssertThrowsError(try SwiftStats.Distributions.LogNormal(data: []))
-        XCTAssertThrowsError(try SwiftStats.Distributions.LogNormal(data: [0]))
+        XCTAssertNil(SwiftStats.Distributions.LogNormal(data: []))
+        XCTAssertNil(SwiftStats.Distributions.LogNormal(data: [0]))
 
         let d = SwiftStats.Distributions.LogNormal(meanLog: 0.0, sdLog: 1.0)
 
@@ -155,13 +155,13 @@ class DistributionsTests: XCTestCase {
         
         // Create log-normal distribution using array-based constructor
         let data = [1.0, 2.0, 3.0]
-        let d2 = try SwiftStats.Distributions.LogNormal(data: data)
+        let d2 = SwiftStats.Distributions.LogNormal(data: data)
         
         // Test that array-based constructor has correctly instantiated the distribution
         // mean(log(c(1,2,3))) -> 0.5972532
-        XCTAssert( abs(d2.m - 0.5972532) < epsilon)
+        XCTAssert( abs(d2!.m - 0.5972532) < epsilon)
         // var(log(c(1,2,3))) -> 0.308634
-        XCTAssert( abs(d2.v - 0.308634) < epsilon)
+        XCTAssert( abs(d2!.v - 0.308634) < epsilon)
     }
 
     /*

@@ -1,10 +1,6 @@
 import Foundation
 
 public struct Distributions {
-    enum Errors : Error {
-        case AtLeastTwoDataPointsRequired
-    }
-    
     private static let pi = Double.pi
     
 	// these first three classes need to be public so that their
@@ -78,9 +74,14 @@ public struct Distributions {
 			super.init()
 			super.seed()
 		}
-		public convenience init(data: [Int]) {
-			self.init(p: Common.mean(data))
+        
+        public convenience init?<T: BinaryInteger>(data: [T]) {
+            guard let m = Common.mean(data) else {
+                return nil
+            }
+			self.init(p: m)
 		}
+        
 		public func pmf(_ k: Int) -> Double {
 			if k == 1 {
 				return self.p
@@ -90,6 +91,7 @@ public struct Distributions {
 			}
 			return -1
 		}
+        
 		public func cdf(_ k: Int) -> Double {
 			if k < 0 {
 				return 0
@@ -103,6 +105,7 @@ public struct Distributions {
 			}
 			return -1
 		}
+        
 		override public func quantile(_ p: Double) -> Int {
 			if p < 0 {
 				return -1
@@ -126,8 +129,10 @@ public struct Distributions {
 			self.b = b
 		}
 
-		public convenience init(data: [Double]) {
-			let m = Common.median(data)
+		public convenience init?(data: [Double]) {
+            guard let m = Common.median(data) else {
+                return nil
+            }
 			var b = 0.0
 			for i in 0..<data.count {
 				b += abs(data[i] - m)
@@ -169,8 +174,11 @@ public struct Distributions {
 			self.m = m
 		}
 
-		public convenience init(data: [Double]) {
-			self.init(m: Common.mean(data))
+		public convenience init?(data: [Double]) {
+            guard let m = Common.mean(data) else {
+                return nil
+            }
+			self.init(m: m)
 		}
 
 		public func pmf(_ k: Int) -> Double {
@@ -203,8 +211,11 @@ public struct Distributions {
 			self.p = p
 		}
 
-		public convenience init(data: [Double]) {
-			self.init(p: 1/Common.mean(data))
+		public convenience init?(data: [Double]) {
+            guard let m = Common.mean(data) else {
+                return nil
+            }
+			self.init(p: 1/m)
 		}
 
 		public func pmf(_ k: Int) -> Double {
@@ -226,8 +237,11 @@ public struct Distributions {
 			self.l = l
 		}
 
-		public convenience init(data: [Double]) {
-			self.init(l: 1/Common.mean(data))
+		public convenience init?(data: [Double]) {
+            guard let m = Common.mean(data) else {
+                return nil
+            }
+			self.init(l: 1/m)
 		}
 
 		public func pdf(_ x: Double) -> Double {
@@ -290,13 +304,16 @@ public struct Distributions {
             self.init(m: mean, v: variance)
         }
 
-		public convenience init(data: [Double]) throws {
+		public convenience init?(data: [Double]) {
 			// this calculates the mean twice, since variance()
 			// uses the mean and calls mean()
             guard let v = Common.variance(data) else {
-                throw Errors.AtLeastTwoDataPointsRequired
+                return nil
             }
-			self.init(m: Common.mean(data), v: v)
+            guard let m = Common.mean(data) else {
+                return nil // This shouldn't ever occur
+            }
+			self.init(m: m, v: v)
 		}
 
 		public func pdf(_ x: Double) -> Double {
@@ -356,7 +373,7 @@ public struct Distributions {
          Constructor that takes sample data and uses the the mean and the
          standard deviation of the sample data under the log scale.
          */
-        public convenience init(data: [Double]) throws {
+        public convenience init?(data: [Double]) {
             // This calculates the mean twice, since variance()
             // uses the mean and calls mean()
 
@@ -369,10 +386,14 @@ public struct Distributions {
             }
             
             guard let v = Common.variance(logData) else {
-                throw Errors.AtLeastTwoDataPointsRequired
+                return nil
+            }
+            
+            guard let m = Common.mean(logData) else {
+                return nil // This shouldn't ever occur
             }
         
-            self.init(meanLog: Common.mean(logData),
+            self.init(meanLog: m,
                       varianceLog: v)
         }
         

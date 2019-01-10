@@ -1,6 +1,21 @@
 import Foundation
 
-// COMMON FUNCTIONS
+/**
+ Common Statistical Functions
+ 
+ This `struct` is used as a namespace to separate the stats functions in
+ SwiftStats.
+ 
+ In general, the functions here do not throw exceptions but `nil` values can be
+ returned.  For example, to calculate the standard deviation of a sample
+ requires at least two data points.  If the array that is passed to `sd()` does
+ not have at least two values then `nil` is returned.
+ 
+ Functions here are often generic in that they work for a range of types (for
+ example, the same function is called to calculate the mean of Int8, Int32,
+ Int64, or Int arrays).  Separate implementations can be found for BinaryInteger
+ and BinaryFloatingPoint protocols.
+ */
 public struct Common {
     private static let pi = Double.pi
     
@@ -12,107 +27,228 @@ public struct Common {
 		return Int(tgamma(Double(n + 1)))/Int(tgamma(Double(k + 1))*tgamma(Double(n - k + 1)))
 	}
 
-	public static func mean(_ data: [Int]) -> Double {
+    /**
+     Calculates the mean of an array of values for types that satisfy the
+     BinaryInteger protocol (e.g Int, Int32).
+     
+     - Parameters:
+        - data: Array of values
+     
+     - Returns:
+        The mean of the array of values or `nil` if the array was empty.
+     */
+    public static func mean<T: BinaryInteger>(_ data: [T]) -> Double? {
+        if data.count == 0 {
+            return nil
+        }
 		return Double(data.reduce(0, +))/Double(data.count)
 	}
 
-	public static func mean(_ data: [Double]) -> Double {
+    /**
+     Calculates the mean of an array of values for types that satisfy the
+     BinaryFloatingPoint protocol (e.g Float, Double).
+     
+     - Parameters:
+        - data: Array of values
+     
+     - Returns:
+     The mean of the array of values or `nil` if the array was empty.
+     */
+    public static func mean<T : BinaryFloatingPoint>(_ data: [T]) -> Double? {
+        if data.count == 0 {
+            return nil
+        }
 		return Double(data.reduce(0, +))/Double(data.count)
 	}
 
-	public static func mean(_ data: [Float]) -> Double {
-		return Double(data.reduce(0, +))/Double(data.count)
-	}
-
-	public static func variance(_ data: [Double]) -> Double? {
+    
+    /**
+     Calculates the unbiased sample variance for an array for types that satisfy
+     the BinaryFloatingPoint protocol (e.g Float, Double).
+     
+     - Parameters:
+        - data:
+        Sample of values.  Note that this should contain at least two values.
+     
+     - Returns:
+        The unbiased sample variance or `nil` if `data` contains fewer than two
+        values.
+     */
+    public static func variance<T: BinaryFloatingPoint>(_ data: [T]) -> Double? {
         if data.count < 2 {
             return nil
         }
         
-		let m = mean(data)
+        guard let m = mean(data) else {
+            return nil // This shouldn't ever occur
+        }
 		var total = 0.0
 		for i in 0..<data.count {
-			total += pow(data[i] - m,2)
+			total += pow(Double(data[i]) - m,2)
 		}
 		return total/Double(data.count-1)
 	}
     
-    public static func sd(_ data: [Double]) -> Double? {
-        let v = variance(data)
-        if v == nil {
+    /**
+     Calculates the unbiased sample standard deviation for an array of values
+     for types that satisfy the BinaryFloatingPoint protocol (e.g Float, Double).
+     
+     - Parameters:
+        - data:
+        Sample of values.  Note that this should contain at least two values.
+     
+     - Returns:
+        The sample unbiased standard deviation or `nil` if `data` contains fewer
+        than two values.
+     */
+    public static func sd<T: BinaryFloatingPoint>(_ data: [T]) -> Double? {
+        guard let v = variance(data) else {
             return nil
-        } else {
-            return sqrt(v!)
         }
+        return sqrt(v)
+    }
+    
+    /**
+     Calculates the unbiased sample standard deviation for an array of values
+     for types that satisfy the BinaryInteger protocol (e.g Int, Int32).
+     
+     - Parameters:
+        - data:
+        Sample of values.  Note that this should contain at least two values.
+     
+     - Returns:
+     The sample unbiased standard deviation or `nil` if `data` contains fewer
+     than two values.
+     */
+    public static func sd<T: BinaryInteger>(_ data: [T]) -> Double? {
+        guard let v = variance(data) else {
+            return nil
+        }
+        return sqrt(v)
     }
 
-	public static func pvariance(_ data: [Double]) -> Double {
-		let m = mean(data)
-		var total = 0.0
-		for i in 0..<data.count {
-			total += pow(data[i] - m,2)
-		}
-		return total/Double(data.count)
-	}
-
-	public static func variance(_ data: [Int]) -> Double {
-		let m = mean(data)
+    /**
+     Calculates the population variance for an array of values for types that
+     satisfy the BinaryFloatingPoint protocol (e.g Float, Double).
+     
+     - Parameters:
+        - data:
+        Values of population.  Note that this should contain at least one value.
+     
+     - Returns:
+     The population variance or `nil` if `data` contains fewer than one value.
+     */
+    public static func pvariance<T: BinaryFloatingPoint>(_ data: [T]) -> Double? {
+        if data.count < 1 {
+            return nil
+        }
+        guard let m = mean(data) else {
+            return nil // This shouldn't ever occur
+        }
 		var total = 0.0
 		for i in 0..<data.count {
 			total += pow(Double(data[i]) - m,2)
 		}
-		return total/Double(data.count-1)
-	}
-
-	public static func pvariance(_ data: [Int]) -> Double {
-		let m = mean(data)
-		var total = 0.0
-		for i in 0..<data.count {
-			total += pow(Double(data[i]) - m,2)
-		}
 		return total/Double(data.count)
 	}
 
-	public static func median(_ data: [Int]) -> Double {
+    /**
+     Calculates the unbiased sample variance for an array of values for types
+     that satisfy the BinaryInteger protocol (e.g Int, Int32).
+     
+     - Parameters:
+        - data:
+        Sample of values.  Note that this should contain at least two values.
+     
+     - Returns:
+     The unbiased sample variance or `nil` if `data` contains fewer than two
+     values.
+     */
+    public static func variance<T: BinaryInteger>(_ data: [T]) -> Double? {
+        if data.count < 2 {
+            return nil
+        }
+        
+        guard let m = mean(data) else {
+            return nil // This shouldn't ever occur
+        }
+        var total = 0.0
+        for i in 0..<data.count {
+            total += pow(Double(data[i]) - m,2)
+        }
+        return total/Double(data.count-1)
+	}
+
+    /**
+     Calculates the population variance for an array of values for types that
+     satisfy the BinaryInteger protocol (e.g Int, Int32).
+     
+     - Parameters:
+        - data:
+        Values of population.  Note that this should contain at least one value.
+     
+     - Returns:
+     The population variance or `nil` if `data` contains fewer than one value.
+     */
+	public static func pvariance<T: BinaryInteger>(_ data: [T]) -> Double? {
+        guard let m = mean(data) else {
+            return nil
+        }
+        var total = 0.0
+        for i in 0..<data.count {
+            total += pow(Double(data[i]) - m,2)
+        }
+        return total/Double(data.count)
+	}
+    
+    /**
+     Calculates the median of an array of values for types that
+     satisfy the BinaryFloatingPoint protocol (e.g Float, Double).
+     
+     - Parameters:
+        - data:
+        Values of population.  Note that this should contain at least one value.
+     
+     - Returns:
+     The population variance or `nil` if `data` contains fewer than one value.
+     */
+	public static func median<T: BinaryFloatingPoint>(_ data: [T]) -> Double? {
+        if data.isEmpty {
+            return nil
+        }
 		let sorted_data = data.sorted()
 		if data.count % 2 == 1 {
 			return Double(sorted_data[Int(floor(Double(data.count)/2))]) 
 		}
-		else if data.count % 2 == 0 && data.count != 0 {
+		else {
 			return Double(sorted_data[data.count/2]+sorted_data[(data.count/2)-1])/2
 		}
-		// 0 length array would return this;
-		else {
-			return -Double(Int.max)
-		}
+	}
+    
+    /**
+     Calculates the median of an array of values for types that
+     satisfy the BinaryInteger protocol (e.g Int, Int32).
+     
+     - Parameters:
+        - data:
+        Values of population.  Note that this should contain at least one value.
+     
+     - Returns:
+     The population variance or `nil` if `data` contains fewer than one value.
+     */
+    public static func median<T: BinaryInteger>(_ data: [T]) -> Double? {
+        if data.isEmpty {
+            return nil
+        }
+        let sorted_data = data.sorted()
+        if data.count % 2 == 1 {
+            return Double(sorted_data[Int(floor(Double(data.count)/2))])
+        }
+        else {
+            return Double(sorted_data[data.count/2]+sorted_data[(data.count/2)-1])/2
+        }
 	}
 
-	public static func median(_ data: [Double]) -> Double {
-		let sorted_data = data.sorted()
-		if data.count % 2 == 1 {
-			return sorted_data[Int(floor(Double(data.count)/2))]
-		}
-		else if data.count % 2 == 0 && data.count != 0 {
-			return (sorted_data[data.count/2]+sorted_data[(data.count/2)-1])/2
-		}
-		// 0 length array would return this;
-		else {
-			return -Double(Int.max)
-		}
-	}
-
-	public static func median(_ data: [Float]) -> Float {
-		let sorted_data = data.sorted()
-		if data.count % 2 == 1 {
-			return sorted_data[Int(floor(Double(data.count)/2))] 
-		}
-		else if data.count % 2 == 0 && data.count != 0 {
-			return (sorted_data[data.count/2]+sorted_data[(data.count/2)-1])/2
-		}
-		else {
-			return -Float(Int.max)
-		}
-	}
    
 	public static func erfinv(_ y: Double) -> Double {
 		let center = 0.7
