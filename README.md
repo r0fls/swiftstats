@@ -4,7 +4,7 @@ Statistics for Swift &mdash; v1.5.0
 
 Wanting to generate a random number with a specific distribution for your iOS app?  Or smooth out your data using kernel density estimation?  SwiftStats has you covered.  
 
-SwiftStats is open-source with automated testing and automatically generated documentation.  If you'd like to help out we'd welcome contributions.
+SwiftStats is open-source with automated testing and automatically-generated documentation.  If you'd like to help out we'd welcome contributions.
 
 ## Features
 ### Distributions

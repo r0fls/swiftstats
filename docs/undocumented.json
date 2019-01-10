@@ -2,28 +2,21 @@
   "warnings": [
     {
       "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Common.swift",
-      "line": 21,
-      "symbol": "Common.factorial(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Common.swift",
-      "line": 25,
+      "line": 46,
       "symbol": "Common.choose(_:k:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Common.swift",
-      "line": 252,
+      "line": 273,
       "symbol": "Common.erfinv(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Common.swift",
-      "line": 289,
+      "line": 310,
       "symbol": "Common.lsr(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
@@ -432,13 +425,6 @@
       "line": 445,
       "symbol": "Distributions.Uniform.quantile(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/KernelDensityEstimation.swift",
-      "line": 12,
-      "symbol": "Common.KernelDensityEstimation",
-      "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     }
   ],
