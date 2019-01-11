@@ -14,14 +14,6 @@ class DistributionsTests: XCTestCase {
     // two floating-point values for the two values to be considered
     // sufficiently equal for testing purposes.
     let epsilon: Double = 1e-7
-    
-    func testVersion() {
-        #if swift(>=4.2)
-          XCTAssert(true, "Expected Swift version 4.2 or greater")
-        #else
-          XCTFail()
-        #endif
-    }
         
     func testBernoulli() {
         let b = SwiftStats.Distributions.Bernoulli(p: 0.7)
@@ -31,7 +23,7 @@ class DistributionsTests: XCTestCase {
         XCTAssert(round(100000*b.cdf(0))/100000 == 0.3, "Bernoulli cdf(0) should be 0.3")
         XCTAssert(b.quantile(0.5) == 1, "Bernoulli quantile(0.5) should be 1")
         XCTAssert(b.quantile(0.2) == 0, " Bernoulli quantile(0.2) should be 0")
-        XCTAssert(b.random() == 0, "Bernoulli random() should equal 1 with test seed")
+        
         let b2 = SwiftStats.Distributions.Bernoulli(data: [1,1,0,1])
         XCTAssert(b2!.p == 0.75, "Bernoulli fit with [1,1,0,1] should have p = 0.75")
     }
@@ -41,8 +33,6 @@ class DistributionsTests: XCTestCase {
         let l = SwiftStats.Distributions.Laplace(mean: 0.0, b: 1.0)
         let pdf = round(pow(10.0,15.0)*l.pdf(1))/pow(10.0,15.0)
         XCTAssert(pdf == 0.183939720585721, "Laplace pdf failed test")
-        let n = round(pow(10.0,14.0)*l.random())/pow(10.0,14.0)
-        XCTAssert(n == -1.07395068471681, "Laplace random failed test")
         let cdf = round(pow(10.0,15.0)*l.cdf(1))/pow(10.0,15.0)
         XCTAssert(cdf == 0.816060279414279, "Laplace cdf failed test")
         XCTAssert(l.cdf(0) == 0.5, "Laplace cdf failed test")
@@ -60,9 +50,7 @@ class DistributionsTests: XCTestCase {
         cdf = round(pow(10.0,15.0)*p.cdf(0))/pow(10.0,15.0)
         XCTAssert(cdf == 0.22313016014843, "Poisson cdf failed")
         XCTAssert(p.quantile(0.5) == 1, "Poisson quantile failed")
-        srand48(0)
-        XCTAssert(p.random() == 0, "Poisson random failed")
-        
+
         let p2 = SwiftStats.Distributions.Poisson(data: [1,2,3])
         XCTAssert(p2!.m == 2.0, "Poisson fit data failed")
         XCTAssert(p2!.quantile(0.999) == 8, "Poisson quantile from fit data failed")
@@ -74,8 +62,6 @@ class DistributionsTests: XCTestCase {
         XCTAssert(g.cdf(3) == 0.875, "Geometric cdf failed")
         XCTAssert(g.cdf(4) == 0.9375, "Geometric cdf failed")
         XCTAssert(g.quantile(0.9999) == 14, "Geometric quantile failed")
-        srand48(0)
-        XCTAssert(g.random() == 1)
     }
     
     func testExponential() {
@@ -88,9 +74,6 @@ class DistributionsTests: XCTestCase {
         XCTAssert(cdf == 0.864664716763387,  "Exponential cdf failed")
         let quant = round(pow(10.0,10.0)*e.quantile(0.864664716763387))/pow(10.0,10.0)
         XCTAssert(quant == 4.0, "quantile failed, got: \(quant)")
-        srand48(0)
-        let rand = round(pow(10.0,15.0)*e.random())/pow(10.0,15.0)
-        XCTAssert(rand == 0.374655420044752, "Exponential random() failed, got: "+String(rand))
     }
     
     func testErfinv() {
