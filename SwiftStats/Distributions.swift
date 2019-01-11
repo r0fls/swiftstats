@@ -5,7 +5,7 @@ import Foundation
  
  Defines the `quantile()` method that must be implemented.
  */
-protocol DiscreteDistribution {
+public protocol DiscreteDistribution {
     func quantile(_ p: Double) -> Int
 }
 
@@ -56,8 +56,7 @@ extension DiscreteDistribution {
  
  Defines the `quantile()` method that must be implemented.
  */
-
-protocol ContinuousDistribution {
+public protocol ContinuousDistribution {
     func quantile(_ p: Double) -> Double
 }
 
@@ -112,7 +111,7 @@ public struct Distributions {
 
     public class Bernoulli: DiscreteDistribution {
         var p: Double
-
+        
         public init(p: Double) {
             self.p = p
         }
