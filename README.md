@@ -112,23 +112,21 @@ let median2 = SwiftStats.Common.median([3,1,2]) // -> 2
 ```
 
 ### Advanced
-You can seed the random variable by using the distributions's seed method (or calling `srand48()` directly), or leave it to use the default seed:
+You can make the number produced by the `random()` methods predictable by supplying a known seed to a seedable random number generator.  By default the system provided random number generator is used, which is automatically seeded.
 
 ```swift
 let n3 = SwiftStats.Distributions.Normal(m:0, v:1.0)
 
-// default randomly seeded variable
-print(n3.random())
+// A randomly-generated number from a Normal distribution, using the
+// system's random number generator
+let rand1 = n3.random()
+print(rand1)
 
-// using the distributions' seed method
-n3.seed(42)
-let random1 = n3.random()
-XCTAssert(abs(random1 - 0.6573591680550961) < epsilon)
-
-// using srand48() directly
-srand48(1)
-let random2 = n3.random()
-XCTAssert(abs(random2 - -1.7320723047642332) < epsilon)
+// A randomly-generated number from a Normal distribution, using a
+// user-provided random number generator
+var rng = SwiftStats.SeedableRandomNumberGenerator(seed: 42)
+let rand2 = n3.random(using: &rng)
+print(rand2)
 ```
 
 ## Contributing

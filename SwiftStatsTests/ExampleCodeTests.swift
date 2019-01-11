@@ -40,19 +40,15 @@ class ExampleCodeTests: XCTestCase {
         // Example 4:
         let n3 = SwiftStats.Distributions.Normal(m:0, v:1.0)
         
-        // Default randomly seeded variable
-        print(n3.random())
+        // A randomly-generated number from a Normal distribution, using the
+        // system's random number generator
+        let rand1 = n3.random()
+        print(rand1)
         
-        /*
-        // using the distributions' seed method
-        n3.seed(42)
-        let random1 = n3.random()
-        XCTAssert(abs(random1 - 0.6573591680550961) < epsilon)
-        
-        // using srand48() directly
-        srand48(1)
-        let random2 = n3.random()
-        XCTAssert(abs(random2 - -1.7320723047642332) < epsilon)
- */
+        // A randomly-generated number from a Normal distribution, using a
+        // user-provided random number generator
+        var rng = SwiftStats.SeedableRandomNumberGenerator(seed: 42)
+        let rand2 = n3.random(using: &rng)
+        print(rand2)
     }
 }
