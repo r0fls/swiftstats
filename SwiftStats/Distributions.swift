@@ -1,78 +1,120 @@
 import Foundation
 
+/**
+ Protocol for discrete distributions.
+ 
+ Defines the `quantile()` method that must be implemented.
+ */
+protocol DiscreteDistribution {
+    func quantile(_ p: Double) -> Int
+}
+
+extension DiscreteDistribution {
+    /**
+     Single discrete random value using a user-provided random number generator
+     
+     - Parameters:
+       - using: A random number generator
+     
+     - Returns:
+     A random number from the distribution represented by the instance
+     */
+    public func random<T: RandomNumberGenerator>(using generator: inout T) -> Int {
+        let x = Double.random(in: 0.0...1.0,
+                              using: &generator)
+        return quantile(x)
+    }
+    
+    /**
+     Single discrete random value using the system random number generator
+     
+     - Returns:
+     A random number from the distribution represented by the instance
+     */
+    public func random() -> Int {
+        var rng = SystemRandomNumberGenerator()
+        return random(using: &rng)
+    }
+    
+    /**
+     Array of discrete random values
+     - Parameter n: number of values to produce
+     - Complexity: O(n)
+     */
+    public func random(_ n: Int) -> [Int] {
+        var results: [Int] = []
+        for _ in 0..<n {
+            results.append(random())
+        }
+        return results
+    }
+
+}
+
+/**
+ Protocol for continuous distributions.
+ 
+ Defines the `quantile()` method that must be implemented.
+ */
+
+protocol ContinuousDistribution {
+    func quantile(_ p: Double) -> Double
+}
+
+extension ContinuousDistribution {
+    /**
+     Single discrete random value using a user-provided random number generator
+     
+     - Parameters:
+       - using: A random number generator
+     
+     - Returns:
+     A random number from the distribution represented by the instance
+     */
+    public func random<T: RandomNumberGenerator>(using generator: inout T) -> Double {
+        let x = Double.random(in: 0.0...1.0,
+                              using: &generator)
+        return quantile(x)
+    }
+    
+    
+    /**
+     Single discrete random value using the system random number generator
+     
+     - Returns:
+     A random number from the distribution represented by the instance
+     */
+    public func random() -> Double {
+        var rng = SystemRandomNumberGenerator()
+        return random(using: &rng)
+    }
+    
+    
+    /**
+     Array of discrete random values
+     - Parameter n: number of values to produce
+     - Complexity: O(n)
+     */
+    public func random(_ n: Int) -> [Double] {
+        var results: [Double] = []
+        for _ in 0..<n {
+            results.append(random())
+        }
+        return results
+    }
+
+}
+
+
 public struct Distributions {
     private static let pi = Double.pi
     
-    // these first three classes need to be public so that their
-    // child classes can be, though they don't get used directly
-    public class Distribution {
-        public func seed() {
-            srand48(Int(Date().timeIntervalSinceReferenceDate))
-        }
-        public func seed(_ i: Int) {
-            srand48(i)
-        }
-    }
 
-    public class Discrete: Distribution {
-        // this should never happen; but will happen if called directly
-        // or if a class inherits this class without
-        // defining an overriding quantile method
-        public func quantile(_ p: Double) -> Int {
-            return -Int.max
-        }
-
-        /// Single discrete random value
-        public func random() -> Int {
-            return self.quantile(Double(drand48()))
-        }
-
-        /**
-         Array of discrete random values
-         - Parameter n: number of values to produce
-         - Complexity: O(n)
-         */
-        public func random(_ n: Int) -> [Int] {
-            var results: [Int] = []
-            for _ in 0..<n {
-                results.append(self.random())
-            }
-            return results
-        }
-    }
-
-    public class Continuous: Distribution {
-        // see Discrete public class
-        public func quantile(_ p: Double) -> Double {
-            return -1*Double.nan
-        }
-        
-        /// Single continuous random value
-        public func random() -> Double {
-            return self.quantile(Double(drand48()))
-        }
-        
-        /**
-         Array of continuous random values
-         - Parameter n: number of values to produce
-         - Complexity: O(n)
-         */
-         public func random(_ n: Int) -> [Double] {
-            var results: [Double] = []
-            for _ in 0..<n {
-                results.append(self.random())
-            }
-            return results
-        }
-    }
-
-    public class Bernoulli: Discrete {
+    public class Bernoulli: DiscreteDistribution {
         var p: Double
 
         public init(p: Double) {
             self.p = p
-            super.init()
-            super.seed()
         }
         
         public convenience init?<T: BinaryInteger>(data: [T]) {
@@ -106,7 +148,7 @@ public struct Distributions {
             return -1
         }
         
-        override public func quantile(_ p: Double) -> Int {
+        public func quantile(_ p: Double) -> Int {
             if p < 0 {
                 return -1
             }
@@ -120,7 +162,7 @@ public struct Distributions {
         }
     }
 
-    public class Laplace: Continuous {
+    public class Laplace: ContinuousDistribution {
         var mean: Double
         var b: Double
 
@@ -157,7 +199,7 @@ public struct Distributions {
             }
         }
 
-        override public func quantile(_ p: Double) -> Double {
+        public func quantile(_ p: Double) -> Double {
             if p > 0 && p <= 0.5 {
                 return self.mean + self.b*log(2*p)
             }
@@ -168,7 +210,7 @@ public struct Distributions {
         }
     }
 
-    public class Poisson: Discrete {
+    public class Poisson: DiscreteDistribution {
         var m: Double
         public init(m: Double) {
             self.m = m
@@ -193,7 +235,7 @@ public struct Distributions {
             return total
         }
 
-        override public func quantile(_ x: Double) -> Int {
+        public func quantile(_ x: Double) -> Int {
             var total = Double(0)
             var j = 0
             total += self.pmf(j)
@@ -205,7 +247,7 @@ public struct Distributions {
         }
     }
 
-    public class Geometric: Discrete {
+    public class Geometric: DiscreteDistribution {
         var p: Double
         public init(p: Double) {
             self.p = p
@@ -226,12 +268,12 @@ public struct Distributions {
             return 1 - pow(1 - self.p, Double(k))
         }
 
-        override public func quantile(_ p: Double) -> Int {
+        public func quantile(_ p: Double) -> Int {
             return Int(ceil(log(1 - p)/log(1 - self.p)))
         }
     }
 
-    public class Exponential: Continuous {
+    public class Exponential: ContinuousDistribution {
         var l: Double
         public init(l: Double) {
             self.l = l
@@ -252,12 +294,12 @@ public struct Distributions {
             return 1 - exp(-self.l*x)
         }
 
-        override public func quantile(_ p: Double) -> Double {
+        public func quantile(_ p: Double) -> Double {
             return -log(1 - p)/self.l
         }
     }
 
-    public class Binomial: Discrete {
+    public class Binomial: DiscreteDistribution {
         var n: Int
         var p: Double
         public init(n: Int, p: Double) {
@@ -278,7 +320,7 @@ public struct Distributions {
             return total
         }
         
-        override public func quantile(_ x: Double) -> Int {
+        public func quantile(_ x: Double) -> Int {
             var total = Double(0)
             var j = 0
             while total < x {
@@ -289,7 +331,7 @@ public struct Distributions {
         }
     }
 
-    public class Normal: Continuous {
+    public class Normal: ContinuousDistribution {
         // mean and variance
         var m: Double
         var v: Double
@@ -326,7 +368,7 @@ public struct Distributions {
             return (1 + erf((x-self.m)/pow(2*self.v,0.5)))/2
         }
 
-        override public func quantile(_ p: Double) -> Double {
+        public func quantile(_ p: Double) -> Double {
             return self.m + pow(self.v*2,0.5)*Common.erfinv(2*p - 1)
         }
     }
@@ -346,7 +388,7 @@ public struct Distributions {
      a log-normal distribution will be created parameterised by the mean and
      variance of the sample data.
     */
-    public class LogNormal: Continuous {
+    public class LogNormal: ContinuousDistribution {
         // Mean and variance
         var m: Double
         var v: Double
@@ -407,13 +449,13 @@ public struct Distributions {
             return 0.5 + 0.5*erf((log(x)-m)/sqrt(2*v))
         }
         
-        override public func quantile(_ p: Double) -> Double {
+        public func quantile(_ p: Double) -> Double {
             return exp(m + sqrt(2*v)*Common.erfinv(2*p - 1))
         }
 
     }
 
-    public class Uniform: Continuous {
+    public class Uniform: ContinuousDistribution {
         // a and b are endpoints, that is
         // values will be distributed uniformly between points a and b
         var a: Double
@@ -444,7 +486,7 @@ public struct Distributions {
             return 0
         }
 
-        override public func quantile(_ p: Double) -> Double {
+        public func quantile(_ p: Double) -> Double {
             if p>=0 && p<=1{
                 return p*(b-a)+a
             }

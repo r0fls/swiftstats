@@ -40,9 +40,10 @@ class ExampleCodeTests: XCTestCase {
         // Example 4:
         let n3 = SwiftStats.Distributions.Normal(m:0, v:1.0)
         
-        // default randomly seeded variable
+        // Default randomly seeded variable
         print(n3.random())
         
+        /*
         // using the distributions' seed method
         n3.seed(42)
         let random1 = n3.random()
@@ -52,5 +53,6 @@ class ExampleCodeTests: XCTestCase {
         srand48(1)
         let random2 = n3.random()
         XCTAssert(abs(random2 - -1.7320723047642332) < epsilon)
+ */
     }
 }

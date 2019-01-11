@@ -25,7 +25,7 @@ class KDETests: XCTestCase {
         
         let data : [Double] = [0]
         
-        let kde = SwiftStats.Common.KernelDensityEstimation(data, bandwidth: 1)
+        let kde = SwiftStats.KernelDensityEstimation(data, bandwidth: 1)
         
         let density = kde!.evaluate(0)
         
@@ -40,7 +40,7 @@ class KDETests: XCTestCase {
 
         let data : [Double] = [0, 0]
         
-        let kde = SwiftStats.Common.KernelDensityEstimation(data, bandwidth: 1)
+        let kde = SwiftStats.KernelDensityEstimation(data, bandwidth: 1)
         
         let density = kde!.evaluate(0)
         
@@ -65,7 +65,7 @@ class KDETests: XCTestCase {
 
         let data : [Double] = [0, 10]
         
-        let kde = SwiftStats.Common.KernelDensityEstimation(data, bandwidth: 1)
+        let kde = SwiftStats.KernelDensityEstimation(data, bandwidth: 1)
         
         let density = kde!.evaluate(0)
         XCTAssert(abs(density - 0.1994125) < epsilon)
@@ -86,7 +86,7 @@ class KDETests: XCTestCase {
         
         let data : [Double] = [0, 1]
         
-        let kde = SwiftStats.Common.KernelDensityEstimation(data, bandwidth: 1)
+        let kde = SwiftStats.KernelDensityEstimation(data, bandwidth: 1)
         
         let density = kde!.evaluate(0)
         XCTAssert(abs(density - 0.320532) < epsilon)
@@ -113,8 +113,8 @@ class KDETests: XCTestCase {
         
         let data : [Double] = [-2.1, -1.3, -0.4, 1.9, 5.1, 6.2]
         
-        let kde = SwiftStats.Common.KernelDensityEstimation(data,
-                                                            bandwidth: sqrt(2.25))
+        let kde = SwiftStats.KernelDensityEstimation(data,
+                                                     bandwidth: sqrt(2.25))
         
         let density0 = kde!.evaluate(0)
         XCTAssert(abs(density0 - 0.1099665) < epsilon)
@@ -124,12 +124,12 @@ class KDETests: XCTestCase {
     }
     
     func testAutomaticBandwithEstimatorThrows() throws {
-        // Check that the constructor throws if insufficient data is passed in
-        // while asking for automatic bandwidth selection
-        XCTAssertNil(SwiftStats.Common.KernelDensityEstimation([],
-                                                                           bandwidth:nil))
-        XCTAssertNil(SwiftStats.Common.KernelDensityEstimation([1.0],
-                                                                           bandwidth:nil))
+        // Check that the constructor returns nil if insufficient data is passed
+        // in while asking for automatic bandwidth selection
+        XCTAssertNil(SwiftStats.KernelDensityEstimation([],
+                                                        bandwidth:nil))
+        XCTAssertNil(SwiftStats.KernelDensityEstimation([1.0],
+                                                        bandwidth:nil))
     }
     
     func testTwoDataPointsWithSilvermansBandwidthEstimator() {
@@ -152,8 +152,8 @@ class KDETests: XCTestCase {
         
         let data : [Double] = [0, 1]
         
-        let kde = SwiftStats.Common.KernelDensityEstimation(data,
-                                                                bandwidth:nil)
+        let kde = SwiftStats.KernelDensityEstimation(data,
+                                                     bandwidth:nil)
         XCTAssert(abs(kde!.bandwidth - 0.6525065391) < epsilon)
 
         let density = kde!.evaluate(0)

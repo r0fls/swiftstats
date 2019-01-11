@@ -12,6 +12,8 @@
 		3434BF3921E5AD5B006D82FF /* KDETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3434BF3821E5AD5B006D82FF /* KDETests.swift */; };
 		345BED1A21AD3DBC00449911 /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345BED1921AD3DBC00449911 /* CommonTests.swift */; };
 		347C052421B37399006E885F /* ExampleCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347C052321B37399006E885F /* ExampleCodeTests.swift */; };
+		34BDE98D21E82D7900085D6A /* SeedableRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDE98C21E82D7900085D6A /* SeedableRandomNumberGenerator.swift */; };
+		34BDE98F21E838DB00085D6A /* SwiftVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDE98E21E838DB00085D6A /* SwiftVersion.swift */; };
 		E28007431CCCA833002A2A6C /* SwiftStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E28007381CCCA833002A2A6C /* SwiftStats.framework */; };
 		E28007481CCCA833002A2A6C /* DistributionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28007471CCCA833002A2A6C /* DistributionsTests.swift */; };
 		E28007541CCCA926002A2A6C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28007531CCCA926002A2A6C /* Common.swift */; };
@@ -34,6 +36,8 @@
 		3434BF3A21E6AD6B006D82FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		345BED1921AD3DBC00449911 /* CommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
 		347C052321B37399006E885F /* ExampleCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCodeTests.swift; sourceTree = "<group>"; };
+		34BDE98C21E82D7900085D6A /* SeedableRandomNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedableRandomNumberGenerator.swift; sourceTree = "<group>"; };
+		34BDE98E21E838DB00085D6A /* SwiftVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftVersion.swift; sourceTree = "<group>"; };
 		34EFF9F821E6CD0200D06BF3 /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = "<group>"; };
 		E28007381CCCA833002A2A6C /* SwiftStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E280073D1CCCA833002A2A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,10 +91,11 @@
 		E280073A1CCCA833002A2A6C /* SwiftStats */ = {
 			isa = PBXGroup;
 			children = (
-				E28007531CCCA926002A2A6C /* Common.swift */,
-				3434BF3621E58CE3006D82FF /* KernelDensityEstimation.swift */,
-				3426056921B20EF200733FAB /* Distributions.swift */,
 				E280073D1CCCA833002A2A6C /* Info.plist */,
+				E28007531CCCA926002A2A6C /* Common.swift */,
+				3426056921B20EF200733FAB /* Distributions.swift */,
+				3434BF3621E58CE3006D82FF /* KernelDensityEstimation.swift */,
+				34BDE98C21E82D7900085D6A /* SeedableRandomNumberGenerator.swift */,
 			);
 			path = SwiftStats;
 			sourceTree = "<group>";
@@ -98,11 +103,12 @@
 		E28007461CCCA833002A2A6C /* SwiftStatsTests */ = {
 			isa = PBXGroup;
 			children = (
-				347C052321B37399006E885F /* ExampleCodeTests.swift */,
-				E28007471CCCA833002A2A6C /* DistributionsTests.swift */,
-				345BED1921AD3DBC00449911 /* CommonTests.swift */,
-				3434BF3821E5AD5B006D82FF /* KDETests.swift */,
 				E28007491CCCA833002A2A6C /* Info.plist */,
+				34BDE98E21E838DB00085D6A /* SwiftVersion.swift */,
+				345BED1921AD3DBC00449911 /* CommonTests.swift */,
+				E28007471CCCA833002A2A6C /* DistributionsTests.swift */,
+				3434BF3821E5AD5B006D82FF /* KDETests.swift */,
+				347C052321B37399006E885F /* ExampleCodeTests.swift */,
 			);
 			path = SwiftStatsTests;
 			sourceTree = "<group>";
@@ -217,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34BDE98D21E82D7900085D6A /* SeedableRandomNumberGenerator.swift in Sources */,
 				3434BF3721E58CE4006D82FF /* KernelDensityEstimation.swift in Sources */,
 				E28007541CCCA926002A2A6C /* Common.swift in Sources */,
 				3426056A21B20EF200733FAB /* Distributions.swift in Sources */,
@@ -230,6 +237,7 @@
 				3434BF3921E5AD5B006D82FF /* KDETests.swift in Sources */,
 				345BED1A21AD3DBC00449911 /* CommonTests.swift in Sources */,
 				E28007481CCCA833002A2A6C /* DistributionsTests.swift in Sources */,
+				34BDE98F21E838DB00085D6A /* SwiftVersion.swift in Sources */,
 				347C052421B37399006E885F /* ExampleCodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +386,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = SwiftStats/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = r0fls.SwiftStats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -400,6 +409,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = SwiftStats/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = r0fls.SwiftStats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
