@@ -36,7 +36,7 @@ And each distribution has these methods:
 
 ## Documentation
 
-Documentation for the functions and classes in SwiftStats is automatically generated using Jazzy.
+Documentation for the functions and classes in SwiftStats is automatically generated using [Jazzy](https://github.com/realm/jazzy).
 
 You can view the documentation on our GitHub site, and it is included in each release.
 
