@@ -1,5 +1,10 @@
 import Foundation
 
+/**
+ Protocol for discrete distributions.
+ 
+ Defines the `quantile()` method that must be implemented.
+ */
 protocol DiscreteDistribution {
     func quantile(_ p: Double) -> Int
 }
@@ -9,7 +14,7 @@ extension DiscreteDistribution {
      Single discrete random value using a user-provided random number generator
      
      - Parameters:
-     - using: A random number generator
+       - using: A random number generator
      
      - Returns:
      A random number from the distribution represented by the instance
@@ -46,6 +51,12 @@ extension DiscreteDistribution {
 
 }
 
+/**
+ Protocol for continuous distributions.
+ 
+ Defines the `quantile()` method that must be implemented.
+ */
+
 protocol ContinuousDistribution {
     func quantile(_ p: Double) -> Double
 }
@@ -55,7 +66,7 @@ extension ContinuousDistribution {
      Single discrete random value using a user-provided random number generator
      
      - Parameters:
-     - using: A random number generator
+       - using: A random number generator
      
      - Returns:
      A random number from the distribution represented by the instance

@@ -21,16 +21,16 @@ public class KernelDensityEstimation {
      Creates a new instance from an array of Doubles
      
      - Parameters:
-     - data: Array of Doubles.  If automatic bandwidth selection is
-     required, this arry needs to have no fewer than two values.
-     - bandwidth: Either specify the size of the bandwidth (the standard
-     deviation of the normal kernel), or specify `nil` to automatically
-     select the bandwidth using Silverman's rule-of-thumb.  Note that
-     this rule is only appropriate if the data comes from a distribution
-     not too dissimilar to a normal distribution.  In other words, you
-     will be better served by manually specifying the bandwidth if the
-     source distribution is multi-modal.
-     See the [Kernel Density Estimation Wikipedia article](https://en.wikipedia.org/wiki/Kernel_density_estimation).
+       - data: Array of Doubles.  If automatic bandwidth selection is
+       required, this arry needs to have no fewer than two values.
+       - bandwidth: Either specify the size of the bandwidth (the standard
+       deviation of the normal kernel), or specify `nil` to automatically
+       select the bandwidth using Silverman's rule-of-thumb.  Note that
+       this rule is only appropriate if the data comes from a distribution
+       not too dissimilar to a normal distribution.  In other words, you
+       will be better served by manually specifying the bandwidth if the
+       source distribution is multi-modal.
+       See the [Kernel Density Estimation Wikipedia article](https://en.wikipedia.org/wiki/Kernel_density_estimation).
      
      - Returns:
      A new instance of KernelDensityEstimation, or `nil` if `data`
@@ -54,7 +54,7 @@ public class KernelDensityEstimation {
      Evaluates the Kernel Density Estimator at the given value, `x`.
      
      - Parameters:
-     - x: The point at which the KDE should be evaluated.
+       - x: The point at which the KDE should be evaluated.
      
      - Returns:
      The density at the specified point, `x`.
@@ -76,9 +76,9 @@ public class KernelDensityEstimation {
      specified as `bandwidth` in the contructor.
      
      - Parameters:
-     - x: The point at which the Gaussian distributon should be evaluated.
-     - mean: The mean (or centre) of the Gaussian distribution
-     - sd: The standard deviation of the Gaussian distribution
+       - x: The point at which the Gaussian distributon should be evaluated.
+       - mean: The mean (or centre) of the Gaussian distribution
+       - sd: The standard deviation of the Gaussian distribution
      
      - Returns:
      The density at the specified point, `x`, for the specified Gaussian.

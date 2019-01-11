@@ -18,7 +18,7 @@ public class SeedableRandomNumberGenerator : RandomNumberGenerator {
      Creates a new instance and seeds the generator using a call to
      `srand48(seed)`.
      */
-    init(seed: Int = 0) {
+    public init(seed: Int = 0) {
         srand48(seed)
     }
     
