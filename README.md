@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/r0fls/swiftstats.png)](https://travis-ci.org/r0fls/swiftstats)
-# swiftstats
+# SwiftStats
 Statistics for Swift &mdash; v1.6.1
 
 Wanting to generate a random number with a specific distribution for your iOS app?  Or smooth out your data using kernel density estimation?  SwiftStats has you covered.  
