@@ -135,7 +135,7 @@ XCTAssert(abs(random2 - -1.7320723047642332) < epsilon)
 If you would like to contribute, please submit a pull request, or raise an issue.
 
 ### TO-DO
-- improve documentation coverage from the current 24%.
+- improve documentation coverage from the current 38%.
 - add more distributions
 - allow updating a fitted distribution with more data
 - pass travis tests without mangling the median function
