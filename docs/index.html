@@ -13,7 +13,7 @@
     <a title="  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (38% documented)</p>
+        <p><a href="index.html"> Docs</a> (39% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -38,13 +38,13 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Extensions.html">Extensions</a>
+            <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Extensions/ContinuousDistribution.html">ContinuousDistribution</a>
+                <a href="Protocols/ContinuousDistribution.html">ContinuousDistribution</a>
               </li>
               <li class="nav-group-task">
-                <a href="Extensions/DiscreteDistribution.html">DiscreteDistribution</a>
+                <a href="Protocols/DiscreteDistribution.html">DiscreteDistribution</a>
               </li>
             </ul>
           </li>
@@ -93,9 +93,9 @@
           <section class="section">
             
             <p><a href="https://travis-ci.org/r0fls/swiftstats"><img src="https://travis-ci.org/r0fls/swiftstats.png" alt="Build Status"></a></p>
-<h1 id='swiftstats' class='heading'>swiftstats</h1>
+<h1 id='swiftstats' class='heading'>SwiftStats</h1>
 
-<p>Statistics for Swift &mdash; v1.5.1</p>
+<p>Statistics for Swift &mdash; v1.6.1</p>
 
 <p>Wanting to generate a random number with a specific distribution for your iOS app?  Or smooth out your data using kernel density estimation?  SwiftStats has you covered.  </p>
 
@@ -138,7 +138,7 @@
 </ul>
 <h2 id='documentation' class='heading'>Documentation</h2>
 
-<p>Documentation for the functions and classes in SwiftStats is automatically generated using Jazzy.</p>
+<p>Documentation for the functions and classes in SwiftStats is automatically generated using <a href="https://github.com/realm/jazzy">Jazzy</a>.</p>
 
 <p>You can view the documentation on our GitHub site, and it is included in each release.</p>
 
@@ -198,21 +198,19 @@
 </code></pre>
 <h3 id='advanced' class='heading'>Advanced</h3>
 
-<p>You can seed the random variable by using the distributions&rsquo;s seed method (or calling <code>srand48()</code> directly), or leave it to use the default seed:</p>
+<p>You can make the number produced by the <code>random()</code> methods predictable by supplying a known seed to a seedable random number generator.  By default the system provided random number generator is used, which is automatically seeded.</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">n3</span> <span class="o">=</span> <span class="kt">SwiftStats</span><span class="o">.</span><span class="kt">Distributions</span><span class="o">.</span><span class="kt">Normal</span><span class="p">(</span><span class="nv">m</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="nv">v</span><span class="p">:</span><span class="mf">1.0</span><span class="p">)</span>
 
-<span class="c1">// default randomly seeded variable</span>
-<span class="nf">print</span><span class="p">(</span><span class="n">n3</span><span class="o">.</span><span class="nf">random</span><span class="p">())</span>
+<span class="c1">// A randomly-generated number from a Normal distribution, using the</span>
+<span class="c1">// system's random number generator</span>
+<span class="k">let</span> <span class="nv">rand1</span> <span class="o">=</span> <span class="n">n3</span><span class="o">.</span><span class="nf">random</span><span class="p">()</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">rand1</span><span class="p">)</span>
 
-<span class="c1">// using the distributions' seed method</span>
-<span class="n">n3</span><span class="o">.</span><span class="nf">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">random1</span> <span class="o">=</span> <span class="n">n3</span><span class="o">.</span><span class="nf">random</span><span class="p">()</span>
-<span class="kt">XCTAssert</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">random1</span> <span class="o">-</span> <span class="mf">0.6573591680550961</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">)</span>
-
-<span class="c1">// using srand48() directly</span>
-<span class="nf">srand48</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">random2</span> <span class="o">=</span> <span class="n">n3</span><span class="o">.</span><span class="nf">random</span><span class="p">()</span>
-<span class="kt">XCTAssert</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">random2</span> <span class="o">-</span> <span class="o">-</span><span class="mf">1.7320723047642332</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">)</span>
+<span class="c1">// A randomly-generated number from a Normal distribution, using a</span>
+<span class="c1">// user-provided random number generator</span>
+<span class="k">var</span> <span class="nv">rng</span> <span class="o">=</span> <span class="kt">SwiftStats</span><span class="o">.</span><span class="kt">SeedableRandomNumberGenerator</span><span class="p">(</span><span class="nv">seed</span><span class="p">:</span> <span class="mi">42</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">rand2</span> <span class="o">=</span> <span class="n">n3</span><span class="o">.</span><span class="nf">random</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">rng</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">rand2</span><span class="p">)</span>
 </code></pre>
 <h2 id='contributing' class='heading'>Contributing</h2>
 
@@ -220,7 +218,7 @@
 <h3 id='to-do' class='heading'>TO-DO</h3>
 
 <ul>
-<li>improve documentation coverage from the current 24%.</li>
+<li>improve documentation coverage from the current 38%.</li>
 <li>add more distributions</li>
 <li>allow updating a fitted distribution with more data</li>
 <li>pass travis tests without mangling the median function</li>
@@ -233,7 +231,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-11)</p>
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
