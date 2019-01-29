@@ -44,6 +44,8 @@ public class KernelDensityEstimation {
         if bandwidth != nil {
             self.bandwidth = bandwidth!
         } else {
+            // Silverman's rule-of-thumb; see
+            // https://en.wikipedia.org/wiki/Kernel_density_estimation
             guard let sd = SwiftStats.Common.sd(data) else {
                 return nil
             }
