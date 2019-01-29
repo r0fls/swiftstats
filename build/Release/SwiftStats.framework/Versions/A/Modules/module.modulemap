@@ -1,0 +1,4 @@
+framework module SwiftStats {
+  header "SwiftStats-Swift.h"
+  requires objc
+}

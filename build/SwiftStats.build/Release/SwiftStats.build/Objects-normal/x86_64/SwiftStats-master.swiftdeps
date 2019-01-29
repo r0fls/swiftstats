@@ -1,0 +1,8 @@
+version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+options: "49bf8da9c23c7d9cbcae2b7a9a19a77c"
+build_time: [1548731790, 900365000]
+inputs:
+  "/Users/matthew/Desktop/swiftstats/SwiftStats/SeedableRandomNumberGenerator.swift": [9223372036, 854775807]
+  "/Users/matthew/Desktop/swiftstats/SwiftStats/KernelDensityEstimation.swift": [9223372036, 854775807]
+  "/Users/matthew/Desktop/swiftstats/SwiftStats/Common.swift": [9223372036, 854775807]
+  "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift": [9223372036, 854775807]

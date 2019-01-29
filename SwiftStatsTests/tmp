@@ -1,0 +1,655 @@
+commit d2a1f9e3b9508853dcf16fa51d5eebeebdf78ce0
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sun Dec 2 15:06:28 2018 +1300
+
+    Improved documentation, especially of LogNormal class.
+
+commit a1d1c4d44a01c1201adc75ca98ca97aab7a84d7a
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sun Dec 2 15:05:46 2018 +1300
+
+    Added file ExampleCodeTests.swift
+
+commit 1b6a60e65d5c3941e04ba6836e8243b351eaa5d5
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sun Dec 2 14:55:09 2018 +1300
+
+    Added README's example code into a test suite, which can now be automatically tested and copied-and-pasted back to README should that code change.
+
+commit ee908776c4cfbfc16050e9726cd6a51994727a8b
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sat Dec 1 21:36:34 2018 +1300
+
+    Removed duplicated README
+
+commit db2d43f3f61c07b9eb4f376227301e7f904c90ba
+Merge: 2c7da59 b0fdbe3
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sat Dec 1 21:33:24 2018 +1300
+
+    Merge branch 'add-carthage-support'
+
+commit b0fdbe356e861a1ec5571064888990451367002b
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sat Dec 1 21:05:50 2018 +1300
+
+    Moved "Features" to the start of the README and documented the example code.
+
+commit 4d06ca89273b2d45d41838058cd1b2bc737d5fb5
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sat Dec 1 20:58:15 2018 +1300
+
+    Updated README to include Carthage instructions.
+
+commit 2c7da59e19c1372b93dab9b2488510834b652699
+Merge: b5a15dc cd302fd
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sat Dec 1 16:53:32 2018 +1300
+
+    Merged branch add-ios-target
+
+commit b5a15dcead8ede50a5383ac7ef28f74ffda92fcb
+Merge: b45184c 8149794
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sat Dec 1 16:44:43 2018 +1300
+
+    Merge branch 'change-initial-case' into devel
+
+commit b45184c9bbbc81897a8d0f2458f3dbde6e525836
+Merge: 8a97d43 f984ae6
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sat Dec 1 16:36:52 2018 +1300
+
+    Merge branch 'add-lognormal'
+
+commit f984ae62fab24fb8b747d0c156a96a57e1c30a52
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sat Dec 1 16:14:46 2018 +1300
+
+    Removed the logArray() function from Common
+
+commit cd302fdc305639a0c138dc049d330fe62ca891d1
+Merge: b609ce7 6bd4640
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sat Dec 1 13:57:17 2018 +1300
+
+    Bringing this branch up to date with master.
+
+commit b609ce7f3dd49ef41e9c3128ce7ddb397ef3865d
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sat Dec 1 13:54:01 2018 +1300
+
+    Split stats.swift into two files Common.swift and Distributions.swift
+
+commit a57dabd56441ba0d259d08eba7a3274b3ca0b0fc
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sat Dec 1 13:53:33 2018 +1300
+
+    Added iOS target
+
+commit 6edbbf5ace1a5238840b7cc7b7d49bc47bb8f4be
+Merge: 7c35e66 6bd4640
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Sat Dec 1 12:05:42 2018 +1300
+
+    Merge branch 'master' of https://github.com/r0fls/swiftstats into add-lognormal
+
+commit 6bd464098ddbc3f779701c569477ef871093560a
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Nov 30 13:07:35 2018 -0800
+
+    Update README.md
+    
+    add travis badge
+
+commit efef2f437da66e1030dd379fdb096a853e0434a1
+Merge: 1bdd4bf 215a41e
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Nov 30 13:04:04 2018 -0800
+
+    Merge pull request #6 from r0fls/travis-testing
+    
+    Travis testing working
+
+commit 215a41eadedfadea61fb909766c29ee74273c960
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Fri Nov 30 22:44:29 2018 +1300
+
+    Removed unnecessary edit
+
+commit bae32c5922897fe5a945c941b4755309336fdbf3
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Fri Nov 30 22:34:20 2018 +1300
+
+    Trying to force a Travis rebuild
+
+commit f253e79fad978dad5456a4ba4d851ddccc21e0b8
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Fri Nov 30 22:33:36 2018 +1300
+
+    Changed to xcode 10.1
+
+commit 8a97d43c98d33501a83b41f2e8d4594ded3d7c75
+Merge: 7c35e66 1bdd4bf
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Fri Nov 30 22:07:32 2018 +1300
+
+    Merge remote-tracking branch 'upstream/master'
+
+commit 81497949e003567bf35ddc2a5bba7b3d099e66f7
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Fri Nov 30 21:47:35 2018 +1300
+
+    Changed Pdf -> pdf
+
+commit 043289ea5220a0285a80e2c4f1be127d5936454f
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Fri Nov 30 20:02:45 2018 +1300
+
+    Replaced Pmf -> pff
+
+commit 480c1f0063a19746feb4a05d5b7045fec05f01f6
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Fri Nov 30 20:01:29 2018 +1300
+
+    Replaced Random -> random and Cdf -> cdf
+
+commit 8f2a00c55a6dc909583d1843a76791b316e88089
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Fri Nov 30 19:58:12 2018 +1300
+
+    Renamed Quantile -> quantile
+
+commit 1bdd4bf5f9ae6e33657dbce27e9ea0448fd606c5
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Tue Nov 27 12:20:56 2018 -0800
+
+    Update .travis.yml
+    
+    update travis to swift 4.2
+
+commit 94f8a722c0d27727a5b1b284e8408d2ee99be1ad
+Merge: ff38a25 02cdfec
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Tue Nov 27 12:16:02 2018 -0800
+
+    Merge pull request #2 from mattgwwalker/master
+    
+    Updated to Swift 4.2
+
+commit 7c35e66ceff3d72df4668707bb353107a35aff35
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 22:45:25 2018 +1300
+
+    Updated README
+
+commit dc28556d2b42d59155d6db52bf7f50763606494d
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 22:19:21 2018 +1300
+
+    Updated playground
+
+commit 3244dce1b7f3b037ebe385a8a58e5f7fc238a3f0
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 22:11:10 2018 +1300
+
+    Added LogNormal distribution, and Common.logArray to support it.  Added tests for both the distribution and the function.  Tests are passing.
+
+commit 5043b14af63580dc43e0cfcfcc5f643e458334e8
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 19:45:37 2018 +1300
+
+    Changed standard deviation based constructor to "convenience" and called init() directly for Normal distribution.
+
+commit 1d4ed202f9096d743d5543af447f63f809a3127a
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 19:43:50 2018 +1300
+
+    Replaced direct use of Double.pi with constant pi
+
+commit 02cdfecf1bbe62846dd8dbad2a1de321db7856d2
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 16:47:02 2018 +1300
+
+    Added test requiring Swift version 4.2 or greater.
+
+commit bad6dc145cc18badef23434cb7d9b5029bcea38b
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 16:24:16 2018 +1300
+
+    Added testNormal that tests the methods Cdf, Quantile, and Pdf.
+
+commit d38702dffdd4b79f92a4dc4ffc879728ed496f0f
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 16:22:52 2018 +1300
+
+    Added constructor for Normal that takes mean and standard deviation (as opposed to variance).  This parameterisation is more common; it's used in R, Matlab, Python's Numpy, Swift's GKGaussianDistribution, and the Swift library SORandom.
+
+commit 1127d823b59213c99447de5637a40cbc90fef5c8
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 13:06:40 2018 +1300
+
+    Removed unused performance test
+
+commit eb87f486521adccab4cb9efeb42d37300cb14f67
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 13:05:30 2018 +1300
+
+    Removed invalid references to iOS target
+
+commit 40ef891a155be8de60d2b96eed72371fcbad276a
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 13:00:08 2018 +1300
+
+    Migrated project to Swift 4.2
+
+commit 2cb35a505acbcd54f213fb8cb94395708210a685
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 12:46:20 2018 +1300
+
+    Replaced M_PI with Double.pi
+
+commit 0541065adcc4b52a776f144dc8cd9b5e9477062b
+Author: Matthew Walker <mattgwwalker@gmail.com>
+Date:   Tue Nov 27 12:43:28 2018 +1300
+
+    Project now builds and tests successfully in Xcode 10.1
+
+commit ff38a255ddfadb18d6592edfe1ba4b9e7d1184f5
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Thu Apr 6 16:14:52 2017 -0700
+
+    Update README.md
+
+commit d5eab4fb60de08d0a2cb3a03f06bc8abb20022aa
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sat Dec 17 16:32:58 2016 -0800
+
+    remove iOS target attempt
+
+commit ea0bd0905fd75902a137cc3205fe00511f2c3c4e
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sat Dec 10 14:01:47 2016 -0800
+
+    revert build changes
+
+commit c74ff9ea86d5182df69a0ebc4f56acfa6d4fd8ee
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sat Dec 10 13:47:35 2016 -0800
+
+    Update project
+
+commit 5d6f7762264c3f2a347804d471506c5755ff4fca
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sat Dec 10 13:46:50 2016 -0800
+
+    Add iOS target
+
+commit 4406bfcd38c468c0def56317a5c247a166678006
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sat Dec 10 13:32:39 2016 -0800
+
+    update tests
+
+commit 7b007a6cce7d1ab24427cdfb659d1a58cbacfc42
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Thu Aug 18 10:05:37 2016 -0700
+
+    Update README.md
+
+commit 7301d8660ada8c7f1fbabdf4ec1b70d700cf19ec
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Thu Aug 18 10:03:38 2016 -0700
+
+    Update README.md
+
+commit d003454db676a45f93b332a24dd78c419572b1b2
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Wed Aug 17 22:32:48 2016 -0700
+
+    Update README.md
+
+commit d80542ee3b2f161ce1b5071fd9753d2f86d9b0a4
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Wed Aug 17 22:27:36 2016 -0700
+
+    moving to swift 3
+
+commit 0c28abb5deacb2765bdedd00dc2fce2a87d325e5
+Merge: 9895f4e 8392139
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Wed Aug 17 17:54:15 2016 -0700
+
+    Merge branch 'master' of https://github.com/r0fls/swiftstats
+
+commit 9895f4e51cefa8f1f8081fe2023acba04a7b933d
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Wed Aug 17 17:54:02 2016 -0700
+
+    least square regression
+
+commit 83921391aeac4629f2f37d71c1e76b5509d76d10
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sat Aug 6 15:09:52 2016 -0400
+
+    Revert "3.0 conversion"
+    
+    This reverts commit aa49464588faf93eb64bc304b8292a597df57204.
+
+commit 0b557e74b7f1c853a1f151cc86497e4524e49036
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sat Aug 6 15:07:03 2016 -0400
+
+    Revert "Update README.md"
+    
+    This reverts commit 6d76fd8c3da6e07580b84a70381b87afc425afbb.
+
+commit 98eabd110c1bd9ac8d1d30867c97627ecd004bd3
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sat Aug 6 14:42:38 2016 -0400
+
+    travis version
+
+commit aa49464588faf93eb64bc304b8292a597df57204
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sat Aug 6 14:39:20 2016 -0400
+
+    3.0 conversion
+
+commit 6d76fd8c3da6e07580b84a70381b87afc425afbb
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Thu May 5 21:35:39 2016 -0700
+
+    Update README.md
+
+commit 3e6801c5f3d551db85c5ff13e9f9511dcfd20fe7
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Wed May 4 15:56:03 2016 -0700
+
+    Update README.md
+
+commit 2563816666b27ab1f8e6a489e367b9ce40d055ad
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun May 1 19:21:24 2016 -0700
+
+    Update README.md
+
+commit 6ac1a5e2dcfb5acc8775bddb00a3fb6b7cee422b
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun May 1 19:20:02 2016 -0700
+
+    Update README.md
+
+commit 8037604926a220a950f53ebc1aa594493b36ab4c
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 20:21:58 2016 -0700
+
+    Update README.md
+
+commit 9f059bf58e5109cad794b9ed288438e663db0815
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 20:13:28 2016 -0700
+
+    Update README.md
+
+commit 572bb1663f244ffdc27d233c81c00ed1b09d45dd
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 20:12:58 2016 -0700
+
+    Update README.md
+
+commit 88a05f309a6060a6196b5661d23005459aa455b9
+Merge: d8d94ea b92baa4
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 20:04:01 2016 -0700
+
+    Merge branch 'master' of https://github.com/r0fls/swiftstats
+
+commit d8d94eaa6ba86b8507a69a2ff8e6b3d33c2a331f
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 20:02:58 2016 -0700
+
+    random() -> Random(), for consistency; added seed() function (used by default when distributions are initialized)
+
+commit b92baa4c0dbbb05f54a92be279e8063e3d29370c
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 19:37:11 2016 -0700
+
+    Update README.md
+
+commit 87926307c1d6b56a0a3036be4daa64bf5fef9192
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 19:35:05 2016 -0700
+
+    Update README.md
+
+commit 340b69a9ab6cbcb63d33d3ebf9a9336d481d3aa0
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 19:26:18 2016 -0700
+
+    Update README.md
+
+commit c85098a52b97a5fbceec254c8cdc4d624efff2ba
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 19:25:32 2016 -0700
+
+    Update README.md
+
+commit 63925f89eefe2bbf4eb25e247d8564efe23ab015
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 19:16:45 2016 -0700
+
+    Update README.md
+
+commit ea85ecfb9e1d850b32653b7b87b8f9532ce1dda2
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 19:12:26 2016 -0700
+
+    Update README.md
+
+commit 140bb4927d38c2c3b4c9d6057450c4edea0157f5
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 19:09:50 2016 -0700
+
+    Create README.md
+
+commit 89d6656315cc5f2130f5d976e1d3b0deacbbbcd1
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 18:36:00 2016 -0700
+
+    seed function
+
+commit 656ff77a766ed70d02af246610e35d91237f1efc
+Merge: 0b02a9d 4d44ece
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 17:58:53 2016 -0700
+
+    Merge branch 'master' of https://github.com/r0fls/swiftstats
+
+commit 0b02a9d8febd124813df7b6d95f93e6fdda20eb4
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 29 17:57:43 2016 -0700
+
+    exponential test, removed redundant files
+
+commit 4d44ece28b74a25773c20aec09726457802df4ab
+Author: r0fls <raphael.deem@gmail.com>
+Date:   Fri Apr 29 13:08:12 2016 -0700
+
+    gitignore, DS_Store
+
+commit 3bf07d1d6b48378272217fde78984385c8f5417b
+Merge: f3cb0a9 39d4f03
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Thu Apr 28 00:30:14 2016 -0700
+
+    Merge branch 'master' of https://github.com/r0fls/swiftstats
+
+commit f3cb0a9014456dc2912294dd966975dfa07ba7c8
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Thu Apr 28 00:30:07 2016 -0700
+
+    reverted to previous sort in median
+
+commit 39d4f030927566a86080b678793229c5960914ad
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Tue Apr 26 15:17:01 2016 -0700
+
+    Update .travis.yml
+
+commit 25e1e4d8c917d399b66d368f5f3b4526e7f83c60
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Tue Apr 26 11:00:33 2016 -0700
+
+    Update .travis.yml
+
+commit 084382474be2c3e652a56d27e1a3ef4e81b4ac56
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Tue Apr 26 10:53:10 2016 -0700
+
+    Update .travis.yml
+
+commit afa4c12ffadf653d8d4b98b82a5e0c8e2c565c23
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Mon Apr 25 23:17:21 2016 -0700
+
+    Update .travis.yml
+
+commit 7e5507bd148c3d30fe254ebc331032640a710f3a
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Mon Apr 25 23:15:12 2016 -0700
+
+    testing swift version on travis
+
+commit 4160ec04094a9c32ef5a07ac62566d75c678fb85
+Merge: f18556d 2c523a9
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Mon Apr 25 21:05:07 2016 -0700
+
+    Merge branch 'master' of https://github.com/r0fls/swiftstats
+
+commit f18556dd2576ea12c263d2329670faaf7fb74973
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Mon Apr 25 21:03:10 2016 -0700
+
+    immutable copy of array in median; had worked already locally, but was failing travis build
+
+commit 2c523a90a55b03331c916c6436c0d590e0244b70
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Mon Apr 25 10:42:23 2016 -0700
+
+    Update .travis.yml
+
+commit 401d5f55d79ff24e0a020ac5adccfc8f6ded8e99
+Author: r0fls <raphael.deem@gmail.com>
+Date:   Mon Apr 25 10:40:55 2016 -0700
+
+    removed build directory
+
+commit 9846affd86aee3c425eb8f55b2243f1e0d1de5a9
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun Apr 24 23:56:18 2016 -0700
+
+    shared schemes
+
+commit 7e1d6134d46c25e82ff3e5300583008bab2ade9b
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun Apr 24 23:50:51 2016 -0700
+
+    added travis.yml
+
+commit 1c9a82bd00c9a5e65e720f851bf4c6dd97a0343b
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun Apr 24 19:48:40 2016 -0700
+
+    pdf -> Pdf
+
+commit e39c9a59a79ff1151f30412babb0cb31a81222cd
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun Apr 24 19:24:52 2016 -0700
+
+    Completed tests for all distributions except the exponential
+
+commit eea482fd25c3c58b26d0c962565bdef2f5a3f247
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun Apr 24 18:00:08 2016 -0700
+
+    first test function; first commit from xcode
+
+commit 742e35e9143474f7a1648b35c7974e0bdd1cf6d5
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun Apr 24 01:28:53 2016 -0700
+
+    random() takes an optional int and returns an array
+
+commit 1a7f8ecd387ac4ca6848bb8b748dca2141cca48b
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun Apr 24 00:40:48 2016 -0700
+
+    Delete index
+
+commit e641e1f74d9e0e45e6c183b51c8f30b917dbf13c
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun Apr 24 00:40:27 2016 -0700
+
+    Delete description
+
+commit a7ecf5ac1b9f370d47d81de120126a50b3b22261
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun Apr 24 00:40:08 2016 -0700
+
+    Delete config
+
+commit 6a52f75d78f7d7030d685e34d9d7a0142d22be8c
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun Apr 24 00:39:38 2016 -0700
+
+    Delete HEAD
+
+commit cf110d25961b6b6a2b46bb88e129d78a1a9ea9e0
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun Apr 24 00:39:30 2016 -0700
+
+    Delete COMMIT_EDITMSG
+
+commit 4b8747e2e10ab1e89e4e91150eac688ae0ca729e
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Sun Apr 24 00:35:24 2016 -0700
+
+    moved project to xcode
+
+commit b8d0edeb8845c3dca4c72780cd3d94ed7699287e
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Fri Apr 22 22:52:59 2016 -0700
+
+    more MLEs; fixed poisson cdf and quantile
+
+commit 168657b22b170182d0a7ed1e499834d078dd31e5
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Thu Apr 21 22:54:22 2016 -0700
+
+    error handling in erfinv, normal quantile
+
+commit cb02934896a47eb017cfc28109b9982568238d83
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Thu Apr 21 22:21:31 2016 -0700
+
+    inverse erf implementation based on https://github.com/antelopeusersgroup/antelope_contrib/blob/master/lib/location/libgenloc/erfinv.c
+
+commit 25519d13c555488c472914d92772239a9b014630
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Thu Apr 21 21:34:17 2016 -0700
+
+    variance, pvariance, part of normal
+
+commit 3d6c1ee4a8642a69d52878c3bbeed3c281b73cbc
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Wed Apr 20 22:03:45 2016 -0700
+
+    added median
+
+commit 0fec91031a5ac2d1ac63ebd586d30cd0e88a3574
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   Wed Apr 20 21:05:25 2016 -0700
+
+    first commit

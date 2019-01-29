@@ -1,0 +1,376 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Common.swift",
+      "line": 285,
+      "symbol": "Common.erfinv(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Common.swift",
+      "line": 322,
+      "symbol": "Common.lsr(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 109,
+      "symbol": "Distributions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 113,
+      "symbol": "Distributions.Bernoulli",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 116,
+      "symbol": "Distributions.Bernoulli.init(p:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 120,
+      "symbol": "Distributions.Bernoulli.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 127,
+      "symbol": "Distributions.Bernoulli.pmf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 137,
+      "symbol": "Distributions.Bernoulli.cdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 151,
+      "symbol": "Distributions.Bernoulli.quantile(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 165,
+      "symbol": "Distributions.Laplace",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 169,
+      "symbol": "Distributions.Laplace.init(mean:b:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 174,
+      "symbol": "Distributions.Laplace.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 186,
+      "symbol": "Distributions.Laplace.pdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 190,
+      "symbol": "Distributions.Laplace.cdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 202,
+      "symbol": "Distributions.Laplace.quantile(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 213,
+      "symbol": "Distributions.Poisson",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 215,
+      "symbol": "Distributions.Poisson.init(m:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 219,
+      "symbol": "Distributions.Poisson.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 226,
+      "symbol": "Distributions.Poisson.pmf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 230,
+      "symbol": "Distributions.Poisson.cdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 238,
+      "symbol": "Distributions.Poisson.quantile(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 250,
+      "symbol": "Distributions.Geometric",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 252,
+      "symbol": "Distributions.Geometric.init(p:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 256,
+      "symbol": "Distributions.Geometric.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 263,
+      "symbol": "Distributions.Geometric.pmf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 267,
+      "symbol": "Distributions.Geometric.cdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 271,
+      "symbol": "Distributions.Geometric.quantile(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 276,
+      "symbol": "Distributions.Exponential",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 278,
+      "symbol": "Distributions.Exponential.init(l:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 282,
+      "symbol": "Distributions.Exponential.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 289,
+      "symbol": "Distributions.Exponential.pdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 293,
+      "symbol": "Distributions.Exponential.cdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 297,
+      "symbol": "Distributions.Exponential.quantile(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 302,
+      "symbol": "Distributions.Binomial",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 305,
+      "symbol": "Distributions.Binomial.init(n:p:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 310,
+      "symbol": "Distributions.Binomial.pmf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 315,
+      "symbol": "Distributions.Binomial.cdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 323,
+      "symbol": "Distributions.Binomial.quantile(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 334,
+      "symbol": "Distributions.Normal",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 339,
+      "symbol": "Distributions.Normal.init(m:v:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 344,
+      "symbol": "Distributions.Normal.init(mean:sd:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 351,
+      "symbol": "Distributions.Normal.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 363,
+      "symbol": "Distributions.Normal.pdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 367,
+      "symbol": "Distributions.Normal.cdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 371,
+      "symbol": "Distributions.Normal.quantile(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 444,
+      "symbol": "Distributions.LogNormal.pdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 448,
+      "symbol": "Distributions.LogNormal.cdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 452,
+      "symbol": "Distributions.LogNormal.quantile(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 458,
+      "symbol": "Distributions.Uniform",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 464,
+      "symbol": "Distributions.Uniform.init(a:b:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 469,
+      "symbol": "Distributions.Uniform.pdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 476,
+      "symbol": "Distributions.Uniform.cdf(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/matthew/Desktop/swiftstats/SwiftStats/Distributions.swift",
+      "line": 489,
+      "symbol": "Distributions.Uniform.quantile(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/matthew/Desktop/swiftstats"
+}
