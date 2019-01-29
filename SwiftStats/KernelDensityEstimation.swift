@@ -14,7 +14,8 @@ import Foundation
  */
 public class KernelDensityEstimation {
     let data : [Double]
-    let bandwidth : Double
+    /** Bandwidth used in evaluate() method */
+    public let bandwidth : Double
     let n: Double
     
     /**
@@ -36,7 +37,7 @@ public class KernelDensityEstimation {
      A new instance of KernelDensityEstimation, or `nil` if `data`
      contained fewer than two values and bandwidth was set to `nil`.
      */
-    public init?(_ data: [Double], bandwidth: Double?) {
+    public init?(_ data: [Double], bandwidth: Double? = nil) {
         self.data = data
         self.n = Double(data.count)
         
