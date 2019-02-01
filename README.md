@@ -41,7 +41,7 @@ And each distribution has these methods:
 
 Documentation for the functions and classes in SwiftStats is automatically generated using [Jazzy](https://github.com/realm/jazzy).
 
-You can view the documentation on our GitHub site, and it is included in each release.
+You can view the documentation on our [GitHub site](http://r0fls.github.io/swiftstats/), and it is included in each release.
 
 If you wish to reprocess the documentation yourself, it is as simple as running `jazzy` from the command line.
 
