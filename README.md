@@ -3,7 +3,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 # swiftstats
-Statistics for Swift &mdash; v1.6.2
+Statistics for Swift &mdash; v1.6.3
 
 Wanting to generate a random number with a specific distribution for your iOS app?  Or smooth out your data using kernel density estimation?  SwiftStats has you covered.  
 
