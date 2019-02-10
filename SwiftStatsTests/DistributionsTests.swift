@@ -54,6 +54,31 @@ class DistributionsTests: XCTestCase {
         let p2 = SwiftStats.Distributions.Poisson(data: [1,2,3])
         XCTAssert(p2!.m == 2.0, "Poisson fit data failed")
         XCTAssert(p2!.quantile(0.999) == 8, "Poisson quantile from fit data failed")
+        
+        // Issue #24: Poisson unstable at large values of m
+        // Test for small values of m
+        /* R code:
+            > dpois(2,3)
+            [1] 0.2240418
+         */
+        let p3 = SwiftStats.Distributions.Poisson(m: 3)
+        XCTAssert(abs(p3.pmf(2) - 0.2240418) < epsilon)
+        
+        // Test for large values of m (m > 15)
+        /* R code:
+            > dpois(29,30)
+            [1] 0.07263453
+         */
+        let p4 = SwiftStats.Distributions.Poisson(m: 30)
+        XCTAssert(abs(p4.pmf(29) - 0.07263453) < epsilon)
+        
+        // Test for very large values of m
+        /* R code:
+            > dpois(290,300)
+            [1] 0.01978727
+        */
+        let p5 = SwiftStats.Distributions.Poisson(m: 300)
+        XCTAssert(abs(p5.pmf(290) - 0.01978727) < epsilon)
     }
     
     func testGeometric() {

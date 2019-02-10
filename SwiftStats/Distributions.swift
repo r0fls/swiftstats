@@ -223,7 +223,7 @@ public struct Distributions {
         }
 
         public func pmf(_ k: Int) -> Double {
-            return pow(self.m, Double(k))*exp(-self.m)/tgamma(Double(k+1))
+            return exp(Double(k) * log(m) - m - lgamma(Double(k+1)))
         }
 
         public func cdf(_ k: Int) -> Double {
